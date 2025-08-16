@@ -1,0 +1,23 @@
+services:
+  # Static site for the Coming Soon page
+  - type: static
+    name: hivereply-coming-soon
+    env: static
+    buildCommand: ""
+    staticPublishPath: coming-soon
+    pullRequestPreviewsEnabled: true
+
+  # Minimal Python API for /api/waitlist
+  - type: web
+    name: hivereply-waitlist-api
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn api.server:app -b 0.0.0.0:10000
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false  # set from Render Postgres dashboard
+    healthCheckPath: /healthz
+    autoDeploy: true
