@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.hivereply.com/sitemap.xml

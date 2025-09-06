@@ -1,103 +1,94 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>HiveReply — Coming Soon</title>
-  <meta name="robots" content="noindex, nofollow" />
-  <meta name="description" content="HiveReply is launching soon." />
-  <link rel="icon" href="/static/favicon.ico" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HiveReply — Official Site</title>
+  <link rel="canonical" href="https://www.hivereply.com/">
+  <meta name="description" content="HiveReply — Official website. AI-powered messaging for real estate.">
+  <meta name="robots" content="index,follow">
+  <!-- Open Graph -->
+  <meta property="og:title" content="HiveReply — Official Site">
+  <meta property="og:description" content="AI-powered messaging for real estate.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.hivereply.com/">
+  <meta property="og:image" content="https://www.hivereply.com/static/og.png">
+  <!-- Minimal, self-contained styles -->
   <style>
-    :root {
-      --bg:#0b0d11; --bg2:#0f1218; --text:#e8edf6; --muted:#a6b0c3; --brand:#7c5cff; --brand2:#2ce6c1; --border:#1b2230; --surface:#12151c; --card:#0e1117; --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.35);
+    :root{
+      --bg:#0b0d11; --bg2:#0f1218; --card:#11151c; --text:#e8edf6; --muted:#a6b0c3;
+      --brand:#f7b32b; --border:#202838; --ring:rgba(255,255,255,.08);
     }
-    .theme-light { --bg:#f7f8fb; --bg2:#fff; --text:#10131a; --muted:#495265; --brand:#6a5cff; --brand2:#10bda2; --border:#e6e9ef; --surface:#fff; --card:#fff; --shadow:0 10px 30px rgba(16,19,26,.08); }
-    *{box-sizing:border-box}html,body{height:100%}
-    body{margin:0;color:var(--text);background:radial-gradient(1200px 800px at 20% -10%, rgba(124,92,255,.25), transparent),radial-gradient(800px 600px at 90% 10%, rgba(44,230,193,.2), transparent),var(--bg);font:500 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial}
-    .wrap{max-width:1120px;margin:0 auto;padding:24px}
-    header{position:sticky;top:0;z-index:10;backdrop-filter:saturate(140%) blur(10px);background:color-mix(in oklab, var(--bg) 65%, transparent);border-bottom:1px solid var(--border)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text)}
-    .logo{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand2));box-shadow:inset 0 0 0 2px rgba(255,255,255,.12)}
-    .name{font-weight:800;letter-spacing:.2px}
-    .btn{appearance:none;border:1px solid var(--border);background:var(--surface);color:var(--text);padding:8px 12px;border-radius:12px;cursor:pointer;transition:.2s;box-shadow:var(--shadow)}
-    .btn:hover{transform:translateY(-1px)}.btn.ghost{background:transparent;box-shadow:none}
-    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;padding:40px 0}
-    @media (max-width:980px){.hero{grid-template-columns:1fr}}
-    .badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:color-mix(in oklab, var(--surface) 80%, transparent);color:var(--muted)}
-    h1{font-size:clamp(28px,5.5vw,48px);line-height:1.05;margin:12px 0}
-    .lead{font-size:clamp(16px,2.2vw,18px);color:var(--muted);margin:0 0 18px}
-    .cta{display:flex;gap:10px;align-items:center}
-    .cta input[type=email]{flex:1;min-width:220px;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:var(--bg2);color:var(--text);outline:none}
-    .hero-art{height:260px;border-radius:18px;overflow:hidden;border:1px solid var(--border)}
-    .hero-art::before{content:"";position:absolute;inset:-40%;background:radial-gradient(350px 250px at 20% 30%, rgba(124,92,255,.35), transparent),radial-gradient(300px 250px at 70% 60%, rgba(44,230,193,.35), transparent),conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,.06), transparent 60%);filter:blur(12px);animation:float 10s ease-in-out infinite}
-    @keyframes float{0%,100%{transform:translate(-2%,-1%) scale(1)}50%{transform:translate(2%,1%) scale(1.03)}}
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    @media (max-width:980px){.features{grid-template-columns:1fr}}
-    .card{background:linear-gradient(180deg,color-mix(in oklab, var(--surface) 75%, transparent), var(--card));border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px}
-    .card h3{margin:6px 0 4px;font-size:16px}
-    .card p{margin:0;color:var(--muted)}
-    .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:26px 0}
-    footer{padding:24px 0 40px;color:var(--muted);font-size:14px}
-    .note{font-size:12px;color:var(--muted);margin-top:8px}
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#f7f8fb; --bg2:#fff; --card:#fff; --text:#0d1320; --muted:#4a5568; --border:#e6e9ef; --ring:rgba(16,19,26,.08); }
+    }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0; background:radial-gradient(900px 400px at 10% -10%, rgba(247,179,43,.18), transparent), var(--bg); color:var(--text); font:500 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial}
+    .wrap{max-width:860px; margin:0 auto; padding:28px}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:22px; box-shadow:0 12px 30px var(--ring)}
+    header{display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:14px}
+    .brand{display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:inherit}
+    .logo{width:28px; height:28px; border-radius:10px; background:linear-gradient(135deg, #f7b32b, #ffd57a)}
+    .name{font-weight:800; letter-spacing:.2px}
+    .badge{display:inline-block; font-size:12px; letter-spacing:.25px; padding:6px 10px; border-radius:999px; border:1px solid var(--border); color:var(--muted)}
+    h1{font-size:clamp(26px,4.8vw,40px); line-height:1.08; margin:10px 0}
+    .lead{color:var(--muted); margin:0 0 18px}
+    .links a{color:inherit; text-decoration:underline}
+    .links a:hover{opacity:.9}
+    .grid{display:grid; grid-template-columns:1fr; gap:16px}
+    .contact{display:grid; gap:6px; margin-top:10px}
+    address{font-style:normal}
+    footer{margin-top:18px; color:var(--muted); font-size:14px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
-  <script>
-    const LS=localStorage, $=q=>document.querySelector(q);
-    function setTheme(t){document.documentElement.classList.toggle('theme-light',t==='light');LS.setItem('theme',t)}
-    function toggleTheme(){setTheme((LS.getItem('theme')||'dark')==='dark'?'light':'dark')}
-    function setLang(lang){ LS.setItem('lang', lang); document.documentElement.setAttribute('lang', lang==='zh'?'zh':'en');
-      const dict={en:{badge:'NZ‑Owned • Coming Soon',h1:'Your AI real‑estate assistant',lead:'Simple. Fast. Always on. Join the waitlist to get early access.',email:'Your email',notify:'Notify me',p:'No spam.'},zh:{badge:'新西兰本地 • 即将上线',h1:'您的房产AI助理',lead:'简单、迅速、始终在线。加入候补名单抢先体验。',email:'请输入邮箱',notify:'订阅',p:'不骚扰。'}};
-      const t=dict[lang]||dict.en; $('#t-badge').innerText=t.badge; $('#t-h1').innerText=t.h1; $('#t-lead').innerText=t.lead; $('#email').placeholder=t.email; $('#t-notify').innerText=t.notify; $('#t-promise').innerText=t.p; }
-    async function submitWaitlist(e){ e.preventDefault(); const email=$('#email').value.trim(); const s=$('#status'); if(!email){s.textContent='Enter a valid email.';return}
-      s.textContent='Submitting…';
-      try{ const r=await fetch('/api/waitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email})});
-        if(r.ok){ LS.setItem('waitlist_email',email); s.textContent='Thanks! We\'ll be in touch.'; $('#email').value=''; }
-        else{ window.location.href=`mailto:hello@hivereply.com?subject=Waitlist&body=${encodeURIComponent(email)}`; s.textContent='Opened your email client. Send to finish sign‑up.'; }
-      }catch(err){ window.location.href=`mailto:hello@hivereply.com?subject=Waitlist&body=${encodeURIComponent(email)}`; s.textContent='Opened your email client. Send to finish sign‑up.'; }
-    }
-    document.addEventListener('DOMContentLoaded',()=>{ setTheme(LS.getItem('theme')||'dark'); setLang(LS.getItem('lang')||'en'); const saved=LS.getItem('waitlist_email'); if(saved) $('#email').value=saved; });
+  <!-- Org schema for verification -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"HiveReply",
+    "url":"https://www.hivereply.com/",
+    "email":"hello@hivereply.com",
+    "address":{
+      "@type":"PostalAddress",
+      "addressLocality":"Auckland",
+      "addressCountry":"NZ"
+    },
+    "sameAs":[]
+  }
   </script>
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="#" aria-label="HiveReply"><span class="logo"></span><span class="name">HiveReply</span></a>
-      <div style="display:flex;gap:8px;align-items:center">
-        <button class="btn ghost" onclick="setLang('en')">EN</button>
-        <button class="btn ghost" onclick="setLang('zh')">中文</button>
-        <button class="btn" onclick="toggleTheme()">Toggle Theme</button>
-      </div>
-    </div>
-  </header>
-
   <main class="wrap">
-    <section class="hero">
-      <div>
-        <span id="t-badge" class="badge">NZ‑Owned • Coming Soon</span>
-        <h1 id="t-h1">Your AI real‑estate assistant</h1>
-        <p id="t-lead" class="lead">Simple. Fast. Always on. Join the waitlist to get early access.</p>
-        <form class="cta" onsubmit="submitWaitlist(event)">
-          <input id="email" type="email" inputmode="email" autocomplete="email" placeholder="Your email" aria-label="Email" required />
-          <button id="t-notify" class="btn" type="submit">Notify me</button>
-        </form>
-        <div id="t-promise" class="note">No spam.</div>
-        <div id="status" class="note" aria-live="polite"></div>
+    <header>
+      <a class="brand" href="/" aria-label="HiveReply">
+        <span class="logo" aria-hidden="true"></span>
+        <span class="name">HiveReply</span>
+      </a>
+      <span class="badge" aria-label="Site status">Official website • Coming soon</span>
+    </header>
+
+    <section class="card" aria-labelledby="title">
+      <h1 id="title">We’re preparing our launch</h1>
+      <p class="lead">HiveReply is an AI‑powered messaging assistant for real estate. This is our official site.</p>
+
+      <div class="grid">
+        <div class="contact" aria-labelledby="contact-h">
+          <h2 id="contact-h" class="sr-only">Contact</h2>
+          <div><strong>Contact:</strong> <a href="mailto:hello@hivereply.com">hello@hivereply.com</a></div>
+          <address><strong>Location:</strong> Auckland, New&nbsp;Zealand</address>
+        </div>
+        <p class="links">
+          <a href="/privacy">Privacy Policy</a> &nbsp;•&nbsp;
+          <a href="/terms">Terms of Service</a>
+        </p>
       </div>
-      <div class="hero-art card" aria-hidden="true"></div>
-    </section>
 
-    <div class="divider"></div>
-
-    <section class="features" aria-label="Preview">
-      <article class="card"><h3>24/7 replies</h3><p>Be there when clients reach out.</p></article>
-      <article class="card"><h3>Smart scheduling</h3><p>Offer times that fit. Avoid clashes.</p></article>
-      <article class="card"><h3>Lead nurture</h3><p>Gentle follow‑ups that move deals forward.</p></article>
+      <footer>
+        © <span id="y"></span> HiveReply. All rights reserved.
+      </footer>
     </section>
   </main>
-
-  <footer>
-    <div class="wrap">© <span id="year"></span> HiveReply • Built in Aotearoa New Zealand</div>
-  </footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  <script>document.getElementById('y').textContent=(new Date()).getFullYear();</script>
 </body>
 </html>
