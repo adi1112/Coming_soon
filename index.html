@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <link rel="canonical" href="{{ WWW_BASE_URL }}/" />
+  <link rel="canonical" href="https://www.hivereply.com/" />
   <meta name="robots" content="index,follow">
   <meta property="og:url" content="https://www.hivereply.com/">
   <meta charset="UTF-8" />
@@ -41,10 +41,22 @@
     }
   </script>
 <style>
-  :root{ --promo-h:0px; --header-h:64px; }
+  :root{
+    --promo-h: 0px;
+    --header-h: 64px;
+  }
+
+  /* ✅ REMOVE this line:
   body{ padding-top: calc(var(--promo-h) + var(--header-h)); }
+  */
+
   .backdrop-blur-true { backdrop-filter: saturate(160%) blur(14px); }
-  [id]{ scroll-margin-top: calc(var(--promo-h) + var(--header-h) + 16px); }
+
+  /* Keep this so anchor links don't hide under promo + header */
+  [id]{ 
+    scroll-margin-top: calc(var(--promo-h) + var(--header-h) + 16px);
+  }
+
   .card{ background:#ffffff; border:1px solid rgb(226 232 240); }
   .panel{ background:#ffffff; border:1px solid rgb(226 232 240); }
   .dark .card,.dark .panel{ background:rgba(2,6,23,0.55); border-color:rgba(255,255,255,0.12); }
@@ -127,9 +139,8 @@
 </head>
 <body class="bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
 
-  {% if plans is defined %}
-  <script id="hr-plans" type="application/json">{{ plans|tojson }}</script>
-  {% endif %}
+  <!-- Optional: in future you can inject pricing JSON here for dynamic plans -->
+  <!-- <script id="hr-plans" type="application/json">...</script> -->
 
   <!-- Top promo / utilities -->
   <div id="promo" class="sticky top-0 z-[70] border-b border-slate-200 bg-amber-100 text-slate-900 dark:border-white/10 dark:bg-slate-900/95 dark:text-amber-200">
@@ -171,8 +182,8 @@
       <a href="#pricing" class="hover:text-brand-800 dark:hover:text-brand-300" data-i18n="nav.pricing">Pricing</a>
       <a href="#faq" class="hover:text-brand-800 dark:hover:text-brand-300" data-i18n="nav.faq">FAQ</a>
       <a href="#connect" class="hover:text-brand-800 dark:hover:text-brand-300" data-i18n="nav.contact">Contact</a>
-      <a href="/agent/login" class="text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" data-i18n="nav.login">Agent Login</a>
-      <a href="/agent/register" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-4 py-2 shadow-glow transition" data-i18n="cta.demo">Start free demo</a>
+      <a href="https://agent.hivereply.com/agent/login" class="text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" data-i18n="nav.login">Agent Login</a>
+      <a href="https://agent.hivereply.com/agent/register" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-4 py-2 shadow-glow transition" data-i18n="cta.demo">Start free demo</a>
     </div>
   </nav>
 
@@ -186,8 +197,8 @@
       <a class="py-2" href="#pricing" onclick="closeMenu()" data-i18n="nav.pricing">Pricing</a>
       <a class="py-2" href="#faq" onclick="closeMenu()" data-i18n="nav.faq">FAQ</a>
       <a class="py-2" href="#connect" onclick="closeMenu()" data-i18n="nav.contact">Contact</a>
-      <a class="py-2" href="/agent/login" onclick="closeMenu()" data-i18n="nav.login">Agent Login</a>
-      <a class="mt-2 inline-flex items-center justify-center rounded-xl bg-brand-600 text-white font-semibold px-4 py-2" href="/agent/register" onclick="closeMenu()" data-i18n="cta.demo">Start free demo</a>
+      <a class="py-2" href="https://agent.hivereply.com/agent/login" onclick="closeMenu()" data-i18n="nav.login">Agent Login</a>
+      <a class="mt-2 inline-flex items-center justify-center rounded-xl bg-brand-600 text-white font-semibold px-4 py-2" href="https://agent.hivereply.com/agent/register" onclick="closeMenu()" data-i18n="cta.demo">Start free demo</a>
     </div>
   </div>
 </header>
@@ -211,7 +222,7 @@
             <li>📅 <strong>Bookings & handover</strong> with zero clash and clear next steps.</li>
           </ul>
           <div class="mt-7 flex flex-col sm:flex-row gap-3">
-            <a href="/agent/register" class="inline-flex items-center justify-center rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 shadow-glow transition" data-i18n="cta.demo">Start free demo</a>
+            <a href="https://agent.hivereply.com/agent/register" class="inline-flex items-center justify-center rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 shadow-glow transition" data-i18n="cta.demo">Start free demo</a>
             <a href="#how" class="inline-flex items-center justify-center rounded-2xl px-6 py-3 ring-1 ring-slate-300 hover:ring-slate-400 dark:ring-white/15 dark:hover:ring-brand-400/40" data-i18n="cta.how">See how it works</a>
           </div>
           <div class="mt-6 flex items-center gap-4 text-xs text-slate-600 dark:text-slate-400">
@@ -549,7 +560,7 @@
     </div>
 
     <div class="mt-10 text-center">
-      <a href="/agent/register" class="inline-flex items-center justify-center rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 shadow-glow" data-i18n="cta.demo">Start free demo</a>
+      <a href="https://agent.hivereply.com/agent/register" class="inline-flex items-center justify-center rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 shadow-glow" data-i18n="cta.demo">Start free demo</a>
       <p class="mt-3 text-xs text-slate-500 dark:text-slate-400" data-i18n="reasons.cta.note">Minutes to go live. Your number, your brand, your buyers.</p>
     </div>
   </div>
@@ -639,7 +650,7 @@
     </ol>
 
     <div class="mt-12 text-center">
-      <a href="/agent/register" class="inline-flex items-center gap-2 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 shadow-glow" data-i18n="cta.demo">Start 7-day demo</a>
+      <a href="https://agent.hivereply.com/agent/register" class="inline-flex items-center gap-2 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 shadow-glow" data-i18n="cta.demo">Start 7-day demo</a>
       <p class="mt-4 text-xs text-slate-500 dark:text-slate-400">
         T&amp;Cs apply. Basic KYC required. KYC approval &amp; phone-number setup can sometimes take a few hours.
         All onboarding includes a human touch — reach out anytime.
@@ -1322,7 +1333,7 @@
   <div class="border-t border-slate-200 dark:border-white/10">
     <div class="max-w-7xl mx-auto px-4 py-4 text-xs text-slate-500 dark:text-slate-400 flex flex-wrap items-center justify-between gap-3">
       <span data-i18n="footer.nz">Built in Aotearoa New Zealand</span>
-      <a href="/agent/login" class="underline-offset-2 hover:underline" data-i18n="footer.login">Agent Login</a>
+      <a href="https://agent.hivereply.com/agent/login" class="underline-offset-2 hover:underline" data-i18n="footer.login">Agent Login</a>
     </div>
   </div>
 </footer>
