@@ -5,30 +5,119 @@
   <title>Privacy Policy | HiveReply</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="HiveReply Privacy Policy – how we collect, use, share, secure, and retain data across our AI messaging platform for real estate.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style nonce="{{ csp_nonce() }}" >
-    body { font-family: 'Inter', Arial, sans-serif; line-height: 1.7; background:#F8FAFC; color:#334155; margin:0; }
-    .container { max-width: 860px; background:#fff; margin: 2.5rem auto; padding: 2.2rem 1.4rem 2.6rem; border-radius:18px; box-shadow: 0 6px 28px rgba(80,100,120,.07); }
-    .logo { display:block; margin:0 auto 1.6rem; max-height:68px; }
-    h1 { font-size:2rem; font-weight:700; margin:.2rem 0 .6rem; color:#F7B32B; text-align:center; }
-    .update-note { font-size:.98rem; color:#64748B; margin:0 0 1.6rem; text-align:center; }
-    h2 { font-size:1.18rem; margin:2rem 0 .5rem; color:#0f172a; font-weight:700; }
-    h3 { font-size:1.02rem; margin:1.2rem 0 .4rem; color:#0f172a; font-weight:600; }
+
+  <style nonce="{{ csp_nonce() }}">
+    body { 
+      font-family: 'Inter', Arial, sans-serif; 
+      line-height: 1.7; 
+      background:#F8FAFC; 
+      color:#334155; 
+      margin:0; 
+    }
+    .container { 
+      max-width: 860px; 
+      background:#fff; 
+      margin: 2.5rem auto; 
+      padding: 2.2rem 1.4rem 2.6rem; 
+      border-radius:18px; 
+      box-shadow: 0 6px 28px rgba(80,100,120,.07); 
+    }
+
+    /* Centered, properly sized logo */
+    .logo { 
+      display:block; 
+      margin:0 auto 1.6rem; 
+      max-width: 220px;      /* max width so it never goes huge */
+      width: 100%;           /* responsive */
+      height:auto;           /* keep aspect ratio */
+    }
+
+    h1 { 
+      font-size:2rem; 
+      font-weight:700; 
+      margin:.2rem 0 .6rem; 
+      color:#F7B32B; 
+      text-align:center; 
+    }
+    .update-note { 
+      font-size:.98rem; 
+      color:#64748B; 
+      margin:0 0 1.6rem; 
+      text-align:center; 
+    }
+    h2 { 
+      font-size:1.18rem; 
+      margin:2rem 0 .5rem; 
+      color:#0f172a; 
+      font-weight:700; 
+    }
+    h3 { 
+      font-size:1.02rem; 
+      margin:1.2rem 0 .4rem; 
+      color:#0f172a; 
+      font-weight:600; 
+    }
     p, li { font-size:1rem; }
-    ul { padding-left:1.25rem; margin:.4rem 0 .9rem; }
+    ul { 
+      padding-left:1.25rem; 
+      margin:.4rem 0 .9rem; 
+    }
     li { margin:.25rem 0; }
     a { color:#F7B32B; }
-    a:hover { color:#b98c0a; text-decoration:none; }
-    .note { color:#64748B; font-size:.95rem; }
-    .callout { background:#FFF7E6; border:1px solid #F7B32B; color:#3a2c09; padding:.8rem 1rem; border-radius:10px; }
-    table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:.98rem; }
-    th, td { border:1px solid #e2e8f0; padding:.6rem .6rem; text-align:left; vertical-align:top; }
-    th { background:#F7B32B; color:#334155; }
+    a:hover { 
+      color:#b98c0a; 
+      text-decoration:none; 
+    }
+    .note { 
+      color:#64748B; 
+      font-size:.95rem; 
+    }
+    .callout { 
+      background:#FFF7E6; 
+      border:1px solid #F7B32B; 
+      color:#3a2c09; 
+      padding:.8rem 1rem; 
+      border-radius:10px; 
+    }
+    table { 
+      width:100%; 
+      border-collapse:collapse; 
+      margin:1rem 0; 
+      font-size:.98rem; 
+    }
+    th, td { 
+      border:1px solid #e2e8f0; 
+      padding:.6rem .6rem; 
+      text-align:left; 
+      vertical-align:top; 
+    }
+    th { 
+      background:#F7B32B; 
+      color:#334155; 
+    }
     td { background:#F9FAFB; }
-    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; background:#f1f5f9; padding:.05rem .35rem; border-radius:6px; }
-    .footer-link { margin-top:2.4rem; text-align:center; font-size:1rem; }
+    code { 
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; 
+      background:#f1f5f9; 
+      padding:.05rem .35rem; 
+      border-radius:6px; 
+    }
+    .footer-link { 
+      margin-top:2.4rem; 
+      text-align:center; 
+      font-size:1rem; 
+    }
     @media (max-width: 640px) {
-      .container { margin: 1rem .4rem; padding: 1.1rem .6rem 1.6rem; }
+      .container { 
+        margin: 1rem .4rem; 
+        padding: 1.1rem .6rem 1.6rem; 
+      }
       h1 { font-size:1.45rem; }
       h2 { font-size:1.05rem; }
       table, th, td { font-size:.92rem; }
@@ -37,10 +126,12 @@
 </head>
 <body>
   <div class="container">
-    <link rel="icon" href="/static/favicon.ico">
-    <img src="/static/logo_1.png" alt="HiveReply">
+    <img src="/static/logo_1.png" alt="HiveReply" class="logo">
     <h1>Privacy Policy</h1>
-    <div class="update-note"><strong>Effective:</strong> 6 November 2025 • <strong>Entity:</strong> Fern Technologies Ltd trading as “HiveReply” (“HiveReply”, “we”, “us”, “our”)</div>
+    <div class="update-note">
+      <strong>Effective:</strong> 6 November 2025 • 
+      <strong>Entity:</strong> Fern Technologies Ltd trading as “HiveReply” (“HiveReply”, “we”, “us”, “our”)
+    </div>
 
     <div class="callout" role="note">
       This Privacy Policy explains how HiveReply handles personal information for (i) <strong>Agents</strong> (real-estate professionals and their staff who use our platform), (ii) <strong>End Customers</strong> (people who message those Agents about property and advice), and (iii) <strong>Visitors</strong> to our websites. It also explains our relationships with third-party providers we rely on to operate the service.
