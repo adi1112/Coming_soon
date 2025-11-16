@@ -4,300 +4,354 @@
   <meta charset="UTF-8">
   <title>Privacy Policy | HiveReply</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="HiveReply Privacy Policy – How we collect, use, and protect your data as an AI-powered real estate messaging platform.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', Arial, sans-serif;
-      line-height: 1.7;
-      background: #F8FAFC;
-      color: #334155;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 720px;
-      background: #fff;
-      margin: 3rem auto 2.5rem auto;
-      padding: 2.2rem 1.4rem 2.5rem 1.4rem;
-      border-radius: 18px;
-      box-shadow: 0 6px 28px 0 rgba(80,100,120,0.07);
-    }
-    .logo {
-      display: block;
-      margin: 0 auto 1.8rem auto;
-      max-height: 68px;
-    }
-    h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-      color: #F7B32B;
-      text-align: center;
-    }
-    h2 {
-      font-size: 1.18rem;
-      margin-top: 2.2rem;
-      margin-bottom: 0.3rem;
-      color: #334155;
-      font-weight: 700;
-    }
-    ul {
-      padding-left: 1.3rem;
-      margin-top: 0.7rem;
-      margin-bottom: 0.7rem;
-    }
-    li { margin-bottom: 0.3rem; }
-    a {
-      color: #F7B32B;
-      text-decoration: underline;
-    }
-    a:hover {
-      text-decoration: none;
-      color: #B98C0A;
-    }
-    .footer-link {
-      margin-top: 2.6rem;
-      text-align: center;
-      font-size: 1rem;
-    }
-    .section { margin-bottom: 1.7rem; }
-    .update-note {
-      font-size: 0.96rem;
-      color: #64748B;
-      margin-bottom: 1.7rem;
-      text-align: center;
-    }
-    table { border-collapse: collapse; margin: 1rem 0; width: 100%; font-size: 1rem;}
-    th, td { border: 1px solid #e2e8f0; padding: 0.5rem 0.6rem; text-align: left;}
-    th { background: #F7B32B; color: #334155; }
-    td { background: #F9FAFB; }
+  <meta name="description" content="HiveReply Privacy Policy – how we collect, use, share, secure, and retain data across our AI messaging platform for real estate.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style nonce="{{ csp_nonce() }}" >
+    body { font-family: 'Inter', Arial, sans-serif; line-height: 1.7; background:#F8FAFC; color:#334155; margin:0; }
+    .container { max-width: 860px; background:#fff; margin: 2.5rem auto; padding: 2.2rem 1.4rem 2.6rem; border-radius:18px; box-shadow: 0 6px 28px rgba(80,100,120,.07); }
+    .logo { display:block; margin:0 auto 1.6rem; max-height:68px; }
+    h1 { font-size:2rem; font-weight:700; margin:.2rem 0 .6rem; color:#F7B32B; text-align:center; }
+    .update-note { font-size:.98rem; color:#64748B; margin:0 0 1.6rem; text-align:center; }
+    h2 { font-size:1.18rem; margin:2rem 0 .5rem; color:#0f172a; font-weight:700; }
+    h3 { font-size:1.02rem; margin:1.2rem 0 .4rem; color:#0f172a; font-weight:600; }
+    p, li { font-size:1rem; }
+    ul { padding-left:1.25rem; margin:.4rem 0 .9rem; }
+    li { margin:.25rem 0; }
+    a { color:#F7B32B; }
+    a:hover { color:#b98c0a; text-decoration:none; }
+    .note { color:#64748B; font-size:.95rem; }
+    .callout { background:#FFF7E6; border:1px solid #F7B32B; color:#3a2c09; padding:.8rem 1rem; border-radius:10px; }
+    table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:.98rem; }
+    th, td { border:1px solid #e2e8f0; padding:.6rem .6rem; text-align:left; vertical-align:top; }
+    th { background:#F7B32B; color:#334155; }
+    td { background:#F9FAFB; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; background:#f1f5f9; padding:.05rem .35rem; border-radius:6px; }
+    .footer-link { margin-top:2.4rem; text-align:center; font-size:1rem; }
     @media (max-width: 640px) {
-      .container { margin: 1rem 0.3rem 1rem 0.3rem; padding: 1rem 0.3rem 2rem 0.3rem; }
-      h1 { font-size: 1.3rem; }
-      h2 { font-size: 1rem; }
-      table, th, td { font-size: 0.92rem; }
+      .container { margin: 1rem .4rem; padding: 1.1rem .6rem 1.6rem; }
+      h1 { font-size:1.45rem; }
+      h2 { font-size:1.05rem; }
+      table, th, td { font-size:.92rem; }
     }
   </style>
 </head>
 <body>
-
   <div class="container">
-    <img src="/static/logo.png" alt="HiveReply Logo" class="logo" loading="lazy">
+    <link rel="icon" href="{{ s('favicon.ico', 'www') }}">
+  ` <img src="{{ s('img/logo.png', 'www') }}" alt="HiveReply">
     <h1>Privacy Policy</h1>
-    <div class="update-note"><strong>Last updated:</strong> July 2025</div>
+    <div class="update-note"><strong>Effective:</strong> 6 November 2025 • <strong>Entity:</strong> Fern Technologies Ltd trading as “HiveReply” (“HiveReply”, “we”, “us”, “our”)</div>
 
-    <div class="section">
-      <p>
-        <b>HiveReply</b> (“we”, “our”, or “us”) provides AI-powered messaging, automation, and lead management for real estate agents and agencies in New Zealand and globally. We are committed to privacy, transparency, and compliance with all relevant privacy laws including the New Zealand Privacy Act, the EU GDPR, UK DPA, and the CCPA (California) where applicable.
-      </p>
+    <div class="callout" role="note">
+      This Privacy Policy explains how HiveReply handles personal information for (i) <strong>Agents</strong> (real-estate professionals and their staff who use our platform), (ii) <strong>End Customers</strong> (people who message those Agents about property and advice), and (iii) <strong>Visitors</strong> to our websites. It also explains our relationships with third-party providers we rely on to operate the service.
     </div>
 
-    <div class="section">
-      <h2>1. What Information We Collect</h2>
-      <p>We collect only what is needed to provide, improve, and secure our services:</p>
-      <ul>
-        <li>Contact details: phone, email, name (for agents and end customers)</li>
-        <li>Messages, leads, and preferences: content sent via WhatsApp, SMS, Facebook Messenger, web, email, or our dashboard</li>
-        <li>Profile/account info: for agents or agency users (login, usage, settings)</li>
-        <li>Device/browser/IP address: for security, fraud prevention, analytics</li>
-        <li>Cookie, consent, and communication preferences</li>
-      </ul>
-    </div>
+    <h2 id="identity">0) Identity of the Controller</h2>
+    <p>
+      <strong>Controller for Service Data:</strong> Fern Technologies Ltd trading as “HiveReply”.<br>
+      <strong>Registered office:</strong> 17 Sheralee Place, Bucklands Beach, Auckland 2014, New Zealand.
+ <br>
+      <strong>Company/NZBN:</strong> 9429053126672 <br>
+      <strong>Contact:</strong> <a href="mailto:privacy@hivereply.com">privacy@hivereply.com</a>
+    </p>
+    <p>
+      For Customer Content we process on behalf of Agents, we act as a <em>processor</em> (service provider).
+    </p>
 
-    <div class="section">
-      <h2>2. Data We Process on Behalf of Agents (End Customer Data)</h2>
-      <p>
-        When agents or agencies use HiveReply, we may process personal data about their leads, buyers, tenants, or other contacts (“end customers”). This may include:
-      </p>
-      <ul>
-        <li>Names, contact details, and messages sent through WhatsApp, SMS, Facebook Messenger, web, or email</li>
-        <li>Inquiry details, property interests, preferences, viewing or callback requests</li>
-        <li>Other data provided by the end customer to the agent via our service</li>
-      </ul>
-      <p>
-        We process this information <b>solely for the purpose</b> of:
-        <ul>
-          <li>Delivering messaging, lead management, and AI automation to the agent</li>
-          <li>Storing, transmitting, and organizing messages and leads securely between agents and their clients</li>
-          <li>Enabling agents to respond, track, and follow up on inquiries</li>
-        </ul>
-        We do <b>not</b> use end customer data for our own marketing, profiling, or analytics, nor do we sell, rent, or otherwise monetize this data.
-      </p>
-    </div>
+    <h2 id="scope">1) Scope & Roles</h2>
+    <p>
+      HiveReply provides an AI-powered communications and automation platform used primarily by real-estate Agents and agencies to receive, triage, and respond to messages across channels such as SMS, WhatsApp, email, and voice.
+    </p>
+    <ul>
+      <li><strong>Controller / Processor roles.</strong> For data about an Agent’s account, billing, and platform telemetry, HiveReply acts as an <em>independent controller</em>. For messages and lead data that End Customers send to Agents via our platform, HiveReply generally acts as the Agent’s <em>processor</em> (or service provider/processor under applicable laws). Agents remain responsible for providing notices to, and obtaining consents from, their End Customers where required.</li>
+      <li><strong>Territorial reach.</strong> We operate from New Zealand and process data globally with trusted providers under contractual safeguards, including the NZ Privacy Act 2020, GDPR/UK GDPR (where applicable), and US state laws such as California’s CCPA/CPRA.</li>
+    </ul>
 
-    <div class="section">
-      <h2>3. Multichannel, AI, and Third-Party Providers</h2>
-      <p>
-        HiveReply processes and transmits data via multiple channels, platforms, and providers, including:
-      </p>
-      <ul>
-        <li>WhatsApp, SMS, Facebook Messenger, and other messaging platforms</li>
-        <li>Email, for notifications or lead forwarding</li>
-        <li>Third-party AI services (OpenAI, Google, Meta) for automated replies, lead extraction, and message analysis</li>
-        <li>Secure hosting, cloud storage, analytics, and payment processors (e.g., Google Cloud, AWS, Stripe, Google Analytics)</li>
-      </ul>
-      <p>
-        These third-party vendors may process and store data in New Zealand, Australia, the United States, the European Union, or other countries, always under strong contractual and technical safeguards. These platforms process data according to their own privacy policies; we select subprocessors who meet high standards of security and compliance.
-      </p>
-    </div>
+    <h2 id="definitions">2) Key Definitions</h2>
+    <ul>
+      <li><strong>Agent</strong>: The real-estate professional/agency who is our customer and manages an account on HiveReply.</li>
+      <li><strong>End Customer</strong>: An individual who communicates with the Agent (e.g., buyer, seller, tenant, landlord) via channels integrated with HiveReply.</li>
+      <li><strong>Customer Content</strong>: Messages, files, leads, and other data processed on behalf of Agents about End Customers.</li>
+      <li><strong>Service Data</strong>: Account, billing, configuration, logs, and analytics about how the platform is used.</li>
+    </ul>
 
-    <div class="section">
-      <h2>4. AI and Automated Decisions</h2>
-      <p>
-        Some replies and actions may be generated or assisted by AI/automated systems. If you or your clients prefer a human review or correction, you may request it at any time by contacting us or your agent. We monitor and improve our AI systems to ensure accuracy and safety.
-      </p>
-    </div>
+    <h2 id="collection">3) Information We Collect</h2>
+    <h3>3.1 From Agents (Controller: HiveReply)</h3>
+    <ul>
+      <li>Account details (name, agency, email, phone), authentication data, role and permissions.</li>
+      <li>Billing details and payment metadata (via our payment processor).</li>
+      <li>Telemetry and usage data (timestamps, feature flags, device/browser, IP, error logs) for reliability and security.</li>
+      <li>KYC or identity documents where required for compliance (e.g., to enable messaging numbers); see <a href="#retention">Retention</a>.</li>
+    </ul>
 
-    <div class="section">
-      <h2>5. Agent and Agency Responsibilities</h2>
-      <p>
-        Agents and agencies using HiveReply must ensure their clients (end customers) are informed that their data may be processed by HiveReply and relevant third parties (including via WhatsApp, Facebook, AI platforms, etc.) as part of lead or message handling. Where legally required, agents should obtain end customer consent and comply with applicable privacy regulations.
-      </p>
-    </div>
+    <h3>3.2 From End Customers (Processor: HiveReply on behalf of the Agent)</h3>
+    <ul>
+      <li>Message content and metadata sent via integrated channels (e.g., WhatsApp, SMS, email) including names, phone numbers, email addresses.</li>
+      <li>Lead and inquiry details, property preferences, appointment requests, language preferences.</li>
+      <li>Optional attachments (e.g., images sent by the End Customer) where supported by the channel.</li>
+    </ul>
 
-    <div class="section">
-      <h2>6. Data Sharing</h2>
-      <ul>
-        <li>With agents/agencies: If you request information, a callback, or make an inquiry via HiveReply, your data will be shared with the relevant real estate agent or agency.</li>
-        <li>With service providers: We share data only with subprocessors who help us operate our platform, under strict privacy agreements (OpenAI, Google, Meta, Stripe, etc.).</li>
-        <li>With legal authorities: If required by law, court order, or to protect users.</li>
-      </ul>
-      <p>
-        We do not sell, rent, or trade your data with third parties for advertising or commercial gain.
-      </p>
-    </div>
+    <h3>3.3 From Visitors</h3>
+    <ul>
+      <li>Basic cookies for session management and security; minimal analytics as described in <a href="#cookies">Cookies</a>.</li>
+    </ul>
 
-    <div class="section">
-      <h2>7. Data Location, Storage & Security</h2>
-      <ul>
-        <li>Data is encrypted in transit and, wherever possible, at rest.</li>
-        <li>Stored on secure, access-controlled infrastructure (Google Cloud, AWS, etc.).</li>
-        <li>Only authorized HiveReply staff and administrators have access, solely for support and platform operations.</li>
-      </ul>
-    </div>
+    <h3 id="sensitive-data">3.4 Special Categories & Sensitive Data</h3>
+    <p>
+      Our services are not designed to collect or process special-category data (e.g., health, biometric, racial or ethnic origin, precise geolocation, financial account numbers) about End Customers,
+      except minimal identity information for Agent KYC where required. Agents must avoid sending such data via messaging channels unless strictly necessary and lawfully permitted.
+    </p>
 
-    <div class="section">
-      <h2>8. Data Retention – How Long We Keep Your Data</h2>
-      <p>We retain data only as long as necessary for service or as required by law. You may request deletion at any time. See below:</p>
-      <table>
-        <tr>
-          <th>Data Type</th>
-          <th>Purpose</th>
-          <th>Retention</th>
-        </tr>
-        <tr>
-          <td>Messages & Leads (incl. end customers)</td>
-          <td>Service delivery, agent connection</td>
-          <td>90 days unless agent/customer relationship continues</td>
-        </tr>
-        <tr>
-          <td>Account/Profile Info</td>
-          <td>Onboarding, login, support</td>
-          <td>Until deletion or account closure</td>
-        </tr>
-        <tr>
-          <td>Analytics & Device Data</td>
-          <td>Security, platform improvement</td>
-          <td>12 months (anonymized where possible)</td>
-        </tr>
-        <tr>
-          <td>Marketing Consent</td>
-          <td>Newsletter, communications</td>
-          <td>Until withdrawn/unsubscribed</td>
-        </tr>
-      </table>
-    </div>
+    <h2 id="lawful-basis">4) Purposes & Lawful Bases</h2>
+    <p><strong>Purposes.</strong> We use data to: deliver and secure the platform; route and store messages; generate AI-assisted replies; detect abuse; provide support; bill and collect payment; and meet legal obligations.</p>
+    <p><strong>Legal bases (GDPR/UK GDPR, where applicable).</strong> Contract (performing our agreement with Agents); legitimate interests (security, service improvement); consent (where an Agent requests we send optional communications); and legal obligations (compliance, record-keeping).</p>
 
-    <div class="section">
-      <h2>9. Cookies and Tracking</h2>
-      <p>
-        Our website uses minimal cookies for essential functions (site navigation, login sessions) and anonymous analytics. No advertising or cross-site tracking cookies are used without explicit consent. You may manage cookies in your browser, and will be prompted for consent if/when we introduce non-essential cookies.
-      </p>
-    </div>
+    <h2 id="dpia">4A) Data Protection Impact Assessments & Records</h2>
+    <ul>
+      <li>We perform <strong>DPIAs</strong> where features may present elevated risk to individuals (e.g., new large-scale profiling or novel AI uses).</li>
+      <li>We maintain <strong>Records of Processing Activities</strong> (ROPA) for our controller and processor roles.</li>
+    </ul>
+    <h2 id="ai">5) AI Processing & Automated Assistance</h2>
+    <ul>
+      <li>Agents may enable features that draft or generate replies, classify messages, extract lead details, or summarize conversations. These are <em>assistive</em> features; Agents control whether to send messages and can correct outputs.</li>
+      <li><strong>No sale of personal data.</strong> We do not sell or “share” Customer Content for cross-context behavioral advertising.</li>
+      <li><strong>Model training.</strong> We do not use Customer Content to train our own foundation models. Where third-party AI providers offer data-use controls, we configure them to avoid using Customer Content for provider training or improvements when such controls are available.</li>
+      <li><strong>Human review.</strong> If you (Agent or End Customer) prefer human handling or wish to contest an automated output, contact <a href="mailto:privacy@hivereply.com">privacy@hivereply.com</a>. We support meaningful human oversight.</li>
+    </ul>
 
-    <div class="section">
-      <h2>10. Your Rights (NZ, EU/UK, CCPA)</h2>
-      <ul>
-        <li>Access your data (“Right to Access”)</li>
-        <li>Request correction of inaccurate data</li>
-        <li>Request erasure (“Right to be Forgotten”)</li>
-        <li>Object to or restrict processing</li>
-        <li>Request data portability (export in machine-readable format)</li>
-        <li>Withdraw consent for communications/marketing at any time</li>
-        <li>Not be subject to automated decisions without meaningful human review</li>
-      </ul>
-      <p>
-        To exercise your rights, email <a href="mailto:privacy@hivereply.com">privacy@hivereply.com</a> from your registered email or phone. We respond within 7 days. For end customers, you may also contact the real estate agent or agency who collected your data via HiveReply.
-      </p>
-    </div>
+    <h3 id="derived-data">5.1 Derived Data</h3>
+    <p>
+      We may generate limited “Derived Data” (e.g., classifications, lead scores, summaries) to assist Agents. Derived Data is used only to provide and improve the service for that Agent and is not sold or used for cross-customer profiling.
+      Agents can request human review or corrections where outputs materially affect their workflows.
+    </p>
 
-    <div class="section">
-      <h2>11. End Customer Rights (Leads, Buyers, Tenants, etc.)</h2>
-      <p>
-        If your data has been processed by HiveReply on behalf of an agent or agency, you may:
-        <ul>
-          <li>Contact the relevant agent or agency directly to exercise your privacy rights, or</li>
-          <li>Contact HiveReply (<a href="mailto:privacy@hivereply.com">privacy@hivereply.com</a>) for assistance. We will coordinate with the agent to address your request as required by law.</li>
-        </ul>
-      </p>
-    </div>
+    <h3 id="aggregates">5.2 Aggregated & Anonymised Data</h3>
+    <p>
+      We may create aggregated or anonymised statistics (e.g., uptime, feature adoption, generic usage trends).
+      These aggregates do not identify individuals or specific End Customers and may be used to improve reliability,
+      security, and product planning. We do not sell personal information.
+    </p>
 
-    <div class="section">
-      <h2>12. CCPA (California Residents)</h2>
-      <ul>
-        <li>We do not sell personal data.</li>
-        <li>You may request a copy, correction, or deletion of your data at any time.</li>
-        <li>No discrimination for exercising your privacy rights.</li>
-      </ul>
-      <p>To make a CCPA request, contact <a href="mailto:privacy@hivereply.com">privacy@hivereply.com</a> with “CCPA Request” in the subject line.</p>
-    </div>
+    <h2 id="sharing">6) Sharing & Disclosures</h2>
+    <ul>
+      <li><strong>With Agents/Agencies.</strong> End Customer messages and lead information are shared with the relevant Agent using HiveReply.</li>
+      <li><strong>With service providers (sub-processors).</strong> We use vetted providers under contracts that impose confidentiality, security, and processing limitations. A current snapshot is below.</li>
+      <li><strong>For legal reasons.</strong> We may disclose information if required by law, legal process, or to protect people, property, and our services.</li>
+      <li><strong>Business transfers.</strong> If we undergo a merger, acquisition, or reorganization, your information may be transferred as part of that transaction with appropriate protections.</li>
+    </ul>
 
-    <div class="section">
-      <h2>13. Marketing, Email, and SMS Communications</h2>
-      <p>
-        We may send onboarding info, service messages, or updates (never spam or third-party offers). You can opt out at any time via the message footer or by contacting us. We do not use data for advertising or profiling unless you provide explicit consent.
-      </p>
-    </div>
+    <h3 id="subprocessors">6.1 Current Service Providers & Typical Roles</h3>
+    <table>
+      <tr><th>Provider</th><th>Role / Purpose</th><th>Typical Data</th><th>Primary Regions</th></tr>
+      <tr><td>Meta (WhatsApp)</td><td>Messaging transport & business APIs</td><td>Phone, message content/metadata</td><td>Global (incl. EU/US)</td></tr>
+      <tr><td>SBMG.app (SMS/Voice aggregator)</td><td>SMS & voice routing</td><td>Phone, message content/metadata</td><td>NZ/AU</td></tr>
+      <tr><td>Telecom carriers (Spark, 2degrees, One NZ)</td><td>Network connectivity & number services</td><td>Phone, routing metadata</td><td>NZ</td></tr>
+      <tr><td>OpenAI</td><td>AI inference for assistive features</td><td>Text snippets needed for a given task</td><td>Global (as configured)</td></tr>
+      <tr><td>Google (Workspace, OAuth, Maps)</td><td>Email, docs, auth, geodata</td><td>Account/support communications; limited usage data</td><td>Global</td></tr>
+      <tr><td>Cloudflare</td><td>Security (WAF, DDoS), CDN, Turnstile CAPTCHA</td><td>IP, request metadata; minimal cookie data</td><td>Global</td></tr>
+      <tr><td>AWS (incl. S3)</td><td>Storage (e.g., KYC documents), compute</td><td>KYC files; encrypted at rest</td><td>NZ/AU/US as configured</td></tr>
+      <tr><td>Render</td><td>Application hosting</td><td>Service logs/metadata</td><td>US/EU regions as available</td></tr>
+      <tr><td>Stripe</td><td>Payments & invoicing</td><td>Billing contact data; tokens</td><td>Global</td></tr>
+      <tr><td>Analytics (privacy-respecting)</td><td>Basic product analytics</td><td>Aggregated/limited telemetry</td><td>Global</td></tr>
+    </table>
+    <p class="note">We may update providers as our infrastructure evolves. Material changes to sub-processors will be reflected here; Agents may request notice by emailing <a href="mailto:privacy@hivereply.com">privacy@hivereply.com</a>.</p>
+    <h3 id="subproc-changes">6.2 Sub-processor Changes & DPA</h3>
+    <p>
+      We may update sub-processors to support reliability, security, or new features. For material changes,
+      Agents can request email notice by contacting <a href="mailto:privacy@hivereply.com">privacy@hivereply.com</a>.
+      Our <strong>Data Processing Addendum (DPA)</strong> is available on request and governs our processing of Customer Content as a processor.
+    </p>
+    <p>
+      For <em>material</em> sub-processor changes affecting Customer Content, we endeavor to provide at least
+      <strong>10 business days’ notice</strong> via this page or email to registered admin contacts, unless an expedited change is required for security, continuity, or compliance.
+    </p>
 
-    <div class="section">
-      <h2>14. Data Breaches & Notification</h2>
-      <p>
-        If a data breach occurs affecting your information, we will notify all affected users and/or agents promptly, as required by law (NZ, GDPR, CCPA, etc.).
-      </p>
-    </div>
 
-    <div class="section">
-      <h2>15. Children’s Privacy</h2>
-      <p>
-        HiveReply is not intended for use by children under 16. If you believe a child has submitted information, contact us for prompt removal.
-      </p>
-    </div>
 
-    <div class="section">
-      <h2>16. Third-Party Services & International Data Transfers</h2>
-      <p>
-        We use third-party services (e.g., OpenAI, Google, Meta, Stripe, analytics) for messaging, AI, payments, and platform delivery. Data may be processed in New Zealand, Australia, Europe, the US, or other jurisdictions under strong contractual protections and in compliance with local laws.
-      </p>
-    </div>
+    <h2 id="security">7) Security</h2>
+    <ul>
+      <li>Encryption in transit (TLS) and at rest where supported (e.g., S3/KMS). </li>
+      <li>Least-privilege access, audit logs, rate limiting, WAF/DDoS protection, and automated monitoring.</li>
+      <li>Secrets management and segmented environments; optional 2FA for admin access.</li>
+      <li>Secure development lifecycle with change control and periodic vulnerability assessment.</li>
+      <li>Incident response plan aligned with NZ Privacy Act and (where applicable) GDPR notification timelines.</li>
+    </ul>
 
-    <div class="section">
-      <h2>17. Complaints & Contact Details</h2>
-      <p>
-        For questions, requests, or complaints, contact: <a href="mailto:privacy@hivereply.com">privacy@hivereply.com</a><br>
-        If not satisfied with our response, you may contact the NZ Privacy Commissioner: <a href="https://www.privacy.org.nz" target="_blank">www.privacy.org.nz</a>
-      </p>
-    </div>
+    <h3 id="assurance">7.1 Assurance & Testing</h3>
+    <ul>
+      <li><strong>Vulnerability Disclosure:</strong> We welcome good-faith reports at <a href="mailto:security@hivereply.com">security@hivereply.com</a>.</li>
+      <li><strong>Assessments:</strong> Periodic third-party penetration testing and continuous dependency scanning.</li>
+      <li><strong>Frameworks:</strong> We are aligning our controls to SOC 2 and ISO/IEC 27001; status available on request during procurement.</li>
+    </ul>
 
-    <div class="section">
-      <h2>18. Policy Updates</h2>
-      <p>
-        This policy may be updated for legal, technical, or service changes. The latest version will always be available at <a href="/privacy">/privacy</a>. We will notify users of material changes.
-      </p>
-    </div>
+    <h3 id="employee-access">7.2 Workforce Access</h3>
+    <p>
+      Access to production data is strictly limited, logged, and reviewed periodically. All personnel with such access are subject to confidentiality obligations and security training.
+    </p>
+
+    <h3 id="auth">7.3 Authentication, 2FA & API Keys</h3>
+    <ul>
+      <li><strong>Password security:</strong> Agent passwords are hashed using industry-standard algorithms (no plain-text storage).</li>
+      <li><strong>Two-factor authentication:</strong> Available for privileged/admin access and recommended for all accounts.</li>
+      <li><strong>API keys & tokens:</strong> Encrypted at rest, scoped by least-privilege, rotated on suspicion of compromise, and never logged in clear text.</li>
+    </ul>
+
+    <h2 id="apis">7.4 APIs, Webhooks & Integrations</h2>
+
+    <ul>
+      <li><strong>Webhook signing:</strong> Outbound webhooks are signed (e.g., HMAC) and include replay-protection headers.</li>
+      <li><strong>Inbound callbacks:</strong> We verify source authenticity (e.g., shared secret/signature) and rate-limit abusive requests.</li>
+      <li><strong>Payload minimization:</strong> We send only the fields required for the stated purpose.</li>
+    </ul>
+
+    <h3 id="logging">7.5 Observability, Redaction & Debugging</h3>
+    <ul>
+      <li>Operational logs capture minimal metadata (timestamps, IDs, status codes) and exclude message bodies by default.</li>
+      <li>Sensitive fields (tokens, credentials, KYC identifiers) are redacted at source.</li>
+      <li>Temporary debug logs that might contain personal data are time-limited and access-controlled.</li>
+    </ul>
+
+    <h2 id="retention">8) Retention</h2>
+    <p>We keep personal information only as long as necessary for the purposes set out above or as required by law. Agents can request custom retention configurations where feasible.</p>
+    <table>
+      <tr><th>Data Type</th><th>Purpose</th><th>Typical Retention</th></tr>
+      <tr><td>End-Customer Messages & Leads</td><td>Service delivery for the Agent</td><td>Default 90 days after last activity (or Agent-configured); longer if a relationship continues or law requires</td></tr>
+      <tr><td>Agent Account & Billing</td><td>Account administration & compliance</td><td>For the life of the account + up to 7 years for records</td></tr>
+      <tr><td>KYC / Identity Documents</td><td>Number provisioning & fraud prevention</td><td>Typically 12–24 months after account closure, then deletion unless required longer by law</td></tr>
+      <tr><td>System Logs/Telemetry</td><td>Security, reliability, abuse prevention</td><td>90–365 days (aggregated/anonymized where possible)</td></tr>
+      <tr><td>Marketing Preferences</td><td>Opt-in communications</td><td>Until opt-out or account deletion</td></tr>
+    </table>
+
+    <h3 id="kyc-handling">8.1 Identity & KYC Documents</h3>
+    <ul>
+      <li><strong>Storage:</strong> Encrypted at rest in AWS S3 using server-side encryption (KMS). Access is restricted to a minimal set of personnel under least-privilege.</li>
+      <li><strong>Region:</strong> Stored primarily in NZ/AU regions where feasible; otherwise closest available region with equivalent protections.</li>
+      <li><strong>Use:</strong> Solely for number provisioning, fraud prevention, and regulatory compliance.</li>
+      <li><strong>Retention:</strong> 12–24 months after account closure unless law requires longer. On deletion, data is removed from active systems and expires from backups on their normal rotation.</li>
+    </ul>
+
+    <h3 id="legal-hold">8.2 Legal Holds</h3>
+    <p>
+      If we receive a valid preservation notice or anticipate litigation, we may preserve relevant data beyond normal retention periods.
+      Once a hold is lifted, standard deletion and backup expiration timelines resume.
+    </p>
+
+    <h2 id="transfers">9) International Transfers</h2>
+    <p>We and our providers may process data in New Zealand, Australia, the EU/UK, the United States, and other locations. Where required, we rely on appropriate safeguards—such as the EU Standard Contractual Clauses (and UK Addendum), NZ/EU adequacy decisions where applicable, and robust contractual and technical protections.Where required, we enter into the EU Standard Contractual Clauses (and the UK Addendum) with our providers and apply technical/organisational measures appropriate to the risk.</p>
+
+    <h2 id="cookies">10) Cookies &amp; Tracking</h2>
+    <p>
+      We use the following categories of cookies and similar technologies, consistent with these Privacy terms and our Terms of Service:
+    </p>
+    <ul>
+      <li><strong>Essential</strong> — Required for sign-in and security (e.g., session/authentication, CSRF, rate limiting, load balancing, Cloudflare WAF/Turnstile). These cannot be switched off.</li>
+      <li><strong>Preferences</strong> — Remember your choices (e.g., theme, language, UI density). Typically first-party cookies or <code>localStorage</code>.</li>
+      <li><strong>Analytics</strong> — Privacy-respecting, aggregated measurement to improve reliability and UX. Where possible we use cookieless methods; if a cookie is used, it is first-party and time-limited.</li>
+      <li><strong>Marketing/Attribution (public site only)</strong> — Limited attribution on marketing pages to understand which campaigns lead to sign-ups. We do <u>not</u> use third-party advertising cookies for cross-site behavioural ads, and we do not sell or “share” personal information for such advertising.</li>
+    </ul>
+    <p>
+      Examples of first-party identifiers/storage we may set: <code>session</code> (login), <code>csrf_token</code> (form protection), <code>hr-theme</code> / <code>hr-density</code> (preferences, via localStorage). Third-party essential cookies may appear on hosted flows like payments (Stripe) or security (Cloudflare).
+    </p>
+    <p>
+      You can manage cookies at the browser level (block/delete/limit). Blocking essential cookies will break parts of the site/app. For details, see our standalone <a href="/cookies">Cookie Policy</a>.
+    </p>
+    <p class="note">
+      <strong>Signals:</strong> “Do Not Track” adoption is inconsistent, so we don’t change behaviour based solely on DNT. We do not sell or “share” personal information for cross-context behavioural advertising. Where recognised, Global Privacy Control (GPC) signals on public pages are treated as an opt-out of any such “sale/share” (which we do not perform).
+    </p>
+
+    <h2 id="dr">10A) Backups &amp; Disaster Recovery</h2>
+    <ul>
+      <li><strong>Backups:</strong> Encrypted backups are maintained on a rolling schedule to support disaster recovery.</li>
+      <li><strong>Deletion propagation:</strong> When data is deleted from active systems, it is removed from backups upon expiry of the normal backup rotation period.</li>
+      <li><strong>Targets:</strong> We aim for commercially reasonable RPO/RTO; details available under NDA for enterprise customers.</li>
+    </ul>
+
+    <h3 id="bc-uptime">10B) Business Continuity &amp; Uptime</h3>
+    <p>
+      We use multi-zone cloud infrastructure and CDN protections designed to minimise downtime. Planned maintenance windows are communicated in advance whenever feasible.
+    </p>
+
+    <h2 id="rights">11) Your Rights</h2>
+    <ul>
+      <li><strong>Access / Correction / Deletion</strong> of your personal information.</li>
+      <li><strong>Objection / Restriction</strong> to certain processing (where applicable).</li>
+      <li><strong>Data portability</strong> for information you provided to us (where applicable).</li>
+      <li><strong>Withdraw consent</strong> for optional communications at any time.</li>
+      <li><strong>Automated decision-making</strong> safeguards, including the right to human review for significant effects.</li>
+    </ul>
+
+    <h3 id="dsar-process">11.1 Request Process & Verification</h3>
+    <ul>
+      <li><strong>Verification:</strong> We may ask for reasonable information to verify your identity or authority.</li>
+      <li><strong>Timelines:</strong> We aim to respond within 1 week (NZ) and within statutory timeframes where applicable (e.g., GDPR: one month; CCPA: 45 days).</li>
+      <li><strong>Controller Coordination:</strong> For Customer Content, we will coordinate with the Agent (controller) and act on their instructions.</li>
+    </ul>
+
+    <p>To exercise your rights, contact <a href="mailto:privacy@hivereply.com">privacy@hivereply.com</a>. For End Customers, you may also contact the Agent (controller) directly; we will assist the Agent in fulfilling verified requests.</p>
+
+    <h2 id="regional">12) Regional Disclosures</h2>
+    <h3>New Zealand (Privacy Act 2020)</h3>
+    <p>We comply with the Information Privacy Principles, including limits on collection, use, disclosure, and requirements for accuracy and security. You may lodge concerns with the Office of the Privacy Commissioner at <a href="https://www.privacy.org.nz/" target="_blank" rel="noopener">privacy.org.nz</a>.</p>
+    
+    <h3>EU/EEA & UK (GDPR/UK GDPR)</h3>
+    <p><strong>Representative:</strong> If Article 27 GDPR/UK GDPR applies to our activities, we will appoint an EU/UK representative and update this section with their contact details.</p>
+    <p>
+      You also have the right to lodge a complaint with your local supervisory authority.
+      We will cooperate with the competent authority as required by law.
+    </p>
+    <h3>California (CCPA/CPRA)</h3>
+    <ul>
+      <li>We are a “service provider” for Customer Content we process for Agents; we do not sell or share personal information for cross-context behavioral advertising.</li>
+      <li>California residents can request access, deletion, and correction at <a href="mailto:privacy@hivereply.com">privacy@hivereply.com</a>. We will not discriminate for exercising these rights.</li>
+    </ul>
+    <table>
+      <tr><th>Category (CPRA)</th><th>Collected?</th><th>Purpose</th><th>Sold/Shared?</th></tr>
+      <tr><td>Identifiers (name, email, phone)</td><td>Yes</td><td>Provide the service; security; support</td><td>No</td></tr>
+      <tr><td>Commercial info (billing metadata)</td><td>Yes (Agents)</td><td>Billing via processor</td><td>No</td></tr>
+      <tr><td>Internet activity (logs)</td><td>Yes (limited)</td><td>Security and reliability</td><td>No</td></tr>
+      <tr><td>Geolocation (coarse/derived)</td><td>Possibly (IP)</td><td>Fraud prevention, localization</td><td>No</td></tr>
+      <tr><td>Sensitive PI</td><td>No (except minimal Agent KYC)</td><td>Compliance only</td><td>No</td></tr>
+    </table>
+    <p class="note">We do not sell or share personal information for cross-context behavioral advertising.</p>
+
+    <h2 id="agent-resp">13) Agent Responsibilities</h2>
+    <ul>
+      <li>Provide End Customers with appropriate privacy notices and collect any required consents for use of messaging channels and AI features.</li>
+      <li>Honor opt-outs (including STOP/UNSUBSCRIBE for SMS and applicable channel rules for WhatsApp templates and 24-hour sessions).</li>
+      <li>Enter into our <strong>Data Processing Addendum (DPA)</strong> where required; we process Customer Content solely per Agent instructions.</li>
+    </ul>
+
+    <h2 id="channel-compliance">13A) Channel-Specific Compliance</h2>
+    <ul>
+      <li><strong>WhatsApp:</strong> We enforce the 24-hour customer service window. Messages sent outside this window require an approved template. Agents must respect WhatsApp’s Business and Commerce Policies, including opt-out and content rules.</li>
+      <li><strong>SMS (NZ):</strong> Agents must comply with the Unsolicited Electronic Messages Act 2007. All marketing SMS must include a clear opt-out (e.g., “Reply STOP to opt out”). We honor and propagate opt-outs across our systems.</li>
+      <li><strong>Email:</strong> Where used, Agents are responsible for consent and unsubscribe compliance under applicable anti-spam laws (e.g., CAN-SPAM, UK PECR, AU Spam Act 2003).</li>
+    </ul>
+
+    <h2 id="children">14) Children</h2>
+    <p>The service is not intended for children under 16. If you believe a child has provided personal information, contact us for prompt removal.We do not knowingly collect personal information from children under 16.</p>
+
+    <h2 id="breach">15) Incidents & Notifications</h2>
+    <p>We will notify affected parties and/or regulators without undue delay where required by law. For security reports, email <a href="mailto:security@hivereply.com">security@hivereply.com</a>.</p>
+
+    <h2 id="law-enforcement">16) Law-Enforcement & Government Requests</h2>
+    <p>
+      We scrutinize all requests and only disclose information when legally required. Where permitted, we notify the affected customer before disclosure.
+      We do not provide direct access to our systems, and we resist overbroad or unlawful demands.
+    </p>
+
+    <h2 id="contact">17) Contact</h2>
+    <p>
+      <strong>HiveReply (Fern Technologies Ltd)</strong><br>
+      Privacy: <a href="mailto:privacy@hivereply.com">privacy@hivereply.com</a><br>
+      Security: <a href="mailto:security@hivereply.com">security@hivereply.com</a>
+    </p>
+
+    <h2 id="changes">18) Changes to this Policy</h2>
+    <p>We may update this policy to reflect legal, technical, or business changes. The “Effective” date above indicates the latest version. Material updates will be communicated via the website or in-product notices.</p>
 
     <div class="footer-link">
-      <a href="/" style="color:#475569;">← Back to Homepage</a>
+      <a href="https://www.hivereply.com/" style="color:#475569;">← Back to Homepage</a>
     </div>
   </div>
 </body>

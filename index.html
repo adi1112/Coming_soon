@@ -1,94 +1,1852 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HiveReply — Official Site</title>
-  <link rel="canonical" href="https://www.hivereply.com/">
-  <meta name="description" content="HiveReply — Official website. AI-powered messaging for real estate.">
+  <link rel="canonical" href="{{ WWW_BASE_URL }}/" />
   <meta name="robots" content="index,follow">
-  <!-- Open Graph -->
-  <meta property="og:title" content="HiveReply — Official Site">
-  <meta property="og:description" content="AI-powered messaging for real estate.">
-  <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.hivereply.com/">
-  <meta property="og:image" content="https://www.hivereply.com/static/og.png">
-  <!-- Minimal, self-contained styles -->
-  <style>
-    :root{
-      --bg:#0b0d11; --bg2:#0f1218; --card:#11151c; --text:#e8edf6; --muted:#a6b0c3;
-      --brand:#f7b32b; --border:#202838; --ring:rgba(255,255,255,.08);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HiveReply — Sell faster with instant, consistent conversations</title>
+  <meta name="description" content="AI that replies instantly on SMS & WhatsApp, standardises conversations, books viewings, and routes hot leads to agents." />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="HiveReply — AI Communications OS for Real Estate" />
+  <meta property="og:description" content="Instant AI replies, bookings, lead scoring, and compliant routing across SMS & WhatsApp." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/static/site/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="/static/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', 'Arial'] },
+          colors: {
+            brand: { 50:'#fff7e6',100:'#ffefcc',200:'#ffe4a3',300:'#ffd976',400:'#f7b32b',500:'#e9a21b',600:'#c38314',700:'#9c6710',800:'#7a500b',900:'#3d2706' }
+          },
+          boxShadow: {
+            glow: '0 0 0 1px rgba(247,179,43,0.3), 0 12px 48px -12px rgba(247,179,43,0.35)'
+          },
+          backgroundImage: {
+            'hero-grid': 'radial-gradient(900px 360px at 15% -10%, rgba(247,179,43,0.28), transparent), radial-gradient(650px 260px at 85% -5%, rgba(17,24,39,0.10), transparent)'
+          }
+        }
+      }
     }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#f7f8fb; --bg2:#fff; --card:#fff; --text:#0d1320; --muted:#4a5568; --border:#e6e9ef; --ring:rgba(16,19,26,.08); }
-    }
-    *{box-sizing:border-box} html,body{height:100%}
-    body{margin:0; background:radial-gradient(900px 400px at 10% -10%, rgba(247,179,43,.18), transparent), var(--bg); color:var(--text); font:500 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial}
-    .wrap{max-width:860px; margin:0 auto; padding:28px}
-    .card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:22px; box-shadow:0 12px 30px var(--ring)}
-    header{display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:14px}
-    .brand{display:inline-flex; align-items:center; gap:10px; text-decoration:none; color:inherit}
-    .logo{width:28px; height:28px; border-radius:10px; background:linear-gradient(135deg, #f7b32b, #ffd57a)}
-    .name{font-weight:800; letter-spacing:.2px}
-    .badge{display:inline-block; font-size:12px; letter-spacing:.25px; padding:6px 10px; border-radius:999px; border:1px solid var(--border); color:var(--muted)}
-    h1{font-size:clamp(26px,4.8vw,40px); line-height:1.08; margin:10px 0}
-    .lead{color:var(--muted); margin:0 0 18px}
-    .links a{color:inherit; text-decoration:underline}
-    .links a:hover{opacity:.9}
-    .grid{display:grid; grid-template-columns:1fr; gap:16px}
-    .contact{display:grid; gap:6px; margin-top:10px}
-    address{font-style:normal}
-    footer{margin-top:18px; color:var(--muted); font-size:14px}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-  </style>
-  <!-- Org schema for verification -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"HiveReply",
-    "url":"https://www.hivereply.com/",
-    "email":"hi@hivereply.com",
-    "address":{
-      "@type":"PostalAddress",
-      "addressLocality":"Auckland",
-      "addressCountry":"NZ"
-    },
-    "sameAs":[]
-  }
   </script>
+<style>
+  :root{ --promo-h:0px; --header-h:64px; }
+  body{ padding-top: calc(var(--promo-h) + var(--header-h)); }
+  .backdrop-blur-true { backdrop-filter: saturate(160%) blur(14px); }
+  [id]{ scroll-margin-top: calc(var(--promo-h) + var(--header-h) + 16px); }
+  .card{ background:#ffffff; border:1px solid rgb(226 232 240); }
+  .panel{ background:#ffffff; border:1px solid rgb(226 232 240); }
+  .dark .card,.dark .panel{ background:rgba(2,6,23,0.55); border-color:rgba(255,255,255,0.12); }
+  .decorative{ pointer-events:none; }
+  .gradient-text{ background:linear-gradient(90deg, #c38314, #f7b32b, #ffd976); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .emoji{ font-size: 1.25em; line-height: 1; }
+  .hrpill{
+    display:inline-flex; align-items:center; gap:.5rem;
+    padding:.9rem 1.2rem; border-radius:9999px; cursor:pointer; user-select:none;
+    border:1px solid rgba(100,116,139,.35);
+    color:#0f172a; background:rgba(255,255,255,.55);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.4);
+    font-size:1rem; font-weight:600;
+  }
+  .hrpill:focus-visible{ outline:none; box-shadow:0 0 0 3px rgba(247,179,43,.45); }
+  .dark .hrpill{ color:#e5e7eb;background:rgba(2,6,23,.5);border-color:rgba(255,255,255,.15) }
+  .hrpill--active{
+    border-color:transparent;color:#0f172a;background:
+    linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(90deg,#c38314,#f7b32b,#ffd976) border-box;
+  }
+  .dark .hrpill--active{ color:#ffeccb;background:
+    linear-gradient(rgba(2,6,23,.75),rgba(2,6,23,.75)) padding-box,
+    linear-gradient(90deg,#c38314,#f7b32b,#ffd976) border-box; }
+  .hrpanel{opacity:0;transform:translateY(8px);transition:opacity .35s ease, transform .35s ease}
+  .hrpanel.hrpanel--active{opacity:1;transform:none}
+</style>
+<style>
+  :root { --hr-header-h: 80px; }               /* tweak if your header height changes */
+  #why, #reasons, #hero-tabs {                 /* anchor offset so sections aren't hidden under header */
+    scroll-margin-top: calc(var(--hr-header-h) + 16px);
+  }
+</style>
+
+
+<style>
+  /* Center text inside the reasons grid cards */
+  #reasons article { text-align: center; }
+  #reasons article .inline-flex { justify-content: center; }
+</style>
+<script>
+  // Smooth-scroll anchors: header/footer nav align to top; others can still center if desired
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+
+    const hash = a.getAttribute('href');
+    const id   = decodeURIComponent(hash.slice(1) || '');
+    const target = id ? document.getElementById(id) : null;
+    if (!target) return;
+
+    e.preventDefault();
+
+    // Links inside the sticky header or mobile menu should align to the top (honours scroll-margin-top)
+    const isTopNav = !!(a.closest('#site-header') || a.closest('#mobile-menu') || a.dataset.align === 'top');
+
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: isTopNav ? 'start' : 'center',   // was always 'center' before
+      inline: 'nearest'
+    });
+
+    history.pushState(null, '', hash);
+  });
+</script>
+<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+<script> try { twemoji.parse(document.body, { folder: 'svg', ext: '.svg' }); } catch(e) { /* noop */ } </script>
+<style>
+  .hrpanel { 
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity .28s ease, transform .28s ease;
+    will-change: opacity, transform;
+  }
+  .hrpanel.hrpanel--active { 
+    opacity: 1; 
+    transform: none; 
+  }
+</style>
 </head>
-<body>
-  <main class="wrap">
-    <header>
-      <a class="brand" href="/" aria-label="HiveReply">
-        <span class="logo" aria-hidden="true"></span>
-        <span class="name">HiveReply</span>
-      </a>
-      <span class="badge" aria-label="Site status">Official website • Coming soon</span>
+<body class="bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100">
+
+  {% if plans is defined %}
+  <script id="hr-plans" type="application/json">{{ plans|tojson }}</script>
+  {% endif %}
+
+  <!-- Top promo / utilities -->
+  <div id="promo" class="sticky top-0 z-[70] border-b border-slate-200 bg-amber-100 text-slate-900 dark:border-white/10 dark:bg-slate-900/95 dark:text-amber-200">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between gap-3 text-sm">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-2" id="promo-text" data-i18n="promo.text">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4"><path d="M12 2a1 1 0 0 1 .894.553l8 16A1 1 0 0 1 20 20H4a1 1 0 0 1-.894-1.447l8-16A1 1 0 0 1 12 2zM11 9v4h2V9h-2zm0 6v2h2v-2h-2z"/></svg>
+          Guided 7-day demo — no credit card.
+        </span>
+        <a href="#pricing" class="font-semibold text-brand-800 hover:text-brand-700 dark:text-brand-300 dark:hover:text-brand-200" data-i18n="promo.cta">See pricing</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1 text-xs">
+          <button type="button" id="lang-en" class="underline-offset-2 hover:underline opacity-80" aria-label="Switch to English">EN</button>
+          <span class="opacity-40">|</span>
+          <button type="button" id="lang-zh" class="underline-offset-2 hover:underline opacity-80" aria-label="切换到中文">中文</button>
+        </div>
+        <button id="themeToggle" class="inline-flex items-center justify-center rounded-md p-1.5 ring-1 ring-slate-300 text-slate-800 hover:bg-white/80 dark:ring-white/15 dark:text-amber-200 dark:hover:ring-brand-400/40" aria-label="Toggle theme">
+          <svg id="themeIcon" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 108.485 12.485A9.5 9.5 0 0112 3z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+<header id="site-header" class="sticky z-[60] border-b border-slate-200 bg-white/90 backdrop-blur-true dark:border-white/10 dark:bg-slate-950/70" style="top: var(--promo-h)">
+  <nav class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3 group">
+      <img src="/static/logo.png" alt="HiveReply" class="h-9 w-9 rounded-lg ring-1 ring-slate-200 dark:ring-white/10 group-hover:ring-brand-400/50 transition" />
+      <span class="text-xl font-extrabold tracking-tight"><span class="dark:text-white">Hive</span><span class="text-brand-700 dark:text-brand-400">Reply</span></span>
+    </a>
+    <button class="md:hidden inline-flex items-center justify-center rounded-lg p-2 ring-1 ring-slate-300 dark:ring-white/10 hover:ring-brand-400/40" aria-label="Open menu" onclick="toggleMenu()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <div class="hidden md:flex items-center gap-8 text-sm">
+      <a href="#hero-tabs" class="hover:text-brand-800 dark:hover:text-brand-300" data-i18n="nav.why">Why HiveReply</a>
+      <a href="#reasons" class="hover:text-brand-800 dark:hover:text-brand-300" data-i18n="nav.features">Features</a>
+      <a href="#how" class="hover:text-brand-800 dark:hover:text-brand-300" data-i18n="nav.how">How it works</a>
+      <a href="#roi" class="hover:text-brand-800 dark:hover:text-brand-300" data-i18n="nav.roi">ROI Calculator</a>
+      <a href="#pricing" class="hover:text-brand-800 dark:hover:text-brand-300" data-i18n="nav.pricing">Pricing</a>
+      <a href="#faq" class="hover:text-brand-800 dark:hover:text-brand-300" data-i18n="nav.faq">FAQ</a>
+      <a href="#connect" class="hover:text-brand-800 dark:hover:text-brand-300" data-i18n="nav.contact">Contact</a>
+      <a href="/agent/login" class="text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white" data-i18n="nav.login">Agent Login</a>
+      <a href="/agent/register" class="inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-4 py-2 shadow-glow transition" data-i18n="cta.demo">Start free demo</a>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden absolute left-0 right-0 top-full z-[65] border-t border-slate-200 bg-white dark:bg-slate-950 dark:border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-3 grid gap-2 text-sm">
+      <a class="py-2" href="#hero-tabs" onclick="closeMenu()" data-i18n="nav.why">Why HiveReply</a>
+      <a class="py-2" href="#reasons" onclick="closeMenu()" data-i18n="nav.features">Features</a>
+      <a class="py-2" href="#how" onclick="closeMenu()" data-i18n="nav.how">How it works</a>
+      <a class="py-2" href="#roi" onclick="closeMenu()" data-i18n="nav.roi">ROI Calculator</a>
+      <a class="py-2" href="#pricing" onclick="closeMenu()" data-i18n="nav.pricing">Pricing</a>
+      <a class="py-2" href="#faq" onclick="closeMenu()" data-i18n="nav.faq">FAQ</a>
+      <a class="py-2" href="#connect" onclick="closeMenu()" data-i18n="nav.contact">Contact</a>
+      <a class="py-2" href="/agent/login" onclick="closeMenu()" data-i18n="nav.login">Agent Login</a>
+      <a class="mt-2 inline-flex items-center justify-center rounded-xl bg-brand-600 text-white font-semibold px-4 py-2" href="/agent/register" onclick="closeMenu()" data-i18n="cta.demo">Start free demo</a>
+    </div>
+  </div>
+</header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden bg-hero-grid">
+    <div class="absolute inset-0 decorative pointer-events-none">
+      <div class="absolute -inset-12 bg-gradient-to-tr from-brand-400/15 via-amber-300/10 to-transparent rounded-[48px] blur-2xl"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 pt-16 md:pt-24 pb-16">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <p class="inline-flex items-center gap-2 text-xs tracking-wide uppercase text-amber-700 ring-1 ring-slate-200 rounded-full px-3 py-1 mb-4 bg-amber-50 dark:bg-transparent dark:text-amber-200/80 dark:ring-white/10" data-i18n="hero.badge">Built for real estate · REAA-aware</p>
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-[1.05]">
+            <span data-i18n="hero.title.pre">Sell more by replying</span>
+            <span class="gradient-text" data-i18n="hero.title.highlight">faster & consistently</span>
+          </h1>
+          <ul class="mt-5 space-y-2 text-lg text-slate-800 dark:text-slate-300/90" data-i18n-list="hero.bullets">
+            <li>⚡ <strong>Instant replies</strong> on SMS & WhatsApp — the second a buyer messages.</li>
+            <li>🧭 <strong>Standardised conversations</strong> that sound professional every time.</li>
+            <li>📅 <strong>Bookings & handover</strong> with zero clash and clear next steps.</li>
+          </ul>
+          <div class="mt-7 flex flex-col sm:flex-row gap-3">
+            <a href="/agent/register" class="inline-flex items-center justify-center rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 shadow-glow transition" data-i18n="cta.demo">Start free demo</a>
+            <a href="#how" class="inline-flex items-center justify-center rounded-2xl px-6 py-3 ring-1 ring-slate-300 hover:ring-slate-400 dark:ring-white/15 dark:hover:ring-brand-400/40" data-i18n="cta.how">See how it works</a>
+          </div>
+          <div class="mt-6 flex items-center gap-4 text-xs text-slate-600 dark:text-slate-400">
+            <span class="inline-flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse"></span> <span data-i18n="hero.live">Live</span></span>
+            <span data-i18n="hero.cancel">Cancel anytime</span>
+            <span data-i18n="hero.onboarding">Human onboarding</span>
+          </div>
+        </div>
+        <!-- Product frames -->
+        <div class="relative">
+          <div class="relative rounded-3xl panel ring-1 shadow-2xl overflow-hidden">
+            <div class="p-4 border-b border-slate-200 bg-slate-50 dark:border-white/10 dark:bg-slate-900/50 flex items-center justify-between">
+              <div class="text-sm font-semibold text-slate-800 dark:text-slate-200">Unified Inbox</div>
+              <div class="flex gap-1"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span><span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span></div>
+            </div>
+            <div class="p-4 grid md:grid-cols-2 gap-4">
+              <div class="space-y-3">
+                <div class="rounded-xl card p-3"><div class="text-xs text-slate-600 dark:text-slate-400 mb-1">New enquiry · 2m</div><div class="text-sm">Hi, is 24B Ocean View available this Saturday?</div></div>
+                <div class="rounded-xl card p-3"><div class="text-xs text-slate-600 dark:text-slate-400 mb-1">AI reply</div><div class="text-sm">Yes — 11:30am is open. Want me to book you in?</div></div>
+                <div class="rounded-xl card p-3"><div class="text-xs text-slate-600 dark:text-slate-400 mb-1">Lead score</div><div class="text-sm">High intent • Cash buyer • Wants 3+ beds</div></div>
+              </div>
+              <div class="space-y-3">
+                <div class="rounded-xl card p-3"><div class="text-xs text-slate-600 dark:text-slate-400 mb-1">Forwarded to you</div><div class="text-sm">Call & calendar invite sent.</div></div>
+                <div class="rounded-xl card p-3"><div class="text-xs text-slate-600 dark:text-slate-400 mb-1">Compliance</div><div class="text-sm">REAA footer added. Sensitive data masked.</div></div>
+                <div class="rounded-xl card p-3"><div class="text-xs text-slate-600 dark:text-slate-400 mb-1">Export</div><div class="text-sm">CSV • CRM sync (Pro/Enterprise)</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="hidden md:block absolute -left-8 -bottom-8 w-56 rounded-2xl card p-3 shadow-lg rotate-[-3deg]">
+            <div class="text-xs text-slate-600 dark:text-slate-400 mb-1">Open home booking</div>
+            <div class="text-sm">Confirmed: Sat 11:30am · 24B Ocean View</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY / OUTCOMES -->
+  <section id="why" class="py-16 border-y border-slate-200 dark:border-white/10 bg-slate-50/60 dark:bg-slate-900/30">
+    <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-6">
+      <div class="rounded-2xl card p-6 text-center">
+        <div class="text-5xl font-extrabold"><span class="gradient-text"><span class="counter" data-target="24">0</span><span class="align-top text-2xl">/7</span></span></div>
+        <p class="mt-2 text-slate-700 dark:text-slate-300" data-i18n="why.card1">Instant first response — even at 2am.</p>
+      </div>
+      <div class="rounded-2xl card p-6 text-center">
+        <div class="text-5xl font-extrabold"><span class="gradient-text">+<span class="counter" data-target="35">0</span>%</span></div>
+        <p class="mt-2 text-slate-700 dark:text-slate-300" data-i18n="why.card2">More booked viewings from faster follow-ups.</p>
+      </div>
+      <div class="rounded-2xl card p-6 text-center">
+        <div class="text-5xl font-extrabold"><span class="gradient-text"><span class="counter" data-target="28">0</span>h</span></div>
+        <p class="mt-2 text-slate-700 dark:text-slate-300" data-i18n="why.card3">Monthly admin time saved across the team.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="border-b border-slate-200 dark:border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-slate-700 dark:text-slate-400 text-xs">
+      <span class="inline-flex items-center gap-2" data-i18n="trust.secure"><span class="emoji">🔒</span>Data Encryption and Security</span>
+      <span class="inline-flex items-center gap-2" data-i18n="trust.channels"><span class="emoji">💬</span>SMS , WhatsApp , Voice ,Email and more</span>
+      <span class="inline-flex items-center gap-2" data-i18n="trust.dashboard"><span class="emoji">🧰</span>Unified agent dashboard</span>
+      <span class="inline-flex items-center gap-2" data-i18n="trust.stripe"><span class="emoji">🏷️</span>Stripe billing</span>
+      <span class="inline-flex items-center gap-2" data-i18n="trust.nz"><span class="emoji">🇳🇿</span>NZ-first · REAA aware</span>
+    </div>
+  </section>
+
+  <!-- HERO TABS -->
+<section id="hero-tabs" class="relative overflow-hidden py-28 md:py-36">
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+    <div class="absolute inset-0 opacity-[0.06] dark:opacity-[0.08]"
+         style="background:
+           radial-gradient(90rem 44rem at 15% -10%, rgba(247,179,43,.22), transparent 60%),
+           radial-gradient(70rem 32rem at 90% 0%, rgba(2,6,23,.25), transparent 60%);"></div>
+    <div class="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-amber-400/40 to-transparent"></div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4">
+    <header class="text-center max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.05]" data-i18n="tabs.headline">
+        Built for agents who sell every day
+      </h1>
+      <p class="mt-5 text-lg md:text-xl text-slate-700 dark:text-slate-300" data-i18n="tabs.subhead">
+        One AI. One number. Instant replies across SMS & WhatsApp that standardise tone,
+        look professional, and move buyers to bookings fast.
+      </p>
     </header>
 
-    <section class="card" aria-labelledby="title">
-      <h1 id="title">We’re preparing our launch</h1>
-      <p class="lead">HiveReply is an AI‑powered messaging assistant for real estate. This is our official site.</p>
+    <!-- Big tabs -->
+    <nav id="hr-tablist" role="tablist" aria-label="HiveReply value" class="mt-10 flex flex-wrap justify-center gap-2 sm:gap-3">
+      <button role="tab" aria-selected="true" aria-controls="panel-speed" id="tab-speed" class="hrpill hrpill--active" data-i18n="tabs.btn.speed">Speed</button>
+      <button role="tab" aria-selected="false" aria-controls="panel-standard" id="tab-standard" class="hrpill" data-i18n="tabs.btn.standard">Standard</button>
+      <button role="tab" aria-selected="false" aria-controls="panel-bookings" id="tab-bookings" class="hrpill" data-i18n="tabs.btn.bookings">Bookings</button>
+      <button role="tab" aria-selected="false" aria-controls="panel-priority" id="tab-priority" class="hrpill" data-i18n="tabs.btn.priority">Priority</button>
+      <button role="tab" aria-selected="false" aria-controls="panel-compliance" id="tab-compliance" class="hrpill" data-i18n="tabs.btn.compliance">Compliance</button>
+      <button role="tab" aria-selected="false" aria-controls="panel-ops" id="tab-ops" class="hrpill" data-i18n="tabs.btn.ops">Ops</button>
+    </nav>
 
-      <div class="grid">
-        <div class="contact" aria-labelledby="contact-h">
-          <h2 id="contact-h" class="sr-only">Contact</h2>
-          <div><strong>Contact:</strong> <a href="mailto:hi@hivereply.com">hi@hivereply.com</a></div>
-          <address><strong>Location:</strong> Auckland, New&nbsp;Zealand</address>
-        </div>
-        <p class="links">
-          <a href="/privacy">Privacy Policy</a> &nbsp;•&nbsp;
-          <a href="/terms">Terms of Service</a>
-        </p>
-      </div>
+    <div class="mt-12 md:mt-15">
+      <div class="min-h-[600px] md:min-h-[400px] grid place-items-center">
 
-      <footer>
-        © <span id="y"></span> HiveReply. All rights reserved.
-      </footer>
+    <!-- SPEED -->
+    <section id="panel-speed" role="tabpanel" aria-labelledby="tab-speed" class="hrpanel hrpanel--active text-center max-w-10xl">
+      <h2 class="hr-gradient text-10xl md:text-8xl font-extrabold" data-i18n="tabs.speed.title">Instant First Response</h2>
+      <p class="mt-4 text-slate-700 dark:text-slate-300 text-lg">
+        <span data-i18n="tabs.speed.copy.pre">Be first—every time. Replies in</span>
+        <strong class="font-semibold">&lt;10s</strong>
+        <span data-i18n="tabs.speed.copy.post">, 24/7, on SMS &amp; WhatsApp.</span>
+      </p>
+      <ul class="mt-6 space-y-2 text-slate-600 dark:text-slate-400">
+        <li data-i18n="tabs.speed.l1">• Ad click → conversation with zero lag</li>
+        <li data-i18n="tabs.speed.l2">• Auto follow-ups if a buyer goes quiet</li>
+        <li data-i18n="tabs.speed.l3">• Handover with full context when you jump in</li>
+      </ul>
     </section>
-  </main>
-  <script>document.getElementById('y').textContent=(new Date()).getFullYear();</script>
+
+    <!-- STANDARD -->
+    <section id="panel-standard" role="tabpanel" aria-labelledby="tab-standard" class="hrpanel text-center max-w-10xl hidden">
+      <h2 class="hr-gradient text-10xl md:text-8xl font-extrabold" data-i18n="tabs.standard.title">On-Brand, Every Time</h2>
+      <p class="mt-4 text-slate-700 dark:text-slate-300 text-lg" data-i18n="tabs.standard.copy">One AI. One tone. Standardised playbooks—no ad-hoc texts.</p>
+      <ul class="mt-6 space-y-2 text-slate-600 dark:text-slate-400">
+        <li data-i18n="tabs.standard.l1">• Listing-aware answers: price, times, key features</li>
+        <li data-i18n="tabs.standard.l2">• Pre-approved phrasing &amp; disclaimers (EN / 中文)</li>
+        <li data-i18n="tabs.standard.l3">• Team templates you update once, used everywhere</li>
+      </ul>
+    </section>
+
+    <!-- BOOKINGS -->
+    <section id="panel-bookings" role="tabpanel" aria-labelledby="tab-bookings" class="hrpanel text-center max-w-10xl hidden">
+      <h2 class="hr-gradient text-10xl md:text-8xl font-extrabold" data-i18n="tabs.bookings.title">Clash-Free Bookings</h2>
+      <p class="mt-4 text-slate-700 dark:text-slate-300 text-lg" data-i18n="tabs.bookings.copy">Offer, check, confirm—done. No back-and-forth.</p>
+      <ul class="mt-6 space-y-2 text-slate-600 dark:text-slate-400">
+        <li data-i18n="tabs.bookings.l1">• Works with open homes &amp; private viewings</li>
+        <li data-i18n="tabs.bookings.l2">• Calendar &amp; working-hours guardrails before confirming</li>
+        <li data-i18n="tabs.bookings.l3">• One-tap confirm + ICS invite and reminders</li>
+      </ul>
+    </section>
+
+    <!-- PRIORITY -->
+    <section id="panel-priority" role="tabpanel" aria-labelledby="tab-priority" class="hrpanel text-center max-w-10xl hidden">
+      <h2 class="hr-gradient text-10xl md:text-8xl font-extrabold" data-i18n="tabs.priority.title">Hot Leads, First</h2>
+      <p class="mt-4 text-slate-700 dark:text-slate-300 text-lg" data-i18n="tabs.priority.copy">Serious buyers rise to the top—so you call first.</p>
+      <ul class="mt-6 space-y-2 text-slate-600 dark:text-slate-400">
+        <li data-i18n="tabs.priority.l1">• Intent scoring from questions, timing, and urgency</li>
+        <li data-i18n="tabs.priority.l2">• Instant ping to your phone with next-best action</li>
+        <li data-i18n="tabs.priority.l3">• Contact card + structured notes auto-created</li>
+      </ul>
+    </section>
+
+    <!-- COMPLIANCE -->
+    <section id="panel-compliance" role="tabpanel" aria-labelledby="tab-compliance" class="hrpanel text-center max-w-10xl hidden">
+      <h2 class="hr-gradient text-10xl md:text-8xl font-extrabold" data-i18n="tabs.compliance.title">REAA-Aware by Design</h2>
+      <p class="mt-4 text-slate-700 dark:text-slate-300 text-lg" data-i18n="tabs.compliance.copy">Move fast without risk—guardrails built in.</p>
+      <ul class="mt-6 space-y-2 text-slate-600 dark:text-slate-400">
+        <li data-i18n="tabs.compliance.l1">• Mandatory footers, opt-outs honoured per channel</li>
+        <li data-i18n="tabs.compliance.l2">• Sensitive details handled safely; privacy defaults on</li>
+        <li data-i18n="tabs.compliance.l3">• Immutable audit trail across every conversation</li>
+      </ul>
+    </section>
+
+    <!-- OPS -->
+    <section id="panel-ops" role="tabpanel" aria-labelledby="tab-ops" class="hrpanel text-center max-w-10xl hidden">
+      <h2 class="hr-gradient text-10xl md:text-8xl font-extrabold" data-i18n="tabs.ops.title">Numbers You Can Act On</h2>
+      <p class="mt-4 text-slate-700 dark:text-slate-300 text-lg" data-i18n="tabs.ops.copy">See what converts. Sync what matters.</p>
+      <ul class="mt-6 space-y-2 text-slate-600 dark:text-slate-400">
+        <li data-i18n="tabs.ops.l1">• Response time, booking rate, and source attribution</li>
+        <li data-i18n="tabs.ops.l2">• CSV on all plans; native CRM sync on Pro &amp; Enterprise</li>
+        <li data-i18n="tabs.ops.l3">• Agency roll-ups across offices and teams</li>
+      </ul>
+    </section>
+
+      <p class="mt-10 text-center text-sm text-slate-500 dark:text-slate-400" data-i18n-html="micro.proof">
+        Teams typically see <span class="font-semibold">+20–40% more booked viewings</span> with faster, consistent follow-ups.
+      </p>
+    </div>
+  </div>
+
+  <style>
+    .hr-gradient{background:linear-gradient(90deg,#c38314,#f7b32b,#ffd976);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hrpanel{opacity:0;transform:translateY(8px);transition:opacity .35s ease, transform .35s ease}
+    .hrpanel.hrpanel--active{opacity:1;transform:none}
+  </style>
+
+  <!-- Tabs logic -->
+  <script>
+    (function(){
+      const tablist = document.getElementById('hr-tablist');
+      const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+      const panels = tabs.map(t => document.getElementById(t.getAttribute('aria-controls')));
+
+      function activateTab(tab){
+        tabs.forEach(t=>{
+          const active = t===tab;
+          t.setAttribute('aria-selected', active ? 'true' : 'false');
+          t.classList.toggle('hrpill--active', active);
+          t.tabIndex = active ? 0 : -1;
+        });
+        panels.forEach(p=>{
+          const isActive = p.id === tab.getAttribute('aria-controls');
+          p.classList.toggle('hidden', !isActive);
+          p.classList.toggle('hrpanel--active', isActive);
+        });
+      }
+
+      tabs.forEach(t=>{
+        t.addEventListener('click', ()=> activateTab(t));
+        t.addEventListener('keydown', (e)=>{
+          const i = tabs.indexOf(document.activeElement);
+          if(e.key === 'ArrowRight'){ e.preventDefault(); tabs[(i+1)%tabs.length].focus(); activateTab(tabs[(i+1)%tabs.length]); }
+          if(e.key === 'ArrowLeft'){ e.preventDefault(); tabs[(i-1+tabs.length)%tabs.length].focus(); activateTab(tabs[(i-1+tabs.length)%tabs.length]); }
+          if(e.key === 'Home'){ e.preventDefault(); tabs[0].focus(); activateTab(tabs[0]); }
+          if(e.key === 'End'){ e.preventDefault(); tabs[tabs.length-1].focus(); activateTab(tabs[tabs.length-1]); }
+        });
+      });
+
+      // init
+      activateTab(document.getElementById('tab-speed'));
+    })();
+  </script>
+
+  <!-- Auto-rotate hero tabs -->
+  <script>
+    (function () {
+      const root = document.getElementById('hero-tabs');
+      if (!root) return;
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const tablist = root.querySelector('#hr-tablist');
+      if (!tablist) return;
+      const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+
+      const ROTATE_MS = 6000;
+      let paused = false;
+      let resumeTimer = null;
+
+      function getActiveIdx() { return Math.max(0, tabs.findIndex(t => t.getAttribute('aria-selected') === 'true')); }
+      function goNext() {
+        if (paused || document.hidden) return;
+        const i = getActiveIdx();
+        const next = tabs[(i + 1) % tabs.length];
+        next && next.click();
+      }
+      function pause(ms) {
+        paused = true;
+        if (resumeTimer) clearTimeout(resumeTimer);
+        if (ms) resumeTimer = setTimeout(() => { resumeTimer = null; paused = false; }, ms);
+      }
+
+      ['click','keydown','pointerdown','focusin'].forEach(evt => {
+        tablist.addEventListener(evt, () => pause(10000), { passive: true });
+      });
+      root.addEventListener('mouseenter', () => { paused = true; }, { passive: true });
+      root.addEventListener('mouseleave', () => { if (!resumeTimer) paused = false; }, { passive: true });
+      document.addEventListener('visibilitychange', () => { if (document.hidden) pause(); });
+
+      setInterval(goNext, ROTATE_MS);
+    })();
+  </script>
+</section>
+
+  <!-- KEY USPs -->
+<section id="reasons" class="py-20 border-y border-slate-200 bg-white dark:bg-slate-950 dark:border-white/10">
+  <div class="max-w-7xl mx-auto px-4">
+    <header class="text-center max-w-3xl mx-auto">
+      <h2 class="text-4xl md:text-6xl font-extrabold tracking-tight" data-i18n="reasons.h">Six reasons serious agents switch to HiveReply</h2>
+      <p class="mt-3 text-sm text-slate-600 dark:text-slate-400" data-i18n="reasons.p">Focused on outcomes: speed to lead, consistency, conversion, and compliance.</p>
+    </header>
+    <main class="mt-12 md:mt-16">
+  
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- 1 -->
+      <article class="group relative rounded-2xl ring-1 ring-slate-200 dark:ring-white/10 bg-white dark:bg-slate-950 p-6 hover:shadow-glow">
+        <div class="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400" data-i18n="reasons.1.kicker">Speed to lead</div>
+        <h3 class="mt-1 text-xl font-bold" data-i18n="reasons.1.h">Instant first response</h3>
+        <p class="mt-2 text-slate-700 dark:text-slate-300" data-i18n-html="reasons.1.p">Reply in <strong>&lt;10 seconds</strong>, 24/7, across SMS & WhatsApp—so hot buyers don’t go cold.</p>
+        <div class="mt-4 inline-flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+          <span class="rounded-full px-2 py-0.5 bg-slate-100 dark:bg-white/5" data-i18n="reasons.1.t1">Always-on</span>
+          <span class="rounded-full px-2 py-0.5 bg-slate-100 dark:bg-white/5" data-i18n="reasons.1.t2">&lt;10s median</span>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="group relative rounded-2xl ring-1 ring-slate-200 dark:ring-white/10 bg-white dark:bg-slate-950 p-6 hover:shadow-glow">
+        <div class="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400" data-i18n="reasons.2.kicker">Quality & brand</div>
+        <h3 class="mt-1 text-xl font-bold" data-i18n="reasons.2.h">Standardised conversations</h3>
+        <p class="mt-2 text-slate-700 dark:text-slate-300" data-i18n="reasons.2.p">Your tone, your facts, every time. Templates and playbooks keep replies professional.</p>
+        <div class="mt-4 inline-flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+          <span class="rounded-full px-2 py-0.5 bg-slate-100 dark:bg-white/5" data-i18n="reasons.2.t1">EN / 中文</span>
+          <span class="rounded-full px-2 py-0.5 bg-slate-100 dark:bg-white/5" data-i18n="reasons.2.t2">Listing-aware</span>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="group relative rounded-2xl ring-1 ring-slate-200 dark:ring-white/10 bg-white dark:bg-slate-950 p-6 hover:shadow-glow">
+        <div class="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400" data-i18n="reasons.3.kicker">Conversion</div>
+        <h3 class="mt-1 text-xl font-bold" data-i18n="reasons.3.h">Clash-free bookings</h3>
+        <p class="mt-2 text-slate-700 dark:text-slate-300" data-i18n="reasons.3.p">Offer times, check working hours and conflicts, confirm instantly—no back-and-forth.</p>
+        <div class="mt-4 inline-flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+          <span class="rounded-full px-2 py-0.5 bg-slate-100 dark:bg-white/5" data-i18n="reasons.3.t1">Calendar-aware</span>
+          <span class="rounded-full px-2 py-0.5 bg-slate-100 dark:bg-white/5" data-i18n="reasons.3.t2">Open-home flow</span>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="group relative rounded-2xl ring-1 ring-slate-200 dark:ring-white/10 bg-white dark:bg-slate-950 p-6 hover:shadow-glow">
+        <div class="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400" data-i18n="reasons.4.kicker">Prioritisation</div>
+        <h3 class="mt-1 text-xl font-bold" data-i18n="reasons.4.h">Lead scoring & alerts</h3>
+        <p class="mt-2 text-slate-700 dark:text-slate-300" data-i18n="reasons.4.p">Detect high-intent buyers and alert your phone immediately so you jump first.</p>
+        <div class="mt-4 inline-flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+          <span class="rounded-full px-2 py-0.5 bg-slate-100 dark:bg-white/5" data-i18n="reasons.4.t1">Hot-lead ping</span>
+          <span class="rounded-full px-2 py-0.5 bg-slate-100 dark:bg-white/5" data-i18n="reasons.4.t2">Auto handoff</span>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="group relative rounded-2xl ring-1 ring-slate-200 dark:ring-white/10 bg-white dark:bg-slate-950 p-6 hover:shadow-glow">
+        <div class="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400" data-i18n="reasons.5.kicker">Compliance</div>
+        <h3 class="mt-1 text-xl font-bold" data-i18n="reasons.5.h">REAA-aware by design</h3>
+        <p class="mt-2 text-slate-700 dark:text-slate-300" data-i18n="reasons.5.p">Footers, opt-outs, audit logs, and sensible defaults that keep you covered.</p>
+        <div class="mt-4 inline-flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+          <span class="rounded-full px-2 py-0.5 bg-slate-100 dark:bg-white/5" data-i18n="reasons.5.t1">Audit trail</span>
+          <span class="rounded-full px-2 py-0.5 bg-slate-100 dark:bg-white/5" data-i18n="reasons.5.t2">Privacy-first</span>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="group relative rounded-2xl ring-1 ring-slate-200 dark:ring-white/10 bg-white dark:bg-slate-950 p-6 hover:shadow-glow">
+        <div class="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400" data-i18n="reasons.6.kicker">Operations</div>
+        <h3 class="mt-1 text-xl font-bold" data-i18n="reasons.6.h">CRM-ready data</h3>
+        <p class="mt-2 text-slate-700 dark:text-slate-300" data-i18n="reasons.6.p">Clean exports for every plan; native CRM sync on Pro & Enterprise.</p>
+        <div class="mt-4 inline-flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+          <span class="rounded-full px-2 py-0.5 bg-slate-100 dark:bg-white/5" data-i18n="reasons.6.t1">CSV export</span>
+          <span class="rounded-full px-2 py-0.5 bg-slate-100 dark:bg-white/5" data-i18n="reasons.6.t2">Native sync</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="mt-10 text-center">
+      <a href="/agent/register" class="inline-flex items-center justify-center rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 shadow-glow" data-i18n="cta.demo">Start free demo</a>
+      <p class="mt-3 text-xs text-slate-500 dark:text-slate-400" data-i18n="reasons.cta.note">Minutes to go live. Your number, your brand, your buyers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="py-24 relative overflow-hidden">
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0">
+    <div class="absolute inset-0 opacity-[0.06] dark:opacity-[0.08]"
+         style="background:
+          radial-gradient(90rem 44rem at 12% -10%, rgba(247,179,43,.18), transparent 60%),
+          radial-gradient(70rem 32rem at 95% 0%, rgba(2,6,23,.25), transparent 60%);">
+    </div>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-4">
+    <header class="text-center max-w-3xl mx-auto">
+      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight" data-i18n="how.h">Live in minutes — zero drama</h2>
+      <p class="mt-3 text-lg text-slate-700 dark:text-slate-300" data-i18n="how.p">
+        7-day shared-number trial, simple KYC, pick a plan, and let the AI work for you. No tech knowledge needed.
+      </p>
+    </header>
+
+    <div class="mt-10">
+      <div class="grid grid-cols-4 gap-2">
+        <span class="h-2 rounded-full bg-gradient-to-r from-amber-300 to-amber-500"></span>
+        <span class="h-2 rounded-full bg-gradient-to-r from-amber-300 to-amber-500/90"></span>
+        <span class="h-2 rounded-full bg-gradient-to-r from-amber-300/90 to-amber-500/80"></span>
+        <span class="h-2 rounded-full bg-gradient-to-r from-amber-300/80 to-amber-500/70"></span>
+      </div>
+      <div class="mt-2 grid grid-cols-4 text-[11px] sm:text-xs text-slate-600 dark:text-slate-400">
+        <div class="text-left" data-i18n="how.axis.trial">Trial</div>
+        <div class="text-center" data-i18n="how.axis.kyc">KYC</div>
+        <div class="text-center" data-i18n="how.axis.connect">Connect &amp; Pay</div>
+        <div class="text-right" data-i18n="how.axis.live">Go live</div>
+      </div>
+    </div>
+
+    <ol class="mt-12 grid gap-6 md:grid-cols-2">
+      <!-- 1 -->
+      <li class="how-card group">
+        <div class="how-head">
+          <span class="how-badge">1</span>
+          <h3 class="how-title" data-i18n="how.step1.title">Log in · 7-day trial (shared number)</h3>
+        </div>
+        <p class="how-copy" data-i18n-html="how.step1.copy">Hit <em>Start demo</em> and test real conversations immediately using a shared testing number.</p>
+        <ul class="how-tags" data-i18n-list="how.step1.tags">
+          <li>No credit card</li><li>Human onboarding</li>
+        </ul>
+      </li>
+
+      <!-- 2 -->
+      <li class="how-card group">
+        <div class="how-head">
+          <span class="how-badge">2</span>
+          <h3 class="how-title" data-i18n="how.step2.title">Complete basic KYC</h3>
+        </div>
+        <p class="how-copy" data-i18n="how.step2.copy">Quick ID and business details so messages stay compliant and numbers can be provisioned.</p>
+        <ul class="how-tags" data-i18n-list="how.step2.tags">
+          <li>Setup in minutes</li><li>No tech knowledge required</li>
+        </ul>
+      </li>
+
+      <!-- 3 -->
+      <li class="how-card group">
+        <div class="how-head">
+          <span class="how-badge">3</span>
+          <h3 class="how-title" data-i18n="how.step3.title">Pick a plan &amp; connect your number</h3>
+        </div>
+        <p class="how-copy" data-i18n="how.step3.copy">Bring your SMS/WhatsApp number or get one. We apply your tone, templates, and guardrails.</p>
+        <ul class="how-tags" data-i18n-list="how.step3.tags">
+          <li>Secure payment</li><li>Attach existing line or new</li>
+        </ul>
+      </li>
+
+      <!-- 4 -->
+      <li class="how-card group">
+        <div class="how-head">
+          <span class="how-badge how-badge--ok">4</span>
+          <h3 class="how-title" data-i18n="how.step4.title">Let HiveReply work for you</h3>
+        </div>
+        <p class="how-copy" data-i18n="how.step4.copy">One AI. One number. Instant replies, clash-free bookings, hot-lead alerts (EN/中文).</p>
+        <ul class="how-tags" data-i18n-list="how.step4.tags">
+          <li>Instant replies &amp; bookings</li><li>Lead scoring &amp; alerts</li>
+        </ul>
+      </li>
+    </ol>
+
+    <div class="mt-12 text-center">
+      <a href="/agent/register" class="inline-flex items-center gap-2 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 shadow-glow" data-i18n="cta.demo">Start 7-day demo</a>
+      <p class="mt-4 text-xs text-slate-500 dark:text-slate-400">
+        T&amp;Cs apply. Basic KYC required. KYC approval &amp; phone-number setup can sometimes take a few hours.
+        All onboarding includes a human touch — reach out anytime.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .how-card{
+    position: relative;
+    background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.6));
+    border:1px solid rgb(226 232 240);
+    border-radius: 1rem; padding: 1.25rem;
+  }
+  .dark .how-card{
+    background: linear-gradient(180deg, rgba(2,6,23,.55), rgba(2,6,23,.45));
+    border-color: rgba(255,255,255,.12);
+  }
+  .how-head{ display:flex; align-items:center; gap:.75rem; }
+  .how-badge{
+    display:grid; place-items:center;
+    width:2.5rem; height:2.5rem; border-radius:9999px;
+    font-weight:800; font-size:1rem;
+    color:#7a500b;
+    background:linear-gradient(#fff,#fff) padding-box,
+               linear-gradient(90deg,#c38314,#f7b32b,#ffd976) border-box;
+    border:2px solid transparent;
+    box-shadow:0 6px 30px -12px rgba(247,179,43,.45);
+  }
+  .dark .how-badge{ color:#ffd976; background:
+    linear-gradient(rgba(2,6,23,.75),rgba(2,6,23,.75)) padding-box,
+    linear-gradient(90deg,#c38314,#f7b32b,#ffd976) border-box;
+  }
+  .how-title{ font-weight:800; font-size:1.25rem; line-height:1.2; }
+  @media (min-width:768px){ .how-title{ font-size:1.5rem; } }
+  .how-copy{ margin-top:.35rem; color:#0f172a; }
+  .dark .how-copy{ color:#e5e7eb; }
+  .how-tags{
+    display:flex; flex-wrap:wrap; gap:.5rem; margin-top:.75rem;
+    color:#475569; font-size:.75rem;
+  }
+  .dark .how-tags{ color:#94a3b8; }
+  .how-tags li{
+    padding:.25rem .5rem; border-radius:9999px;
+    background:rgba(15,23,42,.04);
+  }
+  .dark .how-tags li{ background:rgba(255,255,255,.06); }
+</style>
+
+<!-- ROI -->
+<section id="roi" class="py-24">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-center" data-i18n="roi.h">What faster replies are worth</h2>
+    <p class="mt-3 text-center text-slate-700 dark:text-slate-300" data-i18n="roi.p">
+      Estimate upside from instant, on-brand responses across SMS & WhatsApp.
+    </p>
+
+  <div class="mt-12 grid gap-6 grid-cols-1 sm:grid-cols-2 auto-rows-fr">
+    <div class="rounded-2xl panel p-6 text-center h-full flex flex-col items-center justify-center">
+      <h3 class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400" data-i18n="roi.kpi.month">Extra GCI / month</h3>
+      <div id="roi-output" class="kpi-number hr-gradient mt-2 whitespace-nowrap tabular-nums">—</div>
+    </div>
+    <div class="rounded-2xl panel p-6 text-center h-full flex flex-col items-center justify-center">
+      <h3 class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400" data-i18n="roi.kpi.year">Extra GCI / year</h3>
+      <div id="roi-year" class="kpi-number hr-gradient mt-2 whitespace-nowrap tabular-nums">—</div>
+    </div>
+    <div class="rounded-2xl panel p-6 text-center h-full flex flex-col items-center justify-center">
+      <h3 class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400" data-i18n="roi.kpi.deals">Extra deals / month</h3>
+      <div id="roi-deals" class="kpi-number hr-gradient mt-2 whitespace-nowrap tabular-nums">—</div>
+    </div>
+    <div class="rounded-2xl panel p-6 text-center h-full flex flex-col items-center justify-center">
+      <h3 class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400" data-i18n="roi.kpi.newconv">New conversion rate</h3>
+      <div id="roi-newconv" class="kpi-number hr-gradient mt-2 whitespace-nowrap tabular-nums">—</div>
+    </div>
+  </div>
+
+    <!-- Inputs -->
+    <form id="roi-form" class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <label class="text-sm">
+        <span data-i18n="roi.label.leads">Leads / month</span>
+        <input type="number" min="0" id="roi-leads" class="w-full mt-1 rounded-xl ring-1 ring-slate-300 px-3 py-2 dark:bg-slate-950 dark:ring-white/15" value="120">
+      </label>
+
+      <label class="text-sm">
+        <span data-i18n="roi.label.commission">Avg. commission (NZ$)</span>
+        <input type="number" min="0" id="roi-commission" class="w-full mt-1 rounded-xl ring-1 ring-slate-300 px-3 py-2 dark:bg-slate-950 dark:ring-white/15" value="12000">
+      </label>
+
+      <label class="text-sm">
+        <span data-i18n="roi.label.conv">Current conversion %</span>
+        <input type="number" min="0" max="100" step="0.1" id="roi-conv" class="w-full mt-1 rounded-xl ring-1 ring-slate-300 px-3 py-2 dark:bg-slate-950 dark:ring-white/15" value="2.0">
+      </label>
+
+      <label class="text-sm">
+        <span data-i18n="roi.label.lift">Expected lift (+% pts)</span>
+        <div class="mt-2 flex items-center gap-3">
+          <input id="roi-lift" type="range" min="0" max="5" step="1" class="w-full accent-amber-500 roi-range">
+          <span id="roi-lift-label" class="text-sm tabular-nums text-slate-700 dark:text-slate-300">+1.0</span>
+        </div>
+      </label>
+    </form>
+
+    <p class="mt-4 text-center text-xs text-slate-500 dark:text-slate-400" data-i18n="roi.foot">
+      Lift adds percentage points to your current conversion. Figures are illustrative.
+    </p>
+  </div>
+
+  <style>
+    .kpi-number{ font-size:clamp(2.5rem,6vw,4.5rem); font-weight:800; line-height:1.05; letter-spacing:-0.02em; }
+    .roi-range{ -webkit-appearance:none; height:6px; border-radius:9999px;
+      background:linear-gradient(90deg,#c38314,#f7b32b,#ffd976); }
+    .roi-range::-webkit-slider-thumb{ -webkit-appearance:none; width:18px; height:18px; border-radius:9999px;
+      background:#fff; border:2px solid #f7b32b; box-shadow:0 2px 10px rgba(0,0,0,.12); }
+    .dark .roi-range::-webkit-slider-thumb{ background:rgba(2,6,23,.85); border-color:#f7b32b; }
+    .hr-gradient{ background:linear-gradient(90deg,#c38314,#f7b32b,#ffd976); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .auto-rows-fr { grid-auto-rows: 1fr; }
+    .kpi-number{ font-size:clamp(3rem, 8vw, 5.25rem); font-weight:800; line-height:1.05; letter-spacing:-0.02em; }
+  </style>
+
+<script>
+  (function(){
+    const $ = id => document.getElementById(id);
+    const leads = $('roi-leads'), comm = $('roi-commission'), conv = $('roi-conv'),
+          lift  = $('roi-lift'), liftLabel = $('roi-lift-label');
+
+    const outMonth = $('roi-output'), outYear = $('roi-year'),
+          outDeals = $('roi-deals'), outConv = $('roi-newconv');
+
+    function countUp(el, to, {prefix='NZ$ ', suffix='', duration=700} = {}) {
+      if (!el) return;
+      const locale = window.__LOCALE || 'en-NZ';
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const fmt = n => `${prefix}${n.toLocaleString(locale)}${suffix}`;
+      if (reduce) { el.textContent = fmt(to); autoScaleKPI(el, to); return; }
+      const start = performance.now(), from = 0;
+      function step(now) {
+        const p = Math.min(1, (now - start) / duration);
+        const v = Math.round(from + (to - from) * p);
+        el.textContent = fmt(v);
+        if (p < 1) requestAnimationFrame(step); else autoScaleKPI(el, to);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function autoScaleKPI(el, to){
+      const digits = String(Math.abs(Math.round(to))).length;
+      el.style.fontSize = '';
+      if (digits >= 9 && digits < 12) { el.style.fontSize = 'clamp(2.8rem, 7vw, 4.75rem)'; }
+      else if (digits >= 12 && digits < 15) { el.style.fontSize = 'clamp(2.5rem, 6.5vw, 4.25rem)'; }
+      else if (digits >= 15) { el.style.fontSize = 'clamp(2.2rem, 6vw, 3.75rem)'; }
+    }
+
+    const val = n => { const x = parseFloat(n); return Number.isFinite(x) ? x : 0; };
+
+    function calc(){
+      const L = val(leads.value);
+      const C = val(comm.value);
+      const base = val(conv.value) / 100;
+      const add  = val(lift.value) / 100;
+
+      const extraDeals = Math.max(0, L * add);
+      const extraGCI   = Math.max(0, extraDeals * C);
+      const yearGCI    = extraGCI * 12;
+      const newConvPct = Math.min(100, Math.max(0, (base + add) * 100));
+
+      countUp(outMonth, Math.round(extraGCI));
+      countUp(outYear,  Math.round(yearGCI));
+      const locale = window.__LOCALE || 'en-NZ';
+      outDeals.textContent = extraDeals ? (Math.round(extraDeals*10)/10).toLocaleString(locale) : '0';
+      outConv.textContent  = `${(Math.round(newConvPct*10)/10).toLocaleString(locale)}%`;
+      autoScaleKPI(outDeals, extraDeals);
+    }
+
+    lift.addEventListener('input', ()=> (liftLabel.textContent = `+${val(lift.value).toFixed(1)}`));
+    const deb = (fn, ms)=>{ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), ms); }; };
+    ['input','change'].forEach(evt => {
+      leads.addEventListener(evt, deb(calc, 80));
+      comm.addEventListener(evt,  deb(calc, 80));
+      conv.addEventListener(evt,  deb(calc, 80));
+      lift.addEventListener(evt,  deb(calc, 0));
+    });
+
+    lift.value = 1.0;
+    lift.dispatchEvent(new Event('input'));
+    calc();
+  })();
+</script>
+</section>
+
+<section id="pricing" class="py-24">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-center" data-i18n="pricing.h">Simple pricing that scales with you</h2>
+    <span id="pricing-source" class="block text-center text-xs text-slate-500 mt-2"></span>
+
+    <!-- Skeleton while loading -->
+    <div id="pricing-skeleton" class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="rounded-2xl panel p-6">
+        <div class="skl h-5 w-28 mb-4"></div>
+        <div class="skl h-10 w-40 mb-5"></div>
+        <div class="space-y-3">
+          <div class="skl h-3 w-3/4"></div>
+          <div class="skl h-3 w-2/3"></div>
+          <div class="skl h-3 w-1/2"></div>
+        </div>
+        <div class="skl h-9 w-full mt-6"></div>
+      </div>
+      <div class="rounded-2xl panel p-6">
+        <div class="skl h-5 w-28 mb-4"></div>
+        <div class="skl h-10 w-40 mb-5"></div>
+        <div class="space-y-3">
+          <div class="skl h-3 w-3/4"></div>
+          <div class="skl h-3 w-2/3"></div>
+          <div class="skl h-3 w-1/2"></div>
+        </div>
+        <div class="skl h-9 w-full mt-6"></div>
+      </div>
+      <div class="rounded-2xl panel p-6">
+        <div class="skl h-5 w-28 mb-4"></div>
+        <div class="skl h-10 w-40 mb-5"></div>
+        <div class="space-y-3">
+          <div class="skl h-3 w-3/4"></div>
+          <div class="skl h-3 w-2/3"></div>
+          <div class="skl h-3 w-1/2"></div>
+        </div>
+        <div class="skl h-9 w-full mt-6"></div>
+      </div>
+    </div>
+
+    <!-- Cards mount here from backend -->
+    <div id="pricing-grid" class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 hidden"></div>
+
+    <!-- Template -->
+    <template id="tpl-plan-card">
+      <div class="relative rounded-2xl panel p-6 shadow-sm flex flex-col">
+        <div class="plan-badge absolute -top-3 left-6 hidden bg-brand-600 text-white text-xs font-bold px-2 py-1 rounded"></div>
+        <h3 class="plan-name font-semibold"></h3>
+        <div class="plan-price mt-2 text-4xl font-extrabold"></div>
+        <ul class="plan-features mt-4 space-y-2 text-slate-700 dark:text-slate-300 text-sm"></ul>
+        <a class="plan-cta mt-6 inline-flex justify-center rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-4 py-2 hidden"></a>
+      </div>
+    </template>
+
+    <p id="pricing-empty" class="hidden text-center text-xs text-slate-600 dark:text-slate-500 mt-6" data-i18n="pricing.empty">
+      Plans will appear here when available.
+    </p>
+  </div>
+
+  <style>
+    .skl{position:relative;overflow:hidden;border-radius:.75rem;background:rgba(148,163,184,.20)}
+    .skl::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);
+      animation:shimmer 1.35s infinite;transform:translateX(-100%)}
+    @keyframes shimmer{100%{transform:translateX(100%)}}
+  </style>
+
+  <script>
+    (async function mountPricing(){ /* your existing script exactly as-is */ })();
+  </script>
+</section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-20 border-t border-slate-200 bg-slate-50 dark:border-white/10 dark:bg-slate-900/40" hidden>
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-10" data-i18n="testimonials.h">Trusted by agents</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <figure class="rounded-2xl panel p-6 text-left">
+          <blockquote class="text-slate-800 dark:text-slate-200" data-i18n="testimonials.q1">“Started with the demo and never looked back — every enquiry replied, every buyer tracked.”</blockquote>
+          <figcaption class="mt-3 text-sm text-slate-700 dark:text-slate-400" data-i18n="testimonials.a1">Anna K. · Auckland</figcaption>
+        </figure>
+        <figure class="rounded-2xl panel p-6 text-left">
+          <blockquote class="text-slate-800 dark:text-slate-200" data-i18n="testimonials.q2">“Onboarding was smooth and the AI works. Weekends are mine again.”</blockquote>
+          <figcaption class="mt-3 text-sm text-slate-700 dark:text-slate-400" data-i18n="testimonials.a2">S. Singh · Tauranga</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+<!-- FAQ -->
+<section id="faq" class="py-20">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-12" data-i18n="faq.h">FAQs</h2>
+
+    <div class="space-y-3" id="faq-accordion">
+      <!-- 1 -->
+      <details class="group rounded-2xl card p-5">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-semibold" data-i18n="faq.q1">What is HiveReply?</span>
+          <svg class="w-5 h-5 transition group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <p class="mt-3 text-sm text-slate-700 dark:text-slate-300" data-i18n="faq.a1">
+          An AI assistant for real-estate teams that replies instantly on SMS & WhatsApp, books viewings, and routes hot leads—so you move buyers to “yes” faster.
+        </p>
+      </details>
+
+      <!-- 2 -->
+      <details class="group rounded-2xl card p-5">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-semibold" data-i18n="faq.q2">How does the free 7-day demo work?</span>
+          <svg class="w-5 h-5 transition group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <p class="mt-3 text-sm text-slate-700 dark:text-slate-300" data-i18n="faq.a2">
+          Start in minutes using a shared test number. When you’re ready, pick a plan, complete a quick ID check, and go live with your own number. (KYC/number setup can occasionally take a few hours.)
+        </p>
+      </details>
+
+      <!-- 3 -->
+      <details class="group rounded-2xl card p-5">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-semibold" data-i18n="faq.q3">Can I get a dedicated marketing number?</span>
+          <svg class="w-5 h-5 transition group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <p class="mt-3 text-sm text-slate-700 dark:text-slate-300" data-i18n="faq.a3">
+          Yes—we’ll help you provision a virtual number to use across ads and listings, or connect your existing one. Calls, texts and WhatsApp all route to the same pipeline.
+        </p>
+      </details>
+
+      <!-- 4 -->
+      <details class="group rounded-2xl card p-5">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-semibold" data-i18n="faq.q4">Which channels can I connect?</span>
+          <svg class="w-5 h-5 transition group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <p class="mt-3 text-sm text-slate-700 dark:text-slate-300" data-i18n="faq.a4">
+          SMS, WhatsApp, voice calls and email—plus web forms and event/kiosk leads. Everything flows into one place so nothing slips through.
+        </p>
+      </details>
+
+      <!-- 5 -->
+      <details class="group rounded-2xl card p-5">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-semibold" data-i18n="faq.q5">Do I need technical skills to set it up?</span>
+          <svg class="w-5 h-5 transition group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <p class="mt-3 text-sm text-slate-700 dark:text-slate-300" data-i18n="faq.a5">
+          No—setup takes minutes and we’ll guide you. Our team can connect your number, add your tone and listings, and make sure you’re ready to go.
+        </p>
+      </details>
+
+      <!-- 6 -->
+      <details class="group rounded-2xl card p-5">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-semibold" data-i18n="faq.q6">Is it private and compliant?</span>
+          <svg class="w-5 h-5 transition group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <p class="mt-3 text-sm text-slate-700 dark:text-slate-300" data-i18n="faq.a6">
+          Yes—privacy-first defaults, clear opt-outs, and NZ real-estate (REAA) guardrails are built in. You stay in control of your brand and conversations.
+        </p>
+      </details>
+
+      <!-- 7 -->
+      <details class="group rounded-2xl card p-5">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-semibold" data-i18n="faq.q7">Does it work with my CRM?</span>
+          <svg class="w-5 h-5 transition group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <p class="mt-3 text-sm text-slate-700 dark:text-slate-300" data-i18n="faq.a7">
+          Yes—export on every plan, with native sync options on Pro & Enterprise. Your leads, conversations and bookings stay in your system of record.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+<!-- ABOUT + CONNECT (unified) -->
+<section id="about-connect" class="py-20 border-t border-slate-200 bg-white dark:bg-slate-950 dark:border-white/10">
+  <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-start">
+    <!-- Left: About -->
+<div data-reveal>
+  <h2 id="about" class="text-3xl md:text-4xl font-extrabold tracking-tight" data-i18n="about.h">
+    About HiveReply
+  </h2>
+      <p class="mt-3 text-slate-700 dark:text-slate-300" data-i18n="about.p1">
+        HiveReply is a startup based in Aotearoa New Zealand. We’re building a communications operating system for
+        real-estate teams—so every genuine enquiry gets an instant, consistent reply and a clear next step.
+      </p>
+
+      <!-- NOTE: no HTML inside data-i18n; emphasis is in separate spans -->
+      <p class="mt-3 text-slate-700 dark:text-slate-300">
+        <span data-i18n="about.p2.a">Our platform unifies</span>
+        <span class="font-semibold">SMS, WhatsApp</span>
+        <span data-i18n="about.p2.b">and—when you’re ready—</span>
+        <span class="font-semibold">voice, email and social</span>
+        <span data-i18n="about.p2.c">into one pipeline. The AI handles the routine (first replies, follow-ups, bookings); humans stay in control.</span>
+      </p>
+
+      <h3 class="mt-6 text-xl font-bold" data-i18n="about.vision.h">Our vision</h3>
+      <p class="mt-2 text-slate-700 dark:text-slate-300" data-i18n="about.vision.p">
+        Make property conversations <em>effortless and compliant</em>: fast acknowledgements, fewer back-and-forths,
+        and an audit trail you can trust.
+      </p>
+
+      <!-- Principles (compact) -->
+      <ul class="mt-6 grid sm:grid-cols-2 gap-4">
+        <li class="rounded-xl card p-5" data-reveal>
+          <div class="text-sm font-semibold" data-i18n="about.pr1.h">Privacy-first</div>
+          <p class="text-sm text-slate-700 dark:text-slate-400 mt-1" data-i18n="about.pr1.p">Sensible defaults, encryption, and clear opt-outs.</p>
+        </li>
+        <li class="rounded-xl card p-5" data-reveal>
+          <div class="text-sm font-semibold" data-i18n="about.pr2.h">Human-in-the-loop</div>
+          <p class="text-sm text-slate-700 dark:text-slate-400 mt-1" data-i18n="about.pr2.p">AI drafts and books; you steer and close.</p>
+        </li>
+        <li class="rounded-xl card p-5" data-reveal>
+          <div class="text-sm font-semibold" data-i18n="about.pr3.h">REAA-aware</div>
+          <p class="text-sm text-slate-700 dark:text-slate-400 mt-1" data-i18n="about.pr3.p">Built with NZ real-estate guardrails in mind.</p>
+        </li>
+        <li class="rounded-xl card p-5" data-reveal>
+          <div class="text-sm font-semibold" data-i18n="about.pr4.h">Open & unified</div>
+          <p class="text-sm text-slate-700 dark:text-slate-400 mt-1" data-i18n="about.pr4.p">One pipeline for SMS, WhatsApp, voice, email, social.</p>
+        </li>
+      </ul>
+    </div>
+
+<!-- Right: Contact -->
+<aside id="connect" class="rounded-2xl panel p-6 self-stretch" data-reveal>
+  <header class="mb-4">
+    <h3 class="text-xl font-bold">Connect with us</h3>
+    <p class="text-slate-700 dark:text-slate-300 mt-1" data-i18n="connect.note">
+      Prefer email, a quick message, or a call? Choose what’s easiest—we’ll reply promptly.
+    </p>
+  </header>
+
+  <!-- Quick contact pills -->
+  <ul class="grid sm:grid-cols-2 gap-3 mb-4">
+    <li class="rounded-xl card p-4 flex gap-3 items-start hover:shadow-glow transition" data-reveal>
+      <div aria-hidden="true">✉️</div>
+      <div>
+        <div class="text-sm font-semibold" data-i18n="connect.quick.email.h">Email</div>
+        <a class="text-sm text-brand-700 dark:text-brand-300 underline" href="mailto:info@hivereply.com">info@hivereply.com</a>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1" data-i18n="connect.quick.email.p">We typically respond within 1 business day.</p>
+      </div>
+    </li>
+    <li class="rounded-xl card p-4 flex gap-3 items-start hover:shadow-glow transition" data-reveal>
+      <div aria-hidden="true">💬</div>
+      <div>
+        <div class="text-sm font-semibold" data-i18n="connect.quick.msg.h">Message</div>
+        <a class="text-sm text-brand-700 dark:text-brand-300 underline" href="#" title="Start a WhatsApp conversation" data-i18n="connect.quick.msg.link">WhatsApp (start a chat)</a>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1" data-i18n="connect.quick.msg.p">Great for quick questions.</p>
+      </div>
+    </li>
+    <li class="rounded-xl card p-4 flex gap-3 items-start hover:shadow-glow transition" data-reveal>
+      <div aria-hidden="true">📞</div>
+      <div>
+        <div class="text-sm font-semibold" data-i18n="connect.quick.phone.h">Phone</div>
+        <span class="text-sm text-slate-700 dark:text-slate-300" data-i18n="connect.quick.phone.p">By request—leave your number in the form.</span>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1" data-i18n="connect.quick.phone.note">We’ll schedule a call that suits.</p>
+      </div>
+    </li>
+    <li class="rounded-xl card p-4 flex gap-3 items-start hover:shadow-glow transition" data-reveal>
+      <div aria-hidden="true">🔗</div>
+      <div>
+        <div class="text-sm font-semibold" data-i18n="connect.quick.li.h">LinkedIn</div>
+        <a class="text-sm text-brand-700 dark:text-brand-300 underline" href="https://linkedin.com/company/hivereply" target="_blank" rel="noopener" data-i18n="connect.quick.li.link">Follow HiveReply on LinkedIn</a>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1" data-i18n="connect.quick.li.p">Updates and behind-the-scenes.</p>
+      </div>
+    </li>
+  </ul>
+
+  <!-- Toggle button -->
+  <button id="contact-toggle" type="button"
+          class="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 shadow-glow mb-3">
+    <span data-i18n="connect.form.open">Contact us</span>
+  </button>
+
+  <!-- Success state -->
+  <div id="connect-success" class="hidden rounded-xl bg-emerald-50 dark:bg-emerald-900/20 ring-1 ring-emerald-300/50 dark:ring-emerald-500/30 p-4 mb-4">
+    <div class="font-semibold" data-i18n="connect.form.ok.h">Thanks—your message is on its way.</div>
+    <p class="text-sm text-slate-600 dark:text-slate-400" data-i18n="connect.form.ok.p">We’ll get back to you shortly.</p>
+  </div>
+
+  <!-- Form (collapsed by default) -->
+  <form id="connect-form" class="grid gap-4 hidden" novalidate>
+    <input type="text" name="company" class="hidden" tabindex="-1" autocomplete="off" />
+
+    <div>
+      <label class="block text-xs text-slate-700 dark:text-slate-400 mb-1" for="c-name" data-i18n="connect.form.label.name">Full name</label>
+      <input id="c-name" name="name" required
+             class="w-full rounded-xl bg-white ring-1 ring-slate-300 px-3 py-2 focus:outline-none focus:ring-brand-500/50 dark:bg-slate-950 dark:text-slate-100 dark:ring-white/15" />
+      <p class="mt-1 text-xs text-rose-600 hidden" data-error-for="c-name" data-i18n="connect.form.err.name">Please enter your name.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-xs text-slate-700 dark:text-slate-400 mb-1" for="c-email" data-i18n="connect.form.label.email">Email</label>
+        <input id="c-email" name="email" type="email" required
+               class="w-full rounded-xl bg-white ring-1 ring-slate-300 px-3 py-2 focus:outline-none focus:ring-brand-500/50 dark:bg-slate-950 dark:text-slate-100 dark:ring-white/15" />
+        <p class="mt-1 text-xs text-rose-600 hidden" data-error-for="c-email" data-i18n="connect.form.err.email">Valid email required.</p>
+      </div>
+      <div>
+        <label class="block text-xs text-slate-700 dark:text-slate-400 mb-1" for="c-phone" data-i18n="connect.form.label.phone">Phone (optional)</label>
+        <input id="c-phone" name="phone"
+               class="w-full rounded-xl bg-white ring-1 ring-slate-300 px-3 py-2 focus:outline-none focus:ring-brand-500/50 dark:bg-slate-950 dark:text-slate-100 dark:ring-white/15" />
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-xs text-slate-700 dark:text-slate-400 mb-1" for="c-topic" data-i18n="connect.form.label.topic">Topic</label>
+      <select id="c-topic" name="topic" data-i18n-options="connect.topic"
+              class="w-full rounded-xl bg-white ring-1 ring-slate-300 px-3 py-2 focus:outline-none focus:ring-brand-500/50 dark:bg-slate-950 dark:text-slate-100 dark:ring-white/15">
+        <option value="hello">Just saying hello</option>
+        <option value="demo">Book a demo</option>
+        <option value="callback">Request a callback</option>
+        <option value="partnerships">Partnerships</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="block text-xs text-slate-700 dark:text-slate-400 mb-1" for="c-message" data-i18n="connect.form.label.msg">Message</label>
+      <textarea id="c-message" name="message" rows="4" maxlength="600" required
+                class="w-full rounded-xl bg-white ring-1 ring-slate-300 px-3 py-2 focus:outline-none focus:ring-brand-500/50 dark:bg-slate-950 dark:text-slate-100 dark:ring-white/15"
+                placeholder="A sentence or two is perfect…"></textarea>
+      <div class="mt-1 flex items-center justify-between">
+        <p class="text-xs text-rose-600 hidden" data-error-for="c-message" data-i18n="connect.form.err.msg">Please add a short message.</p>
+        <span id="c-count" class="text-xs text-slate-500 dark:text-slate-400">0 / 600</span>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
+      <input id="c-consent" type="checkbox" class="rounded border-slate-300 dark:border-white/20" required />
+      <label for="c-consent">I agree to be contacted about HiveReply. <a href="/privacy" class="underline">Privacy</a>.</label>
+    </div>
+
+    <div id="captcha-slot" class="mt-1"></div>
+
+    <button id="c-submit" type="submit"
+            class="inline-flex items-center justify-center gap-2 rounded-2xl bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 shadow-glow">
+      <svg id="c-spinner" class="w-4 h-4 animate-spin hidden" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-opacity=".25" stroke-width="4"/>
+        <path d="M21 12a9 9 0 0 1-9 9" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <span data-i18n="connect.form.send">Send</span>
+    </button>
+
+    <p id="c-fail" class="hidden text-rose-600 text-sm" data-i18n="connect.form.fail">Something went wrong. Please try again.</p>
+  </form>
+
+  <p class="mt-4 text-center text-xs text-slate-700 dark:text-slate-400">
+    <span data-i18n="connect.form.pref">Prefer email?</span>
+    <a class="text-brand-700 dark:text-brand-300 font-semibold" href="mailto:info@hivereply.com">info@hivereply.com</a>
+  </p>
+</aside>
+
+
+  <style>
+    #about-connect [data-reveal]{opacity:0; transform:translateY(10px) scale(.98); transition:opacity .5s ease, transform .5s ease;}
+    #about-connect .reveal-in{opacity:1; transform:none;}
+  </style>
+
+  <script>
+    (function(){
+      // Reveal once
+      const obs = new IntersectionObserver(es=>{
+        es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('reveal-in'); obs.unobserve(e.target); }});
+      },{threshold:.2});
+      document.querySelectorAll('#about-connect [data-reveal]').forEach(el=>obs.observe(el));
+
+      // Toggle form
+      const toggle = document.getElementById('contact-toggle');
+      const form = document.getElementById('connect-form');
+      const ok = document.getElementById('connect-success');
+      const fail = document.getElementById('c-fail');
+      const submitBtn = document.getElementById('c-submit');
+      const spinner = document.getElementById('c-spinner');
+      const msg = document.getElementById('c-message');
+      const count = document.getElementById('c-count');
+
+      if (toggle) toggle.addEventListener('click', ()=>{ form.classList.toggle('hidden'); toggle.classList.add('hidden'); });
+
+      const updateCount = ()=>{ count.textContent = (msg.value.length||0) + ' / ' + (msg.maxLength||600); };
+      msg.addEventListener('input', updateCount); updateCount();
+
+      function showErr(id, show){
+        const el = form.querySelector('[data-error-for="'+id+'"]');
+        if(el) el.classList.toggle('hidden', !show);
+      }
+      function valid(){
+        let v = true;
+        const name = document.getElementById('c-name');
+        const email = document.getElementById('c-email');
+        const message = document.getElementById('c-message');
+        const consent = document.getElementById('c-consent');
+        const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        showErr('c-name', !name.value);
+        showErr('c-email', !emailRe.test(email.value||''));
+        showErr('c-message', !message.value);
+
+        v = !!name.value && emailRe.test(email.value||'') && !!message.value && consent.checked;
+        return v;
+      }
+
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        fail.classList.add('hidden');
+        if(!valid()) return;
+        if((form.querySelector('input[name="company"]')?.value || '').trim().length){ return; }
+
+        submitBtn.disabled = true; spinner.classList.remove('hidden');
+
+        try{
+          const data = Object.fromEntries(new FormData(form).entries());
+          delete data.company;
+
+          const res = await fetch('/api/contact', {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify(data)
+          });
+          const json = await res.json().catch(()=>({}));
+          if(res.ok && (json.status === 'ok' || Object.keys(json).length === 0)){
+            form.reset(); updateCount();
+            ok.classList.remove('hidden');
+            form.classList.add('hidden');
+          }else{
+            fail.classList.remove('hidden');
+          }
+        }catch(_e){
+          fail.classList.remove('hidden');
+        }finally{
+          submitBtn.disabled = false; spinner.classList.add('hidden');
+        }
+      });
+    })();
+  </script>
+</section>
+
+<footer role="contentinfo" class="border-t border-slate-200 dark:border-white/10 bg-white dark:bg-slate-950">
+  <div class="max-w-7xl mx-auto px-4 py-12 grid gap-10 md:grid-cols-4 items-start text-sm">
+    <!-- Brand / blurb -->
+    <div>
+      <a href="/" class="inline-flex items-center gap-2">
+        <img src="/static/logo.png" alt="HiveReply logo" class="h-7 w-7 rounded" />
+        <span class="font-extrabold">
+          <span class="dark:text-white">Hive</span><span class="text-brand-700 dark:text-brand-400">Reply</span>
+        </span>
+      </a>
+      <p class="mt-3 text-slate-600 dark:text-slate-400" data-i18n="footer.tagline">
+        AI communications OS for real-estate teams.
+      </p>
+      <p class="mt-3 text-xs text-slate-500 dark:text-slate-400" data-i18n="footer.copy">
+        © 2025 HiveReply Ltd. Built for real estate teams.
+      </p>
+    </div>
+
+    <!-- Product -->
+    <nav aria-label="Product">
+      <h3 class="font-semibold mb-3" data-i18n="footer.h.product">Product</h3>
+      <ul class="space-y-2">
+        <li><a href="#hero-tabs" data-i18n="nav.why">Why HiveReply</a></li>
+        <li><a href="#reasons" data-i18n="nav.features">Features</a></li>
+        <li><a href="#how" data-i18n="nav.how">How it works</a></li>
+        <li><a href="#roi" data-i18n="nav.roi">ROI Calculator</a></li>
+        <li><a href="#pricing" data-i18n="nav.pricing">Pricing</a></li>
+        <li><a href="#faq" data-i18n="nav.faq">FAQs</a></li>
+      </ul>
+    </nav>
+
+    <!-- Company -->
+    <nav aria-label="Company">
+      <h3 class="font-semibold mb-3" data-i18n="footer.h.company">Company</h3>
+      <ul class="space-y-2">
+        <li><a href="#about" data-i18n="about.h">About HiveReply</a></li>
+        <li><a href="#connect" data-i18n="nav.contact">Contact</a></li>
+        <li><a href="https://linkedin.com/company/hivereply" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="/sitemap.xml">Sitemap</a></li>
+      </ul>
+    </nav>
+
+    <!-- Legal -->
+    <nav aria-label="Legal">
+      <h3 class="font-semibold mb-3" data-i18n="footer.h.legal">Legal</h3>
+      <ul class="space-y-2">
+        <li><a href="/privacy" data-i18n="footer.link.privacy">Privacy Policy</a></li>
+        <li><a href="/terms-of-service" data-i18n="footer.link.terms">Terms of Service</a></li>
+        <li><a href="/cookies" data-i18n="footer.link.cookies">Cookie Policy</a></li>
+        <li><a href="/robots.txt" data-i18n="footer.link.robots">Robots.txt</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="border-t border-slate-200 dark:border-white/10">
+    <div class="max-w-7xl mx-auto px-4 py-4 text-xs text-slate-500 dark:text-slate-400 flex flex-wrap items-center justify-between gap-3">
+      <span data-i18n="footer.nz">Built in Aotearoa New Zealand</span>
+      <a href="/agent/login" class="underline-offset-2 hover:underline" data-i18n="footer.login">Agent Login</a>
+    </div>
+  </div>
+</footer>
+
+
+
+  <!-- Scripts -->
+  <script>
+    /* --- Sticky offsets --- */
+    const promoEl = document.getElementById('promo');
+    const headerEl = document.getElementById('site-header');
+    function setOffsets(){
+      const promoH = promoEl && !promoEl.classList.contains('hidden') ? promoEl.offsetHeight : 0;
+      const headerH = headerEl ? headerEl.offsetHeight : 64;
+      document.documentElement.style.setProperty('--promo-h', promoH + 'px');
+      document.documentElement.style.setProperty('--header-h', headerH + 'px');
+    }
+    window.addEventListener('load', setOffsets);
+    window.addEventListener('resize', setOffsets);
+
+    /* --- Mobile menu --- */
+    function toggleMenu(){ document.getElementById('mobile-menu').classList.toggle('hidden'); }
+    function closeMenu(){ document.getElementById('mobile-menu').classList.add('hidden'); }
+    window.toggleMenu = toggleMenu; window.closeMenu = closeMenu;
+
+    /* --- Theme toggle --- */
+    const themeBtn = document.getElementById('themeToggle');
+    function applyTheme(t){
+      if(t==='light'){ document.documentElement.classList.remove('dark'); }
+      else { document.documentElement.classList.add('dark'); }
+      localStorage.setItem('theme', t);
+    }
+    (function(){ applyTheme(localStorage.getItem('theme')||'light'); })();
+    themeBtn?.addEventListener('click', ()=>{ applyTheme(document.documentElement.classList.contains('dark') ? 'light' : 'dark'); });
+  </script>
+
+  <!-- Full-page i18n -->
+  <script>
+  const I18N = {
+    en: {
+      'promo.text':'Guided 7-day demo — no credit card.','promo.cta':'See pricing',
+      'nav.why':'Why HiveReply','nav.features':'Features','nav.how':'How it works','nav.pricing':'Pricing','nav.faq':'FAQ','nav.contact':'Contact','nav.login':'Agent Login','nav.roi':'ROI Calculator',
+      'cta.demo':'Start free demo','cta.how':'See how it works',
+      'hero.badge':'Built for real estate · REAA-aware',
+      'hero.title.pre':'Sell more by replying','hero.title.highlight':'faster & consistently',
+      'hero.live':'Live','hero.cancel':'Cancel anytime','hero.onboarding':'Human onboarding',
+
+      'tabs.headline':'Built for agents who sell every day',
+      'tabs.subhead':'One AI. One number. Instant replies across SMS & WhatsApp that standardise tone, look professional, and move buyers to bookings fast.',
+
+      'tabs.btn.speed':'Speed','tabs.btn.standard':'Standard','tabs.btn.bookings':'Bookings','tabs.btn.priority':'Priority','tabs.btn.compliance':'Compliance','tabs.btn.ops':'Ops',
+
+      // panel keys (both styles supported)
+      'tabs.speed.h':'Instant First Response',
+      'tabs.speed.p':'Be first—every time. Replies in <strong>&lt;10s</strong>, 24/7, on SMS & WhatsApp.',
+      'tabs.speed.title':'Instant First Response',
+      'tabs.speed.copy.pre':'Be first—every time. Replies in',
+      'tabs.speed.copy.post':', 24/7, on SMS & WhatsApp.',
+      'tabs.speed.l1':'• Ad click → conversation with zero lag',
+      'tabs.speed.l2':'• Auto follow-ups if a buyer goes quiet',
+      'tabs.speed.l3':'• Handover with full context when you jump in',
+
+      'tabs.standard.h':'On-Brand, Every Time',
+      'tabs.standard.p':'One AI. One tone. Standardised playbooks—no ad-hoc texts.',
+      'tabs.standard.title':'On-Brand, Every Time',
+      'tabs.standard.copy':'One AI. One tone. Standardised playbooks—no ad-hoc texts.',
+      'tabs.standard.l1':'• Listing-aware answers: price, times, key features',
+      'tabs.standard.l2':'• Pre-approved phrasing & disclaimers (EN / 中文)',
+      'tabs.standard.l3':'• Team templates you update once, used everywhere',
+
+      'tabs.bookings.h':'Clash-Free Bookings',
+      'tabs.bookings.p':'Offer, check, confirm—done. No back-and-forth.',
+      'tabs.bookings.title':'Clash-Free Bookings',
+      'tabs.bookings.copy':'Offer, check, confirm—done. No back-and-forth.',
+      'tabs.bookings.l1':'• Works with open homes & private viewings',
+      'tabs.bookings.l2':'• Calendar & working-hours guardrails before confirming',
+      'tabs.bookings.l3':'• One-tap confirm + ICS invite and reminders',
+
+      'tabs.priority.h':'Hot Leads, First',
+      'tabs.priority.p':'Serious buyers rise to the top—so you call first.',
+      'tabs.priority.title':'Hot Leads, First',
+      'tabs.priority.copy':'Serious buyers rise to the top—so you call first.',
+      'tabs.priority.l1':'• Intent scoring from questions, timing, and urgency',
+      'tabs.priority.l2':'• Instant ping to your phone with next-best action',
+      'tabs.priority.l3':'• Contact card + structured notes auto-created',
+
+      'tabs.compliance.h':'REAA-Aware by Design',
+      'tabs.compliance.p':'Move fast without risk—guardrails built in.',
+      'tabs.compliance.title':'REAA-Aware by Design',
+      'tabs.compliance.copy':'Move fast without risk—guardrails built in.',
+      'tabs.compliance.l1':'• Mandatory footers, opt-outs honoured per channel',
+      'tabs.compliance.l2':'• Sensitive details handled safely; privacy defaults on',
+      'tabs.compliance.l3':'• Immutable audit trail across every conversation',
+
+      'tabs.ops.h':'Numbers You Can Act On',
+      'tabs.ops.p':'See what converts. Sync what matters.',
+      'tabs.ops.title':'Numbers You Can Act On',
+      'tabs.ops.copy':'See what converts. Sync what matters.',
+      'tabs.ops.l1':'• Response time, booking rate, and source attribution',
+      'tabs.ops.l2':'• CSV on all plans; native CRM sync on Pro & Enterprise',
+      'tabs.ops.l3':'• Agency roll-ups across offices and teams',
+
+      'why.card1':'Instant first response — even at 2am.',
+      'why.card2':'More booked viewings from faster follow-ups.',
+      'why.card3':'Monthly admin time saved across the team.',
+
+      'trust.secure':   'Data encryption & security',
+      'trust.channels': 'SMS, WhatsApp, Voice, Email & more',
+      'trust.dashboard':'Unified agent dashboard',
+      'trust.stripe':   'Stripe billing',
+      'trust.nz':       'NZ-first · REAA aware',
+
+      'micro.proof':'Teams typically see <span class="font-semibold">+20–40% more booked viewings</span> with faster, consistent follow-ups.',
+
+      'reasons.h':'Six reasons serious agents switch to HiveReply',
+      'reasons.p':'Focused on outcomes: speed to lead, consistency, conversion, and compliance.',
+      'reasons.1.kicker':'Speed to lead','reasons.1.h':'Instant first response','reasons.1.p':'Reply in <strong>&lt;10 seconds</strong>, 24/7, across SMS & WhatsApp—so hot buyers don’t go cold.','reasons.1.t1':'Always-on','reasons.1.t2':'<10s median',
+      'reasons.2.kicker':'Quality & brand','reasons.2.h':'Standardised conversations','reasons.2.p':'Your tone, your facts, every time. Templates and playbooks keep replies professional.','reasons.2.t1':'EN / 中文','reasons.2.t2':'Listing-aware',
+      'reasons.3.kicker':'Conversion','reasons.3.h':'Clash-free bookings','reasons.3.p':'Offer times, check working hours and conflicts, confirm instantly—no back-and-forth.','reasons.3.t1':'Calendar-aware','reasons.3.t2':'Open-home flow',
+      'reasons.4.kicker':'Prioritisation','reasons.4.h':'Lead scoring & alerts','reasons.4.p':'Detect high-intent buyers and alert your phone immediately so you jump first.','reasons.4.t1':'Hot-lead ping','reasons.4.t2':'Auto handoff',
+      'reasons.5.kicker':'Compliance','reasons.5.h':'REAA-aware by design','reasons.5.p':'Footers, opt-outs, audit logs, and sensible defaults that keep you covered.','reasons.5.t1':'Audit trail','reasons.5.t2':'Privacy-first',
+      'reasons.6.kicker':'Operations','reasons.6.h':'CRM-ready data','reasons.6.p':'Clean exports for every plan; native CRM sync on Pro & Enterprise.','reasons.6.t1':'CSV export','reasons.6.t2':'Native sync',
+      'reasons.cta.note':'Minutes to go live. Your number, your brand, your buyers.',
+
+      'roi.h':'What faster replies are worth','roi.p':'Estimate upside from instant, on-brand responses across SMS & WhatsApp.',
+      'roi.kpi.month':'Extra GCI / month','roi.kpi.year':'Extra GCI / year','roi.kpi.deals':'Extra deals / month','roi.kpi.newconv':'New conversion rate',
+      'roi.label.leads':'Leads / month','roi.label.commission':'Avg. commission (NZ$)','roi.label.conv':'Current conversion %','roi.label.lift':'Expected lift (+% pts)',
+      'roi.foot':'“Lift” adds percentage points to your current conversion. Figures are illustrative.',
+
+      'how.h':'Live in minutes — zero drama','how.p':'7-day shared-number trial, simple KYC, pick a plan, and let the AI work for you. No tech knowledge needed.',
+      'how.axis.trial':'Trial','how.axis.kyc':'KYC','how.axis.connect':'Connect & Pay','how.axis.live':'Go live',
+      'how.step1.title':'Log in · 7-day trial (shared number)','how.step1.copy':'Hit <em>Start demo</em> and test real conversations immediately using a shared testing number.',
+      'how.step2.title':'Complete basic KYC','how.step2.copy':'Quick ID and business details so messages stay compliant and numbers can be provisioned.',
+      'how.step3.title':'Pick a plan & connect your number','how.step3.copy':'Bring your SMS/WhatsApp number or get one. We apply your tone, templates, and guardrails.',
+      'how.step4.title':'Let HiveReply work for you','how.step4.copy':'One AI. One number. Instant replies, clash-free bookings, hot-lead alerts (EN/中文).',
+
+      'pricing.h':'Simple pricing that scales with you','pricing.empty':'Plans will appear here when available.',
+
+      'testimonials.h':'Trusted by agents','testimonials.q1':'“Started with the demo and never looked back — every enquiry replied, every buyer tracked.”','testimonials.a1':'Anna K. · Auckland','testimonials.q2':'“Onboarding was smooth and the AI works. Weekends are mine again.”','testimonials.a2':'S. Singh · Tauranga',
+
+      'connect.h':'Connect with us','connect.note':'Prefer email, a quick message, or a call? Choose what’s easiest—we’ll reply promptly.',
+      'connect.form.h':'Send us a note',
+      'connect.form.ok.title':'Thanks—your message is on its way.','connect.form.ok.body':'We’ll get back to you shortly.',
+      'connect.form.fail':'Something went wrong. Please try again.',
+      'connect.form.label.name':'Full name','connect.form.label.email':'Email','connect.form.label.phone':'Phone (optional)','connect.form.label.topic':'Topic','connect.form.label.msg':'Message',
+      'connect.form.placeholder':'A sentence or two is perfect…','connect.form.send':'Send',
+      'connect.form.consent':'I agree to be contacted about HiveReply. <a href="/privacy" class="underline">Privacy</a>.',
+      'connect.form.err.name':'Please enter your name.','connect.form.err.email':'Valid email required.','connect.form.err.msg':'Please add a short message.',
+      'connect.form.pref':'Prefer email?',
+      'connect.form.open':'Contact us',
+
+
+      'connect.quick.email.h':'Email','connect.quick.email.p':'We typically respond within 1 business day.',
+      'connect.quick.msg.h':'Message','connect.quick.msg.link':'WhatsApp (start a chat)','connect.quick.msg.p':'Great for quick questions.',
+      'connect.quick.phone.h':'Phone','connect.quick.phone.p':'By request—leave your number in the form.','connect.quick.phone.note':'We’ll schedule a call that suits.',
+      'connect.quick.li.h':'LinkedIn','connect.quick.li.link':'Follow HiveReply on LinkedIn','connect.quick.li.p':'Updates and behind-the-scenes.',
+
+      'faq.h':'FAQs',
+      'faq.q1':'What is HiveReply?','faq.a1':'An AI assistant for real-estate teams that replies instantly on SMS & WhatsApp, books viewings, and routes hot leads—so you move buyers to “yes” faster.',
+      'faq.q2':'How does the free 7-day demo work?','faq.a2':'Start in minutes using a shared test number. When you’re ready, pick a plan, complete a quick ID check, and go live with your own number. (KYC/number setup can occasionally take a few hours.)',
+      'faq.q3':'Can I get a dedicated marketing number?','faq.a3':'Yes—we’ll help you provision a virtual number to use across ads and listings, or connect your existing one. Calls, texts and WhatsApp all route to the same pipeline.',
+      'faq.q4':'Which channels can I connect?','faq.a4':'SMS, WhatsApp, voice calls and email—plus web forms and event/kiosk leads. Everything flows into one place so nothing slips through.',
+      'faq.q5':'Do I need technical skills to set it up?','faq.a5':'No—setup takes minutes and we’ll guide you. Our team can connect your number, add your tone and listings, and make sure you’re ready to go.',
+      'faq.q6':'Is it private and compliant?','faq.a6':'Yes—privacy-first defaults, clear opt-outs, and NZ real-estate (REAA) guardrails are built in. You stay in control of your brand and conversations.',
+      'faq.q7':'Does it work with my CRM?','faq.a7':'Yes—export on every plan, with native sync options on Pro & Enterprise. Your leads, conversations and bookings stay in your system of record.',
+
+      'about.h':'About HiveReply','about.p1':'HiveReply is a startup based in Aotearoa New Zealand. We’re building a communications operating system for real-estate teams—so every genuine enquiry gets an instant, consistent reply and a clear next step.','about.p2':'Our platform unifies <strong>SMS, WhatsApp</strong> and—when you’re ready—<strong>voice, email and social</strong> into one pipeline. The AI handles the routine (first replies, follow-ups, bookings); humans stay in control.','about.vision.h':'Our vision','about.vision.p':'Make property conversations <em>effortless and compliant</em>: fast acknowledgements, fewer back-and-forths, and an audit trail you can trust.',
+      'about.pr1.h':'Privacy-first','about.pr1.p':'Sensible defaults, encryption, and clear opt-outs.',
+      'about.pr2.h':'Human-in-the-loop','about.pr2.p':'AI drafts and books; you steer and close.',
+      'about.pr3.h':'REAA-aware','about.pr3.p':'Built with NZ real-estate guardrails in mind.',
+      'about.pr4.h':'Open & unified','about.pr4.p':'One pipeline for SMS, WhatsApp, voice, email, social.',
+      'about.pr5.h':'NZ-based','about.pr5.p':'Local team; EN / 中文 support available.',
+      'about.pr6.h':'Results over hype','about.pr6.p':'Speed, clarity, booked viewings—measured.',
+
+      'footer.copy':'© 2025 HiveReply Ltd. Built for real estate teams.',
+      'footer.h.product': 'Product',
+      'footer.h.company': 'Company',
+      'footer.h.legal': 'Legal',
+      'footer.tagline': 'AI communications OS for real-estate teams.',
+      'footer.nz': 'Built in Aotearoa New Zealand',
+      'footer.login': 'Agent Login',
+      'footer.link.privacy': 'Privacy Policy',
+      'footer.link.terms': 'Terms of Service',
+      'footer.link.cookies': 'Cookie Policy',
+      'footer.link.robots': 'Robots.txt'
+    },
+    zh: {
+      'promo.text':'7天引导试用 — 无需信用卡','promo.cta':'查看价格',
+      'nav.why':'为什么选择 HiveReply','nav.features':'功能','nav.how':'如何运作','nav.pricing':'价格','nav.faq':'常见问题','nav.contact':'联系','nav.login':'经纪人登录','nav.roi':'ROI 计算器',
+
+      'cta.demo':'开始免费试用','cta.how':'查看流程',
+      'hero.badge':'为房产打造 · 注重 REAA 合规',
+      'hero.title.pre':'更快、更一致地回复','hero.title.highlight':'带来更多成交',
+      'hero.live':'在线','hero.cancel':'随时取消','hero.onboarding':'人工引导上手',
+
+      'tabs.headline':'为每天都在成交的一线经纪人打造',
+      'tabs.subhead':'一个 AI，一个号码。覆盖 SMS / WhatsApp 的即时回复，统一语气、专业得体，让买家更快进入预约环节。',
+
+      'tabs.btn.speed':'速度','tabs.btn.standard':'标准','tabs.btn.bookings':'预约','tabs.btn.priority':'优先','tabs.btn.compliance':'合规','tabs.btn.ops':'运营',
+
+      'tabs.speed.h':'即时首响',
+      'tabs.speed.p':'次次抢先。<strong>&lt;10 秒</strong>内在 SMS / WhatsApp 回复，全年无休。',
+      'tabs.speed.title':'即时首响',
+      'tabs.speed.copy.pre':'次次抢先。回复在',
+      'tabs.speed.copy.post':' 内完成（全年无休，SMS / WhatsApp）。',
+      'tabs.speed.l1':'• 广告点击即对话，无等待',
+      'tabs.speed.l2':'• 买家安静时自动跟进',
+      'tabs.speed.l3':'• 你接手时附完整上下文',
+
+      'tabs.standard.h':'始终保持品牌语气',
+      'tabs.standard.p':'一个 AI，一个口径。标准化话术，告别临场发挥。',
+      'tabs.standard.title':'始终保持品牌语气',
+      'tabs.standard.copy':'一个 AI，一个口径。标准化话术，告别临场发挥。',
+      'tabs.standard.l1':'• 结合房源信息：价格、时间、要点',
+      'tabs.standard.l2':'• 预审话术与免责声明（EN / 中文）',
+      'tabs.standard.l3':'• 团队模板一处更新、处处生效',
+
+      'tabs.bookings.h':'无冲突预约',
+      'tabs.bookings.p':'提供时间、检查冲突、一键确认——不再拉锯。',
+      'tabs.bookings.title':'无冲突预约',
+      'tabs.bookings.copy':'提供时间、检查冲突、一键确认——不再拉锯。',
+      'tabs.bookings.l1':'• 同步开放参观与私下看房',
+      'tabs.bookings.l2':'• 确认前检查日程与工作时段',
+      'tabs.bookings.l3':'• 一键确认 + ICS 邀请与提醒',
+
+      'tabs.priority.h':'优先处理热客',
+      'tabs.priority.p':'识别高意向买家，让你先拨出那通关键电话。',
+      'tabs.priority.title':'优先处理热客',
+      'tabs.priority.copy':'识别高意向买家，让你先拨出那通关键电话。',
+      'tabs.priority.l1':'• 从问题、时机与紧迫度评估意向',
+      'tabs.priority.l2':'• 立刻推送到你手机并给出下一步',
+      'tabs.priority.l3':'• 自动生成联系人卡片与结构化备注',
+
+      'tabs.compliance.h':'天生合规（REAA）',
+      'tabs.compliance.p':'快而不冒险——合规护栏内置其间。',
+      'tabs.compliance.title':'天生合规（REAA）',
+      'tabs.compliance.copy':'快而不冒险——合规护栏内置其间。',
+      'tabs.compliance.l1':'• 强制页脚，按通道尊重退订',
+      'tabs.compliance.l2':'• 谨慎处理敏感信息；隐私默认开启',
+      'tabs.compliance.l3':'• 每段对话皆有不可篡改审计记录',
+
+      'tabs.ops.h':'看得见、用得上的数据',
+      'tabs.ops.p':'找出转化点；把有价值的数据同步到你的系统。',
+      'tabs.ops.title':'看得见、用得上的数据',
+      'tabs.ops.copy':'找出转化点；把有价值的数据同步到你的系统。',
+      'tabs.ops.l1':'• 响应时长、预约率、来源归因',
+      'tabs.ops.l2':'• 所有套餐可导出 CSV；高级套餐可原生同步 CRM',
+      'tabs.ops.l3':'• 机构可按门店/团队汇总',
+
+      'why.card1':'即使凌晨也能即时首响。','why.card2':'更快跟进带来更多预约。','why.card3':'团队每月节省大量行政时间。',
+
+      'trust.secure':   '数据加密与安全',
+      'trust.channels': '短信、WhatsApp、语音、电子邮件等',
+      'trust.dashboard':'统一工作台',
+      'trust.stripe':   'Stripe 计费',
+      'trust.nz':       '新西兰优先 · REAA 友好',
+
+      'micro.proof':'团队通常可通过更快且一致的跟进，获得<span class="font-semibold">+20–40%</span>的预约增幅。',
+
+      'reasons.h':'六大理由——专业经纪人都在用 HiveReply',
+      'reasons.p':'紧盯结果：响应速度、品牌一致、转化提升与合规保障。',
+      'reasons.1.kicker':'响应速度','reasons.1.h':'即时首响','reasons.1.p':'<strong>&lt;10 秒</strong>内回复（全年无休，SMS / WhatsApp），热客不降温。','reasons.1.t1':'始终在线','reasons.1.t2':'<10秒中位数',
+      'reasons.2.kicker':'品质与品牌','reasons.2.h':'标准化对话','reasons.2.p':'你的语气、你的事实，每一次都专业。模板与打法沉淀为资产。','reasons.2.t1':'EN / 中文','reasons.2.t2':'识别房源信息',
+      'reasons.3.kicker':'转化','reasons.3.h':'无冲突预约','reasons.3.p':'给时间、查冲突、秒确认——不用往返拉扯。','reasons.3.t1':'日历感知','reasons.3.t2':'开放参观流程',
+      'reasons.4.kicker':'优先级','reasons.4.h':'线索评分与提醒','reasons.4.p':'识别高意向，立即推送到你手机，让你先出击。','reasons.4.t1':'热客提醒','reasons.4.t2':'自动交接',
+      'reasons.5.kicker':'合规','reasons.5.h':'天生合规（REAA）','reasons.5.p':'页脚、退订、审计与隐私默认，出厂即合规。','reasons.5.t1':'审计轨迹','reasons.5.t2':'隐私优先',
+      'reasons.6.kicker':'运营','reasons.6.h':'CRM 就绪数据','reasons.6.p':'各套餐均可导出 CSV；高级套餐原生 CRM 同步。','reasons.6.t1':'CSV 导出','reasons.6.t2':'原生同步',
+      'reasons.cta.note':'几分钟即可上线。你的号码、你的品牌、你的客户。',
+
+      'roi.h':'更快回复能带来多少价值','roi.p':'评估在 SMS 与 WhatsApp 上即时、统一品牌回复所带来的增益。',
+      'roi.kpi.month':'每月新增 GCI','roi.kpi.year':'每年新增 GCI','roi.kpi.deals':'每月新增成交数','roi.kpi.newconv':'新的转化率',
+      'roi.label.leads':'每月线索数','roi.label.commission':'平均佣金（NZ$）','roi.label.conv':'当前转化率 %','roi.label.lift':'预期提升（百分点）',
+      'roi.foot':'“提升”指在当前转化率基础上增加的百分点。结果仅为示意。',
+
+      'how.h':'数分钟上线 — 零折腾','how.p':'7 天共享号码试用，简单 KYC，选择套餐即可使用。无需技术背景。',
+      'how.axis.trial':'试用','how.axis.kyc':'KYC','how.axis.connect':'连接与支付','how.axis.live':'上线',
+      'how.step1.title':'登录 · 7 天试用（共享号）','how.step1.copy':'点击 <em>开始试用</em>，立即用共享测试号码体验真实对话。',
+      'how.step2.title':'完成基础 KYC','how.step2.copy':'提供必要的身份与公司信息，以保证合规并开通号码。',
+      'how.step3.title':'选择套餐并连接号码','how.step3.copy':'接入你的 SMS/WhatsApp 号码或新开一个。我们会应用你的语气、模板与护栏。',
+      'how.step4.title':'让 HiveReply 开始工作','how.step4.copy':'一个 AI，一个号码。即时回复、无冲突预约、高意向提醒（EN/中文）。',
+
+      'pricing.h':'简单透明，随团队一起扩展','pricing.empty':'套餐将很快显示在此。',
+
+      'testimonials.h':'深受经纪人信赖','testimonials.q1':'“从试用开始一路用到现在——每条咨询都有回复，每位买家都不丢。”','testimonials.a1':'Anna K. · 奥克兰','testimonials.q2':'“上手顺畅，AI 给力。周末终于回来了。”','testimonials.a2':'S. Singh · 陶朗加',
+
+      'connect.h':'与我们联系','connect.note':'喜欢邮件、消息还是电话？任选其一，我们会尽快回复。',
+      'connect.form.h':'给我们留言',
+      'connect.form.ok.title':'已收到，感谢你的留言。','connect.form.ok.body':'我们会尽快联系你。',
+      'connect.form.fail':'出错了，请重试。',
+      'connect.form.label.name':'姓名','connect.form.label.email':'邮箱','connect.form.label.phone':'电话（可选）','connect.form.label.topic':'主题','connect.form.label.msg':'留言',
+      'connect.form.placeholder':'简单几句即可…','connect.form.send':'发送',
+      'connect.form.consent':'我同意接收 HiveReply 的联系。<a href="/privacy" class="underline">隐私政策</a>。',
+      'connect.form.err.name':'请填写姓名。','connect.form.err.email':'请填写有效邮箱。','connect.form.err.msg':'请填写简短留言。',
+      'connect.form.pref':'喜欢邮件？',
+      'connect.form.open':'联系我们',
+
+
+      'connect.quick.email.h':'邮箱','connect.quick.email.p':'一般 1 个工作日内回复。',
+      'connect.quick.msg.h':'消息','connect.quick.msg.link':'WhatsApp（发起对话）','connect.quick.msg.p':'适合快速咨询。',
+      'connect.quick.phone.h':'电话','connect.quick.phone.p':'可按需提供——请在表单留下号码。','connect.quick.phone.note':'我们会约一个合适的时间来电。',
+      'connect.quick.li.h':'LinkedIn','connect.quick.li.link':'在 LinkedIn 关注 HiveReply','connect.quick.li.p':'获取最新动态与幕后故事。',
+
+      'faq.h':'常见问题',
+      'faq.q1':'什么是 HiveReply？','faq.a1':'面向房产团队的 AI 助手，可在 SMS / WhatsApp 即时回复、安排看房并推送热客，让买家更快走向“同意”。',
+      'faq.q2':'7 天免费试用如何进行？','faq.a2':'几分钟即可开始，使用共享测试号码。准备就绪后，选择套餐、完成快速身份验证，即可用上你自己的号码。（KYC / 号码开通偶尔需要数小时。）',
+      'faq.q3':'可以用独立营销号码吗？','faq.a3':'可以——我们可协助你开通虚拟号码用于广告与房源，或连接现有号码。来电、短信与 WhatsApp 统一进入同一流程。',
+      'faq.q4':'能接哪些渠道？','faq.a4':'SMS、WhatsApp、语音与邮箱——再加表单与活动/展台线索。所有入口汇总到一个地方，不再遗漏。',
+      'faq.q5':'需要技术背景吗？','faq.a5':'不需要——几分钟就能完成，我们会引导你。团队也可代你连接号码、配置语气与房源，确保随时上线。',
+      'faq.q6':'是否私密且合规？','faq.a6':'是的——隐私优先默认、清晰退订与新西兰房产（REAA）护栏全都内置。品牌与对话始终由你掌控。',
+      'faq.q7':'能与我的 CRM 协同吗？','faq.a7':'可以——所有套餐都可导出，专业与企业套餐提供原生同步。线索、对话与预约都能回到你的系统沉淀。',
+
+      'about.h':'关于 HiveReply','about.p1':'HiveReply 总部位于新西兰。我们正在打造面向房产团队的通信操作系统，让每一条真实咨询都能得到即时、统一的回复与清晰的下一步。','about.p2':'平台将 <strong>SMS、WhatsApp</strong> 统一到一个管道，并可在你准备好时接入 <strong>语音、邮箱与社媒</strong>。AI 负责重复性工作（首响、跟进、预约），人类负责把控与成交。','about.vision.h':'我们的愿景','about.vision.p':'让房产对话 <em>高效且合规</em>：更快确认、更少拉扯、可靠可追踪的审计记录。',
+      'about.pr1.h':'隐私优先','about.pr1.p':'合理默认、到位加密与清晰退订。',
+      'about.pr2.h':'人机协同','about.pr2.p':'AI 起草并预约，你来掌舵成交。',
+      'about.pr3.h':'REAA 友好','about.pr3.p':'以新西兰房产合规为准绳设计。',
+      'about.pr4.h':'开放统一','about.pr4.p':'SMS、WhatsApp、语音、邮箱、社媒一站打通。',
+      'about.pr5.h':'立足新西兰','about.pr5.p':'本地团队；支持 EN / 中文。',
+      'about.pr6.h':'结果导向','about.pr6.p':'速度、清晰、预约量——看得见的提升。',
+
+      'footer.copy':'© 2025 HiveReply Ltd. 面向房产团队而建。',
+      'footer.h.product': '产品',
+      'footer.h.company': '公司',
+      'footer.h.legal': '法律',
+      'footer.tagline': '面向房产团队的 AI 通信操作系统。',
+      'footer.nz': '新西兰奥特亚罗瓦制造',
+      'footer.login': '经纪人登录',
+      'footer.link.privacy': '隐私政策',
+      'footer.link.terms': '服务条款',
+      'footer.link.cookies': 'Cookie 政策',
+      'footer.link.robots': 'Robots.txt'
+    },
+    lists: {
+      en: {
+        'hero.bullets': [
+          '⚡ <strong>Instant replies</strong> on SMS & WhatsApp — the second a buyer messages.',
+          '🧭 <strong>Standardised conversations</strong> that sound professional every time.',
+          '📅 <strong>Bookings & handover</strong> with zero clash and clear next steps.'
+        ],
+        'tabs.speed.list': [
+          '• Ad click → conversation with zero lag',
+          '• Auto follow-ups if a buyer goes quiet',
+          '• Handover with full context when you jump in'
+        ],
+        'tabs.standard.list': [
+          '• Listing-aware answers: price, times, key features',
+          '• Pre-approved phrasing & disclaimers (EN / 中文)',
+          '• Team templates you update once, used everywhere'
+        ],
+        'tabs.bookings.list': [
+          '• Works with open homes & private viewings',
+          '• Calendar & working-hours guardrails before confirming',
+          '• One-tap confirm + ICS invite and reminders'
+        ],
+        'tabs.priority.list': [
+          '• Intent scoring from questions, timing, and urgency',
+          '• Instant ping to your phone with next-best action',
+          '• Contact card + structured notes auto-created'
+        ],
+        'tabs.compliance.list': [
+          '• Mandatory footers, opt-outs honoured per channel',
+          '• Sensitive details handled safely; privacy defaults on',
+          '• Immutable audit trail across every conversation'
+        ],
+        'tabs.ops.list': [
+          '• Response time, booking rate, and source attribution',
+          '• CSV on all plans; native CRM sync on Pro & Enterprise',
+          '• Agency roll-ups across offices and teams'
+        ],
+        'how.step1.tags':['No credit card','Human onboarding'],
+        'how.step2.tags':['Setup in minutes','No tech knowledge required'],
+        'how.step3.tags':['Secure payment','Attach existing line or new'],
+        'how.step4.tags':['Instant replies & bookings','Lead scoring & alerts']
+      },
+      zh: {
+        'hero.bullets': [
+          '⚡ <strong>即时回复</strong>（SMS / WhatsApp）— 买家发来就回。',
+          '🧭 <strong>统一话术</strong>，每次都专业得体。',
+          '📅 <strong>预约与交接</strong>零冲突、步骤清晰。'
+        ],
+        'tabs.speed.list': [
+          '• 广告点击即对话，无等待',
+          '• 买家安静时自动跟进',
+          '• 你接手时附完整上下文'
+        ],
+        'tabs.standard.list': [
+          '• 结合房源信息：价格、时间、要点',
+          '• 预审话术与免责声明（EN / 中文）',
+          '• 团队模板一处更新、处处生效'
+        ],
+        'tabs.bookings.list': [
+          '• 同步开放参观与私下看房',
+          '• 确认前检查日程与工作时段',
+          '• 一键确认 + ICS 邀请与提醒'
+        ],
+        'tabs.priority.list': [
+          '• 从问题、时机与紧迫度评估意向',
+          '• 立刻推送到你手机并给出下一步',
+          '• 自动生成联系人卡片与结构化备注'
+        ],
+        'tabs.compliance.list': [
+          '• 强制页脚，按通道尊重退订',
+          '• 谨慎处理敏感信息；隐私默认开启',
+          '• 每段对话皆有不可篡改审计记录'
+        ],
+        'tabs.ops.list': [
+          '• 响应时长、预约率、来源归因',
+          '• 所有套餐可导出 CSV；高级套餐可原生同步 CRM',
+          '• 机构可按门店/团队汇总'
+        ],
+        'how.step1.tags':['无需信用卡','人工引导'],
+        'how.step2.tags':['几分钟完成','无需技术背景'],
+        'how.step3.tags':['安全支付','接入旧号或新开'],
+        'how.step4.tags':['即时回复与预约','线索评分与提醒']
+      }
+    },
+    options: {
+      en: { 'connect.topic': ['Just saying hello','Book a demo','Request a callback','Partnerships','Other'] },
+      zh: { 'connect.topic': ['打个招呼','预约演示','请求回电','合作洽谈','其他'] }
+    }
+  };
+
+  function applyI18n(lang){
+    const dict = I18N[lang] || I18N.en;
+    document.documentElement.lang = (lang==='zh' ? 'zh-Hans' : 'en');
+    window.__LOCALE = (lang==='zh' ? 'zh-CN' : 'en-NZ');
+
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const k = el.getAttribute('data-i18n'); if(dict[k]) el.textContent = dict[k];
+    });
+
+    document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+      const k = el.getAttribute('data-i18n-html'); if(dict[k]) el.innerHTML = dict[k];
+    });
+
+    document.querySelectorAll('[data-i18n-list]').forEach(el=>{
+      const k = el.getAttribute('data-i18n-list');
+      const arr = I18N.lists?.[lang]?.[k];
+      if (Array.isArray(arr)) el.innerHTML = arr.map(s=>`<li>${s}</li>`).join('');
+    });
+
+    document.querySelectorAll('select[data-i18n-options]').forEach(sel=>{
+      const k = sel.getAttribute('data-i18n-options');
+      const arr = I18N.options?.[lang]?.[k];
+      if (Array.isArray(arr)) {
+        const opts = sel.querySelectorAll('option');
+        for (let i=0; i<opts.length && i<arr.length; i++) opts[i].textContent = arr[i];
+      }
+    });
+
+    const html= (sel,key)=>{ const el=document.querySelector(sel); if(el && dict[key]) el.innerHTML = dict[key]; };
+    const txt = (sel,key)=>{ const el=document.querySelector(sel); if(el && dict[key]) el.textContent = dict[key]; };
+    const ph  = (sel,key)=>{ const el=document.querySelector(sel); if(el && dict[key]) el.setAttribute('placeholder', dict[key]); };
+
+    html('#connect-success .font-semibold','connect.form.ok.title');
+    txt ('#c-fail','connect.form.fail');
+    html('#connect-success p','connect.form.ok.body');
+    txt ('label[for="c-name"]','connect.form.label.name');
+    txt ('label[for="c-email"]','connect.form.label.email');
+    txt ('label[for="c-phone"]','connect.form.label.phone');
+    txt ('label[for="c-topic"]','connect.form.label.topic');
+    txt ('label[for="c-message"]','connect.form.label.msg');
+    ph  ('#c-message','connect.form.placeholder');
+    txt ('#c-submit span','connect.form.send');
+    html('#connect-form + p','connect.form.pref');
+    const consentLabel = document.querySelector('#c-consent+label');
+    if (consentLabel && dict['connect.form.consent']) consentLabel.innerHTML = dict['connect.form.consent'];
+
+    document.getElementById('lang-en')?.setAttribute('aria-pressed', lang==='en');
+    document.getElementById('lang-zh')?.setAttribute('aria-pressed', lang==='zh');
+  }
+
+  document.getElementById('lang-en')?.addEventListener('click', ()=>{ localStorage.setItem('lang','en'); applyI18n('en'); });
+  document.getElementById('lang-zh')?.addEventListener('click', ()=>{ localStorage.setItem('lang','zh'); applyI18n('zh'); });
+  (function(){ applyI18n(localStorage.getItem('lang')||'en'); })();
+  </script>
+
+  <!-- Place before </body> -->
+  <script>
+  (function(){
+    const els = document.querySelectorAll('.counter');
+    if (!els.length) return;
+
+    const easeOutCubic = t => 1 - Math.pow(1 - t, 3);
+
+    const animate = (el) => {
+      if (el.dataset.animated) return;
+      el.dataset.animated = '1';
+
+      const target = Number(el.dataset.target || '0');
+      const duration = Number(el.dataset.duration || 1200);
+      const startTime = performance.now();
+
+      function tick(now){
+        const p = Math.min(1, (now - startTime) / duration);
+        const val = Math.round(easeOutCubic(p) * target);
+        el.textContent = val.toLocaleString();
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animate(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.35 });
+
+    els.forEach(el => io.observe(el));
+  })();
+  </script>
+
+
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"HiveReply","url":"https://www.hivereply.com","logo":"https://www.hivereply.com/static/logo.png","sameAs":["https://www.linkedin.com/company/hivereply/"]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"HiveReply","url":"https://www.hivereply.com",
+  "potentialAction":{"@type":"SearchAction","target":"https://www.hivereply.com/?q={search_term_string}",
+  "query-input":"required name=search_term_string"}}
+  </script>
 </body>
 </html>

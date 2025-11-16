@@ -6,266 +6,193 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Terms of Service for HiveReply – AI-powered messaging, automation, and lead management for real estate agents.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Inter', Arial, sans-serif;
-      line-height: 1.7;
-      background: #F8FAFC;
-      color: #334155;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 720px;
-      background: #fff;
-      margin: 3rem auto 2.5rem auto;
-      padding: 2.2rem 1.4rem 2.5rem 1.4rem;
-      border-radius: 18px;
-      box-shadow: 0 6px 28px 0 rgba(80,100,120,0.07);
-    }
-    .logo {
-      display: block;
-      margin: 0 auto 1.8rem auto;
-      max-height: 68px;
-    }
-    h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-      color: #F7B32B;
-      text-align: center;
-    }
-    h2 {
-      font-size: 1.18rem;
-      margin-top: 2.2rem;
-      margin-bottom: 0.3rem;
-      color: #334155;
-      font-weight: 700;
-    }
-    ul {
-      padding-left: 1.3rem;
-      margin-top: 0.7rem;
-      margin-bottom: 0.7rem;
-    }
-    li { margin-bottom: 0.3rem; }
-    a {
-      color: #F7B32B;
-      text-decoration: underline;
-    }
-    a:hover {
-      text-decoration: none;
-      color: #B98C0A;
-    }
-    .footer-link {
-      margin-top: 2.6rem;
-      text-align: center;
-      font-size: 1rem;
-    }
-    .section { margin-bottom: 1.7rem; }
-    .update-note {
-      font-size: 0.96rem;
-      color: #64748B;
-      margin-bottom: 1.7rem;
-      text-align: center;
-    }
-    @media (max-width: 640px) {
-      .container { margin: 1rem 0.3rem 1rem 0.3rem; padding: 1rem 0.3rem 2rem 0.3rem; }
-      h1 { font-size: 1.3rem; }
-      h2 { font-size: 1rem; }
-    }
+  <style nonce="{{ csp_nonce() }}" >
+    body { font-family:'Inter', Arial, sans-serif; line-height:1.7; background:#F8FAFC; color:#334155; margin:0; padding:0; }
+    .container { max-width:860px; background:#fff; margin:2.5rem auto; padding:2.2rem 1.4rem 2.6rem; border-radius:18px; box-shadow:0 6px 28px rgba(80,100,120,.07); }
+    .logo { display:block; margin:0 auto 1.6rem; max-height:68px; }
+    h1 { font-size:2rem; font-weight:700; margin:.2rem 0 .6rem; color:#F7B32B; text-align:center; }
+    .update-note { font-size:.98rem; color:#64748B; margin:0 0 1.6rem; text-align:center; }
+    h2 { font-size:1.18rem; margin:2rem 0 .5rem; color:#0f172a; font-weight:700; }
+    h3 { font-size:1.02rem; margin:1.2rem 0 .4rem; color:#0f172a; font-weight:700; }
+    p, li { font-size:1rem; }
+    ul { padding-left:1.25rem; margin:.4rem 0 .9rem; }
+    li { margin:.25rem 0; }
+    a { color:#F7B32B; text-decoration:underline; }
+    a:hover { text-decoration:none; color:#B98C0A; }
+    .callout { background:#FFF7E6; border:1px solid #F7B32B; color:#3a2c09; padding:.8rem 1rem; border-radius:10px; }
+    .muted { color:#64748B; font-size:.95rem; }
+    .footer-link { margin-top:2.6rem; text-align:center; font-size:1rem; }
+    hr { border:0; border-top:1px solid #e2e8f0; margin:1.6rem 0; }
+    @media (max-width:640px){ .container{ margin:1rem .4rem; padding:1.1rem .6rem 1.6rem; } h1{ font-size:1.45rem; } h2{ font-size:1.05rem; } }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="/static/logo.png" alt="HiveReply Logo" class="logo" loading="lazy">
+    <link rel="icon" href="{{ s('favicon.ico', 'www') }}">
+    <img src="{{ s('img/logo.png', 'www') }}" alt="HiveReply">
 
     <h1>Terms of Service</h1>
-    <div class="update-note"><strong>Last updated:</strong> July 2025</div>
+    <div class="update-note"><strong>Effective:</strong> 6 November 2025 • <strong>Entity:</strong> Fern Technologies Ltd trading as “HiveReply” (“HiveReply”, “we”, “us”, “our”)</div>
 
-    <div class="section">
-      <p>
-        These Terms of Service ("Terms") govern your access to and use of HiveReply (“we”, “our”, or “us”), an AI-powered messaging, automation, and lead management service for real estate agents, agencies, and their clients, available via web, WhatsApp, SMS, Facebook Messenger, email, and other supported channels.
-        By accessing or using HiveReply, you (“user,” “agent,” “agency,” “staff,” or “end customer”) agree to these Terms and our <a href="/privacy">Privacy Policy</a>. If you do not agree, do not use the service.
-      </p>
+    <div class="callout" role="note">
+      These Terms govern your access to and use of HiveReply’s platform and services. By creating an account, using our dashboard, APIs, or any connected messaging channel (e.g., WhatsApp, SMS, email, voice), you agree to these Terms and to our <a href="/privacy">Privacy Policy</a>. If you do not agree, do not use the Services.
     </div>
 
-    <div class="section">
-      <h2>1. Eligibility and Scope</h2>
-      <ul>
-        <li>You must be at least 18 years old (or the age of majority in your country) to use HiveReply as an agent, staff, or account holder.</li>
-        <li>HiveReply may be used by agents, agencies, their authorized staff, and as a messaging conduit for leads, buyers, or tenants (“end customers”).</li>
-        <li>You are responsible for all activity under your account, including your staff or authorized users.</li>
-      </ul>
-    </div>
+    <h2 id="identity">1) Who We Are</h2>
+    <p>
+      <strong>Controller for Service Data:</strong> Fern Technologies Ltd trading as “HiveReply”.<br>
+      <strong>Registered office:</strong> 17 Sheralee Place, Bucklands Beach, Auckland 2014, New Zealand.<br>
+      <strong>Company/NZBN:</strong> 9429053126672<br>
+      <strong>Contact:</strong> <a href="mailto:legal@hivereply.com">legal@hivereply.com</a>
+    </p>
 
-    <div class="section">
-      <h2>2. Description of Service</h2>
-      <ul>
-        <li>HiveReply provides AI-powered responses, lead management, alerts, and message routing between agents/agencies and their clients, across WhatsApp, SMS, Facebook Messenger, web, email, and other channels.</li>
-        <li>The service may use third-party providers and AI automation (OpenAI, Google, Meta, SMS/email, etc.) as described in our <a href="/privacy">Privacy Policy</a>.</li>
-        <li>Trial accounts are for testing with shared/demo numbers. Paid accounts receive dedicated numbers and full access as per their selected plan.</li>
-        <li>Some features may be provided in beta/early access and are offered “as is” without warranty.</li>
-      </ul>
-    </div>
+    <h2 id="scope">2) Scope, Users & Roles</h2>
+    <ul>
+      <li><strong>Agents/Agencies.</strong> Real-estate professionals who subscribe to or trial the Services. You are responsible for your authorized users (staff) and your End Customers.</li>
+      <li><strong>End Customers.</strong> Individuals who message Agents using channels integrated with HiveReply. We process End-Customer content on behalf of the Agent (see Privacy Policy).</li>
+      <li><strong>Visitors.</strong> People who browse our websites.</li>
+    </ul>
+    <p class="muted">For privacy and processing roles (controller/processor), see our <a href="/privacy">Privacy Policy</a> and (where applicable) our Data Processing Addendum (DPA).</p>
 
-    <div class="section">
-      <h2>3. AI and Machine-Generated Content Disclaimer</h2>
-      <p>
-        Some replies, recommendations, or actions may be generated or assisted by artificial intelligence and automated systems. While we strive for accuracy and usefulness, AI-generated content may be incomplete, incorrect, outdated, or misleading. **You are solely responsible for verifying important information before relying on AI outputs, and for ensuring any decisions made using the service are reviewed by a qualified human. HiveReply is not responsible for losses or damages caused by reliance on AI-generated content.**
-      </p>
-    </div>
+    <h2 id="eligibility">3) Eligibility & Account Registration</h2>
+    <ul>
+      <li>You must be at least 18 (or age of majority in your jurisdiction) to register.</li>
+      <li>You must provide accurate information and keep it up to date. You are responsible for safeguarding credentials and for activity under your account.</li>
+      <li>We may decline, suspend, or terminate accounts where required by law, for risk, or for breach of these Terms.</li>
+    </ul>
 
-    <div class="section">
-      <h2>4. User Responsibilities (Agents, Agencies, Staff)</h2>
-      <ul>
-        <li>You must provide accurate contact, profile, and payment information.</li>
-        <li>You must inform your clients (end customers) that their messages and data may be processed by HiveReply and subprocessors (including AI/third parties), as described in our Privacy Policy.</li>
-        <li>You are responsible for account security and any data/messages sent from your account.</li>
-        <li>You must obtain all required consents or legal bases to share client data with HiveReply and comply with applicable laws regarding your leads or customers.</li>
-      </ul>
-    </div>
+    <h2 id="service">4) Description of Service</h2>
+    <ul>
+      <li>HiveReply provides AI-assisted communications, message routing, lead capture/management, and related tools across supported channels (e.g., WhatsApp Business, SMS, email, voice).</li>
+      <li>The Services rely on third-party platforms and providers (e.g., Meta/WhatsApp, OpenAI, SBMG/applicable carriers, AWS/Cloudflare/Render, Stripe). Integrations may evolve over time.</li>
+      <li>Some features may be in <strong>beta/early access</strong> and are provided “as is,” may change or be withdrawn.</li>
+    </ul>
 
-    <div class="section">
-      <h2>5. End Customer (Leads/Clients) Terms</h2>
-      <p>
-        If you message or interact with an agent/agency via HiveReply, your data may be shared with the agent/agency and processed as described in our Privacy Policy. HiveReply is not responsible for the conduct or offers of third-party agents, agencies, or listings.
-      </p>
-    </div>
+    <h2 id="ai">5) AI & Machine-Generated Content</h2>
+    <p>
+      Our tooling may suggest or generate replies, summaries, or classifications. Outputs can be inaccurate or incomplete. <strong>You are responsible</strong> for verifying important information and for any decisions and communications you send. HiveReply disclaims liability for losses arising from reliance on AI outputs. Where meaningful human review is desired, disable auto-send or implement your review process.
+    </p>
 
-    <div class="section">
-      <h2>6. Plans, Trials, Subscriptions, and Payments</h2>
-      <ul>
-        <li>Free trials are limited in duration and feature set, and may use shared/demo numbers for testing only. No live leads are sent to trial users.</li>
-        <li>Paid plans are billed in advance via Stripe or other processors. Usage limits and plan details are as described on our website.</li>
-        <li>Cancellations stop future billing but do not entitle you to refunds unless required by law. Downgrades/plan changes take effect on the next billing cycle.</li>
-        <li>Non-payment may result in suspension or termination of your account and deletion of data.</li>
-      </ul>
-    </div>
+    <h2 id="acceptable-use">6) Acceptable Use</h2>
+    <p>You may not use the Services to:</p>
+    <ul>
+      <li>Send spam or unlawful marketing; infringe intellectual property; defame, harass, or discriminate; or engage in fraud or deception.</li>
+      <li>Transmit malware or attempt to breach, probe, or overload the Service or third-party services.</li>
+      <li>Violate platform/channel rules (e.g., WhatsApp Business Policies, SMS anti-spam rules), telecommunications or privacy laws (e.g., NZ Unsolicited Electronic Messages Act 2007), or export/sanctions laws.</li>
+      <li>Bypass rate limits, gating (e.g., WhatsApp 24-hour window), or verification requirements.</li>
+    </ul>
+    <p><strong>Emergency Calling:</strong> HiveReply is not a replacement for emergency services and <strong>does not support 111/911/999 calls</strong>. Do not use the Service for emergency communications.</p>
 
-    <div class="section">
-      <h2>7. Acceptable Use and Restrictions</h2>
-      <p>You may NOT use HiveReply to:</p>
-      <ul>
-        <li>Send spam, advertising, or unsolicited messages not related to property/real estate</li>
-        <li>Impersonate others, mislead, or conduct fraud</li>
-        <li>Upload, send, or store malicious code, viruses, or illegal content</li>
-        <li>Reverse-engineer, copy, scrape, or abuse the service or APIs</li>
-        <li>Violate the terms/policies of integrated platforms (WhatsApp, Meta, Google, OpenAI, SMS/email, etc.)</li>
-        <li>Violate any law, regulation, or third-party rights</li>
-      </ul>
-    </div>
+    <h2 id="numbers">7) Numbers, Onboarding & Porting</h2>
+    <ul>
+      <li><strong>Provisioning.</strong> Messaging/voice numbers may be provisioned via carriers/aggregators and are subject to their rules, KYC, and availability.</li>
+      <li><strong>Ownership.</strong> Unless expressly stated in an order form, numbers are controlled by carriers/aggregators. We cannot guarantee retention/porting.</li>
+      <li><strong>Porting.</strong> Port-in/out depends on carrier acceptance, technical constraints, and settlement of fees. Additional paperwork and charges may apply.</li>
+      <li><strong>Templates & Windows.</strong> WhatsApp messages outside the 24-hour service window require approved templates. You must maintain compliant templates and opt-out mechanisms.</li>
+    </ul>
 
-    <div class="section">
-      <h2>8. Third-Party Services, Subprocessors, and Integrations</h2>
-      <ul>
-        <li>HiveReply integrates with third-party platforms and vendors. Their use is subject to their own terms and privacy policies.</li>
-        <li>We may add, remove, or change integrations or subprocessors. For enterprise or regulated customers, we will provide advance notice of material changes on request.</li>
-        <li>HiveReply is not liable for interruptions, data loss, or errors caused by third-party services.</li>
-        <li>If you require a Data Processing Addendum (DPA) for compliance, please contact legal@hivereply.com.</li>
-      </ul>
-    </div>
+    <h2 id="plans">8) Trials, Plans, Billing & Taxes</h2>
+    <ul>
+      <li><strong>Trials.</strong> Time/feature-limited; may use demo/shared numbers; not for production lead handling.</li>
+      <li><strong>Subscriptions.</strong> Billed in advance via Stripe or another processor; usage charges (e.g., per-message, carrier fees) may apply in arrears.</li>
+      <li><strong>Renewals & Changes.</strong> Plans auto-renew until cancelled. Downgrades or cancellations take effect at the next term. Unless required by law or your order form, fees are non-refundable.</li>
+      <li><strong>Late/Non-payment.</strong> We may suspend or terminate Services and/or apply late fees where permitted.</li>
+      <li><strong>Taxes.</strong> Fees are exclusive of GST/VAT/sales taxes unless stated. You are responsible for applicable taxes.</li>
+    </ul>
 
-    <div class="section">
-      <h2>9. Data, Privacy, Security, and Portability</h2>
-      <ul>
-        <li>Your use is subject to our <a href="/privacy">Privacy Policy</a>.</li>
-        <li>Data is encrypted in transit and, where possible, at rest. Retention and deletion are per our Privacy Policy.</li>
-        <li>Upon written request and subject to verification, HiveReply will provide account holders with an export of their leads, messages, and account data in a machine-readable format.</li>
-        <li>Enterprise clients may request custom retention or export arrangements via DPA.</li>
-      </ul>
-    </div>
+    <h2 id="sla">9) Service Levels & Support</h2>
+    <ul>
+      <li>We target high availability and commercially reasonable support. <strong>Enterprise SLAs</strong> and support commitments are available by separate agreement.</li>
+      <li>Maintenance windows and emergency changes may occur; we endeavour to provide advance notice where feasible.</li>
+    </ul>
 
-    <div class="section">
-      <h2>10. Service Levels, Uptime, and Beta Features</h2>
-      <ul>
-        <li>We aim for 99.5% uptime, excluding planned maintenance and force majeure events. Service credits or SLAs are available to enterprise clients by separate agreement.</li>
-        <li>Beta features or early access tools are offered “as is,” may change or be discontinued without notice, and may not be covered by SLAs.</li>
-      </ul>
-    </div>
+    <h2 id="api">10) APIs & Rate Limits</h2>
+    <ul>
+      <li>Use our APIs only as documented. Do not scrape, reverse engineer, or abuse the APIs.</li>
+      <li>We may throttle, suspend, or revoke keys for security, stability, or policy violations.</li>
+    </ul>
 
-    <div class="section">
-      <h2>11. API Terms (If Provided)</h2>
-      <p>
-        If you use HiveReply APIs, you agree to comply with all documentation, rate limits, and security requirements. Abuse, scraping, or unauthorized use may result in API access being suspended or revoked at our discretion.
-      </p>
-    </div>
+    <h2 id="privacy">11) Data, Privacy, Security & Portability</h2>
+    <ul>
+      <li>Your use is subject to our <a href="/privacy">Privacy Policy</a>. For controller/processor terms, our <strong>DPA</strong> is available on request.</li>
+      <li>We use encryption in transit and at rest where supported; retention/deletion follows our Privacy Policy and/or your DPA.</li>
+      <li>Upon verified request by an account admin, we can provide exports of your Service Data and Customer Content in a reasonable format.</li>
+    </ul>
 
-    <div class="section">
-      <h2>12. Feedback and Suggestions</h2>
-      <p>
-        If you submit feedback, ideas, or suggestions, you grant HiveReply the right to use them for any purpose without restriction or compensation.
-      </p>
-    </div>
+    <h2 id="ip">12) Intellectual Property; Customer Content</h2>
+    <ul>
+      <li><strong>IP Ownership.</strong> We and our licensors own the Services, software, and branding. No rights are granted except as expressly stated.</li>
+      <li><strong>Customer Content.</strong> As between you and HiveReply, you own your Customer Content. You grant us and our subprocessors a worldwide, limited license to host, process, transmit, and display it solely to provide the Services and comply with law.</li>
+      <li><strong>Feedback.</strong> You grant us a perpetual, royalty-free license to use feedback for product improvement.</li>
+    </ul>
 
-    <div class="section">
-      <h2>13. Force Majeure</h2>
-      <p>
-        HiveReply is not liable for failure or delay due to events beyond our reasonable control, including but not limited to natural disasters, cyberattacks, outages, strikes, wars, government action, or third-party service interruptions.
-      </p>
-    </div>
+    <h2 id="third-parties">13) Third-Party Services</h2>
+    <ul>
+      <li>Integrations are subject to each provider’s terms and policies. Changes by a provider may affect features or availability.</li>
+      <li>We are not liable for outages or data loss caused by third-party services or carrier networks.</li>
+    </ul>
 
-    <div class="section">
-      <h2>14. Intellectual Property</h2>
-      <ul>
-        <li>All software, branding, designs, and content (excluding user-submitted data) are the property of HiveReply or its licensors.</li>
-        <li>You may not copy, reproduce, modify, or use HiveReply branding without written permission.</li>
-      </ul>
-    </div>
+    <h2 id="confidentiality">14) Confidentiality</h2>
+    <p>Each party will protect the other’s non-public information with at least the care it uses for its own. Confidentiality obligations do not apply to information that is public, independently developed, or obtained lawfully without restriction.</p>
 
-    <div class="section">
-      <h2>15. Termination and Suspension</h2>
-      <ul>
-        <li>We may suspend or terminate your access immediately for breach of these Terms, abuse, fraud, non-payment, or if required by law.</li>
-        <li>You may stop using HiveReply at any time. Upon termination, your access ends and data may be deleted according to our Privacy Policy.</li>
-      </ul>
-    </div>
+    <h2 id="compliance">15) Compliance; Export; Anti-Bribery</h2>
+    <ul>
+      <li>You will comply with applicable laws, including privacy, anti-spam, consumer, and telecommunication rules.</li>
+      <li>You will not use the Services in violation of export control or sanctions laws.</li>
+      <li>You will not offer or accept bribes or improper advantages in relation to the Services.</li>
+    </ul>
 
-    <div class="section">
-      <h2>16. Disclaimers and Limitations of Liability</h2>
-      <ul>
-        <li>HiveReply is provided “as is” and “as available,” without warranties of any kind.</li>
-        <li>We do not guarantee the accuracy, timeliness, or completeness of replies, AI-generated content, or third-party data.</li>
-        <li>We are not liable for indirect, incidental, or consequential damages, lost profits, or data loss arising from use of the service.</li>
-        <li>Our total liability shall not exceed the fees paid by you in the preceding 12 months, to the extent permitted by law.</li>
-      </ul>
-    </div>
+    <h2 id="warranties">16) Disclaimers</h2>
+    <p>
+      The Services (including beta features and AI outputs) are provided “as is” and “as available.” We disclaim all warranties to the maximum extent permitted by law, including merchantability, fitness for a particular purpose, and non-infringement. We do not warrant uninterrupted or error-free operation or that outputs will be accurate or complete.
+    </p>
 
-    <div class="section">
-      <h2>17. Indemnification</h2>
-      <p>You agree to indemnify and hold harmless HiveReply, its directors, employees, and partners, from any claims, damages, or expenses arising from your use (or your users’ use), your breach of these Terms, or your violation of any law or rights of a third party.</p>
-    </div>
+    <h2 id="liability">17) Limitation of Liability</h2>
+    <ul>
+      <li>To the maximum extent permitted, we are not liable for indirect, incidental, special, consequential, or punitive damages, loss of profits, or loss of data.</li>
+      <li>Our aggregate liability arising from or relating to the Services is limited to the fees you paid to us for the Services in the 12 months before the event giving rise to liability.</li>
+    </ul>
 
-    <div class="section">
-      <h2>18. Severability & Waiver</h2>
-      <p>
-        If any provision of these Terms is found unenforceable, the remainder will remain in effect. No waiver of any right is effective unless in writing.
-      </p>
-    </div>
+    <h2 id="indemnity">18) Indemnities</h2>
+    <ul>
+      <li><strong>Your indemnity to us.</strong> You will defend and indemnify us against third-party claims arising from your Customer Content, your unlawful use, or your breach of these Terms.</li>
+      <li><strong>Our IP indemnity to you.</strong> We will defend and indemnify you against third-party claims alleging that our proprietary Service (as supplied by us) infringes a third-party IP right, provided you promptly notify us and allow us sole control of the defence. We may modify, procure rights, or suspend the affected feature to mitigate. This does not apply to combinations not provided by us, your configurations, or use in breach of these Terms.</li>
+    </ul>
 
-    <div class="section">
-      <h2>19. Changes to Terms</h2>
-      <p>
-        We may update these Terms at any time for legal, regulatory, or business reasons. Changes will be posted at <a href="/terms.html">/terms-of-service.html</a>. Continued use after changes constitutes acceptance. Material changes may be notified by email or in-platform alerts.
-      </p>
-    </div>
+    <h2 id="term">19) Term, Suspension & Termination</h2>
+    <ul>
+      <li>These Terms apply for your subscription/usage term. We may suspend or terminate for breach, risk, or non-payment.</li>
+      <li>On termination: your right to access ends; we will delete or return Customer Content per our Privacy Policy/DPA and subject to legal holds.</li>
+      <li>Sections intended to survive (e.g., IP, confidentiality, limitations, indemnities, governing law) will survive termination.</li>
+    </ul>
 
-    <div class="section">
-      <h2>20. Governing Law and Jurisdiction</h2>
-      <p>
-        These Terms are governed by the laws of New Zealand. Any disputes arising from these Terms or your use of HiveReply will be subject to the exclusive jurisdiction of the courts of New Zealand, unless otherwise required by law.
-      </p>
-    </div>
+    <h2 id="changes">20) Changes to the Services or Terms</h2>
+    <ul>
+      <li>We may update the Services (including integrations) and these Terms. We’ll post updates here; material changes may be notified in-product or by email to an admin contact.</li>
+      <li>Continued use after an effective date constitutes acceptance of the updated Terms.</li>
+    </ul>
 
-    <div class="section">
-      <h2>21. Contact and Complaints</h2>
-      <p>
-        For any questions, legal notices, or complaints regarding HiveReply or these Terms, contact: <a href="mailto:legal@hivereply.com">legal@hivereply.com</a><br>
-        For unresolved privacy complaints, you may contact the NZ Privacy Commissioner: <a href="https://www.privacy.org.nz" target="_blank">www.privacy.org.nz</a>
-      </p>
-    </div>
+    <h2 id="misc">21) General</h2>
+    <ul>
+      <li><strong>Governing law; venue.</strong> New Zealand law governs; courts of New Zealand have exclusive jurisdiction, unless mandatory law provides otherwise.</li>
+      <li><strong>Order forms & conflicts.</strong> If you have an order form or master agreement with us, that document controls in the event of conflict with these online Terms.</li>
+      <li><strong>Assignment.</strong> You may not assign without our consent (not to be unreasonably withheld). We may assign to an affiliate or in connection with a merger/acquisition.</li>
+      <li><strong>Notices.</strong> We may send notices to your account email or in-product. Legal notices to us: <a href="mailto:legal@hivereply.com">legal@hivereply.com</a>.</li>
+      <li><strong>Force majeure.</strong> Neither party is liable for delays caused by events beyond reasonable control.</li>
+      <li><strong>Severability; waiver.</strong> If a provision is unenforceable, the remainder remains in effect. No waiver is effective unless in writing.</li>
+      <li><strong>Publicity.</strong> We may use your name and logo as a customer reference (standard wordmark only) unless you opt out by emailing <a href="mailto:legal@hivereply.com">legal@hivereply.com</a>.</li>
+      <li><strong>Entire agreement.</strong> These Terms (plus any order form/DPA/Privacy Policy) are the entire agreement for the Services.</li>
+    </ul>
+
+    <hr>
+
+    <p class="muted">
+      Questions about these Terms? Contact <a href="mailto:legal@hivereply.com">legal@hivereply.com</a>.
+      For privacy matters, see our <a href="/privacy">Privacy Policy</a> or email <a href="mailto:privacy@hivereply.com">privacy@hivereply.com</a>.
+    </p>
 
     <div class="footer-link">
-      <a href="/" style="color:#475569;">← Back to Homepage</a>
+      <a href="https://www.hivereply.com/" style="color:#475569;">← Back to Homepage</a>
     </div>
   </div>
 </body>
