@@ -11,7 +11,11 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.hivereply.com/terms</loc>
+    <loc>https://www.hivereply.com/terms-of-service</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+      <loc>https://www.hivereply.com/cookies</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>

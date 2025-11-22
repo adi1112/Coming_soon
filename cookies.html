@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cookie Policy | HiveReply</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cookie Policy for HiveReply — what cookies we use, why we use them, and how to control them.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', Arial, sans-serif; line-height: 1.7; background:#F8FAFC; color:#334155; margin:0; }
+    .container { max-width: 860px; background:#fff; margin: 2.5rem auto; padding: 2.2rem 1.4rem 2.6rem; border-radius:18px; box-shadow: 0 6px 28px rgba(80,100,120,.07); }
+    .logo { display:block; margin:0 auto 1.6rem; max-height:68px; }
+    h1 { font-size:2rem; font-weight:700; margin:.2rem 0 .6rem; color:#F7B32B; text-align:center; }
+    .update-note { font-size:.98rem; color:#64748B; margin:0 0 1.6rem; text-align:center; }
+    h2 { font-size:1.18rem; margin:2rem 0 .5rem; color:#0f172a; font-weight:700; }
+    h3 { font-size:1.02rem; margin:1.2rem 0 .4rem; color:#0f172a; font-weight:600; }
+    p, li { font-size:1rem; }
+    ul { padding-left:1.25rem; margin:.4rem 0 .9rem; }
+    li { margin:.25rem 0; }
+    a { color:#F7B32B; text-decoration:underline; }
+    a:hover { text-decoration:none; color:#B98C0A; }
+    .note { color:#64748B; font-size:.95rem; }
+    table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:.98rem; }
+    th, td { border:1px solid #e2e8f0; padding:.6rem .6rem; text-align:left; vertical-align:top; }
+    th { background:#F7B32B; color:#334155; }
+    td { background:#F9FAFB; }
+    .callout { background:#FFF7E6; border:1px solid #F7B32B; color:#3a2c09; padding:.8rem 1rem; border-radius:10px; }
+    @media (max-width: 640px) {
+      .container { margin: 1rem .4rem; padding: 1.1rem .6rem 1.6rem; }
+      h1 { font-size:1.45rem; }
+      h2 { font-size:1.05rem; }
+      table, th, td { font-size:.92rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="/static/logo.png" alt="HiveReply Logo" class="logo" loading="lazy">
+    <h1>Cookie Policy</h1>
+    <div class="update-note"><strong>Effective:</strong> 8 November 2025 • <strong>Entity:</strong> Fern Technologies Ltd trading as “HiveReply”</div>
+
+    <div class="callout" role="note">
+      This Cookie Policy explains what cookies and similar technologies we use, why we use them, and how you can control them. It should be read together with our <a href="/privacy">Privacy Policy</a> and our <a href="/terms">Terms of Service</a>.
+    </div>
+
+    <h2>1) What are cookies and similar tech?</h2>
+    <p>
+      Cookies are small text files placed on your device by your browser. We also use similar technologies like localStorage and sessionStorage for preferences, and (on some public pages) lightweight pixels solely for attribution or security.
+    </p>
+
+    <h2>2) How we use cookies (aligned with our Privacy & Terms)</h2>
+    <ul>
+      <li><strong>Essential</strong> — Required for core functionality and security (authentication/session, CSRF, rate limiting, load balancing, WAF/CDN bot protection like Cloudflare Turnstile). These cannot be switched off.</li>
+      <li><strong>Preferences</strong> — Remember your choices (e.g., theme, language, density). Typically stored via first-party cookies or localStorage in the app.</li>
+      <li><strong>Analytics</strong> — Privacy-respecting product analytics (aggregated/de-identified). We prefer cookieless measurement; if a cookie is used, it’s first-party and limited in scope.</li>
+      <li><strong>Marketing/Attribution (public site only)</strong> — Limited measurement of campaign effectiveness on marketing pages. We do <u>not</u> use third-party advertising cookies for cross-site behavioral ads, and we do not sell or “share” personal information for such advertising.</li>
+    </ul>
+
+    <h2>3) Surfaces</h2>
+    <ul>
+      <li><strong>Marketing site (www)</strong>: Essential + optional analytics/attribution.</li>
+      <li><strong>Logged-in app (agent/admin)</strong>: Essential + minimal product analytics; no advertising cookies.</li>
+    </ul>
+
+    <h2>4) Do Not Track / Global Privacy Control</h2>
+    <p class="note">
+      Industry support for DNT is inconsistent; we do not change behavior based solely on DNT signals. We do not sell or “share” personal information for cross-context ads, and we treat recognized Global Privacy Control (GPC) signals on public pages as an opt-out of any such “sale/share” (which we don’t do).
+    </p>
+
+    <h2>5) Managing cookies</h2>
+    <p>
+      You can control cookies via your browser settings (block, delete, or limit). Blocking essential cookies may break parts of the site or app. If you’ve implemented a preferences page, visit <a href="/cookie-preferences">/cookie-preferences</a> (optional).
+    </p>
+
+    <h2>6) Examples of cookies and storage we use</h2>
+    <table>
+      <tr><th>Name / Key</th><th>Type</th><th>Purpose</th><th>Duration</th><th>Who sets it</th></tr>
+      <tr>
+        <td><code>session</code> (or similar)</td>
+        <td>Essential</td>
+        <td>Authenticate logged-in users and keep you signed in.</td>
+        <td>Session or up to 7 days</td>
+        <td>HiveReply</td>
+      </tr>
+      <tr>
+        <td><code>csrf_token</code> (or similar)</td>
+        <td>Essential</td>
+        <td>Protect forms and APIs from CSRF attacks.</td>
+        <td>Session</td>
+        <td>HiveReply</td>
+      </tr>
+      <tr>
+        <td><code>hr_pass</code></td>
+        <td>Essential</td>
+        <td>Gate access to protected/static previews (e.g., passcode wall) in some deployments.</td>
+        <td>Up to 30 days (deployment-specific)</td>
+        <td>HiveReply</td>
+      </tr>
+      <tr>
+        <td><code>cf_clearance</code>, <code>__cf_bm</code> (names may vary)</td>
+        <td>Essential</td>
+        <td>Cloudflare security/anti-bot (including Turnstile CAPTCHA).</td>
+        <td>Minutes to hours</td>
+        <td>Cloudflare</td>
+      </tr>
+      <tr>
+        <td><code>__stripe_mid</code>, <code>__stripe_sid</code></td>
+        <td>Essential</td>
+        <td>Payments/checkout (fraud prevention and session on Stripe pages).</td>
+        <td>Months / Minutes</td>
+        <td>Stripe</td>
+      </tr>
+      <tr>
+        <td><code>hr-theme</code>, <code>hr-density</code> (localStorage)</td>
+        <td>Preferences</td>
+        <td>Remember UI theme (light/dark) and density.</td>
+        <td>Until you clear storage</td>
+        <td>HiveReply</td>
+      </tr>
+      <tr>
+        <td><code>hr_analytics</code> (if used)</td>
+        <td>Analytics</td>
+        <td>First-party, aggregated measurement for product reliability only (we prefer cookieless).</td>
+        <td>Days to months</td>
+        <td>HiveReply</td>
+      </tr>
+    </table>
+    <p class="note">Names and durations can change as we improve security and performance; we’ll keep this page updated for material changes.</p>
+
+    <h2>7) Changes</h2>
+    <p>We may update this Cookie Policy from time to time. Material changes will be highlighted here and the “Effective” date updated.</p>
+
+    <h2>8) Contact</h2>
+    <p>Questions? <a href="mailto:privacy@hivereply.com">privacy@hivereply.com</a></p>
+
+    <div class="note" style="margin-top:1.2rem;">
+      See also: <a href="/privacy">Privacy Policy</a> • <a href="/terms">Terms of Service</a>
+    </div>
+  </div>
+</body>
+</html>
